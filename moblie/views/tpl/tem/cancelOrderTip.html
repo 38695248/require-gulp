@@ -1,0 +1,51 @@
+<div id="cancelOrderTip" class="tipbox fade" data-index="0">
+	<div id="selectCancelBox" class="tipbox-in" data-index="0" style="display:block">
+    	<h1 class="tiptop"><{$lang['buy_mybuys_tmp_cancelOrderTip_title']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont" style="padding:40px; text-align:center">
+           <button data-role="none" type="submit" class="btn btn-border mr-10 notgoods btn-7">
+                <{$lang['buy_mybuys_tmp_cancelOrderTip_notreceipt']}>
+           </button>
+           <button data-role="none" type="submit" class="btn btn-border btn-7 hasgoods">
+                <{$lang['buy_mybuys_tmp_cancelOrderTip_receipt']}>
+           </button>
+        </div>
+    </div>
+	<form id="cancelOrderFrom" method="post" style="display:none">
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['buy_mybuys_tmp_cancelOrderTip_title']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+            <ul class="list-unstyled pick-span">
+            	<li class="blank10"></li>
+                <li style="border:none" class="rowbox">
+                    <h3 class="w70"><label><{$lang['buy_mybuys_tmp_cancelOrderTip_reason']}></label></h3>
+                    <div class="right-con rel pwd row-flex1">
+                        <select class="ui-Select" id="resonid" name="resonid">
+                        </select>
+                    </div>
+                </li>
+                <li class="blank10"></li>
+                <li class="rowbox">
+                    <h3 class="w70"><label><{$lang['buy_mybuys_tmp_cancelOrderTip_desc']}></label></h3>
+                    <div class="right-con rel pwd row-flex1">
+                        <textarea name="txt" placeholder="<{$lang['buy_mybuys_tmp_cancelOrderTip_desc2']}>" class="text" maxlength="1000" style="height:80px;" data-validate="isempty"></textarea>
+                    </div>
+                </li>
+                <li class="blank10"></li>
+            </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['buy_button_cancel']}></span>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                    <span class="buttonText butttonsubmit"><{$lang['buy_button_submit']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

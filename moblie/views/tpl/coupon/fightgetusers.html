@@ -1,0 +1,55 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox ui-content" data-role="content" role="main">
+    <div id="masonry" class="row row-gz masonry msglist">
+      
+      <{foreach $datalist as $key=>$val}>
+      <div class="item rowitem itemmsg">
+        <div class="rel rowitem-t"> 
+          <div class="rowbox rowitem-t-l " >
+            <div class="avatar w30 mr-5">
+              <a data-role="none" class="rowbox" rel="external" href="/share/myshares.html?fsuid=<{$val['suid']}>">
+              <div class="drimg useravatar_bg" style="background: url()  no-repeat;"> <img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="avatar_lazy userThumb" /></div>
+              </a>
+            </div>
+            <div class="row-flex1 avatar-text">
+              <a data-role="none" class="rowbox" rel="external" href="/share/myshares.html?fsuid=<{$val['suid']}>">
+              <h2><span class="b color-blue " data-username="<{$val['username']}>" data-uid="<{$val['suid']}>"><{$val['username']}></span></h2>
+              </a><p><{$val['edttime_txt']}></p>
+            </div>
+            
+            <div class="w90 text-right f14">码：<{$val['cardcode_s']}></div>
+          </div>
+        </div>
+      </div>
+      <{/foreach}>
+    </div>
+    
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+     </div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});	
+})
+</script>
+</body>
+
+</html>

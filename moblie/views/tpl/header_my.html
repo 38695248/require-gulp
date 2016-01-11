@@ -1,0 +1,84 @@
+<div class="userbox-head">
+			<div class="figure_bg useravatar_bg">
+  				<img src="<{$static_url}>/moblie/images/def.jpg"  data-original="<{$header['figure'][1]}>" class="avatar_lazy" />
+  			</div>
+            <div class="user-dh-bg"></div>
+        	<div class="rowbox rel">
+            	<div class="row-flex1 text-right gn-ico" style="width:50%">
+                	<{if $isme}>
+                    <a href="/message/msglist">
+					<span class="fr rel gn-btn" data-username="<{$header['name']}>" data-uid="<{$header['suid']}>">
+                    	<span class="ico ico-sx"></span>
+                        <span class="numbox"><{$header['msgnum']}></span>
+                    </span>
+                    
+                    </a>
+                    <{else}>
+                    <a href="/message/msgbox.html?tosuid=<{$header['suid']}>">
+                    <span class="fr gn-btn chatBtn" data-username="<{$header['name']}>" data-uid="<{$header['suid']}>">
+                    	<span class="ico ico-sx"></span>
+                    </span>
+                    </a>
+                    <{/if}>
+                </div>
+            	<div class="useravatar useravatar_bg">
+                <img  src="<{$header['avatar'][2]}>" data-original="<{$header['avatar'][1]}>" class="avatar_lazy">	
+                </div>
+                <div class="row-flex1 text-left gn-ico" style="width:50%">
+                    <{if $isme}>
+                    <span class="gn-btn" id="editProfile">
+                    	<span class="ico ico-edit" data-follow="0"></span>
+                    </span>
+                    <{else}>
+                    	<{if $header['isfollow']==1}>
+                        <span class="gn-btn followBtn current" data-ishome="1" data-fsuid="<{$header['suid']}>" data-type="person" data-follow="1">
+                            <span class="ico ico-gz"></span>
+                        </span>
+                        <{else}>
+                        <span class="gn-btn followBtn" data-ishome="1" data-fsuid="<{$header['suid']}>" data-type="person" data-follow="0">
+                            <span class="ico ico-gz"></span>
+                        </span>
+                        <{/if}>
+                    <{/if}>
+                </div>
+            </div>
+            <p class="text-center line36 color-fff f21 rel"><{$header['name']}></p>
+            <p class="text-center line20 color-fff user-aboutme rel"><{$header['aboutme']}></p>
+            <p class="blank10"></p>
+            <ul class="rowbox user-dh">
+            	<li>
+                	<a href="/share/myshares.html?fsuid=<{$header['fsuid']}>">
+                	<p class="b f21"><{$rownums['shares']}></p>
+                    <p>分享</p>
+                    </a>
+                </li>
+            	<li class="li-line-l <{if $mod=='my_like'}>current<{/if}>">
+                	<a href="/share/my_like.html?fsuid=<{$header['fsuid']}>">
+                	<p class="b f21 "><{$rownums['like']}></p>
+                    <p>赞过</p>
+                    </a>
+                </li>
+                <li class="li-line-l <{if $mod=='myfollows'}>current<{/if}>">
+                	<a href="/share/myfollows.html?fsuid=<{$header['fsuid']}>">
+                	<p class="b f21"><{$rownums['followers']}></p>
+                    <p>粉丝</p>
+                    </a>
+                </li>
+                <li class="li-line-l <{if $mod=='myfollowing'}>current<{/if}>">
+                	<a href="/share/myfollowing.html?fsuid=<{$header['fsuid']}>">
+                	<p class="b f21"><{$rownums['following']}></p>
+                    <p>关注</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="blank15"></div>
+        </div>
+        <{if $mod=='myshares'}>
+		<div class="userbox-cont">
+		    <ul class="rowbox user-c-dh h3_title">
+		        <li class="<{if $bar['header']=='myshare'}> current<{/if}>"><a href="/share/myshares.html?fsuid=<{$header['fsuid']}>"><{$header['user_title']}>的分享</a></li>
+		        <li class="<{if $bar['header']=='mygoods'}> current<{/if}>"><a href="/b_goods/mygdshares.html?fsuid=<{$header['fsuid']}>"><{$header['user_title']}>的设计</a></li>
+		        <!--li class="<{if $bar['header']=='mycat'}> current<{/if}>"><a href="/user_group/myusergroups.html?fsuid=<{$header['fsuid']}>"><{$header['user_title']}>的明星群</a></li-->
+		    </ul>
+		</div>
+		<{/if}>

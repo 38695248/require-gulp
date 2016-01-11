@@ -1,0 +1,29 @@
+<{foreach $personData as $v}>
+<li class="item">
+ 	<div class="fr rowitem-t-r mt-10">
+        <{if $v['isfollow'] == 1}> 
+          <span class="span-gz followBtn current" data-type="person" data-follow="<{$v['isfollow']}>" data-fsuid="<{$v['suid']}>"><{$lang['sns_inc_share_item_have_follow']}></span>
+        <{else}>
+          <span class="span-gz followBtn" data-type="person" data-follow="<{$v['isfollow']}>" data-fsuid="<{$v['suid']}>"><{$lang['sns_inc_share_item_follow']}></span>  
+        <{/if}>
+        
+     </div>
+    <div class="rowbox">
+        <a href="/share/myshares.html?fsuid=<{$v['suid']}>" >
+         <div class="avatar_50 mr-5 mt-10">
+          	<img src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" class="avatar_lazy userThumb" alt="<{$v['fname']}> <{$v['lname']}>" title="More from <{$v['fname']}> <{$v['lname']}>"/>
+         </div>
+         <div class="row-flex1 avatar-text line20 mt-10">
+            <h2 class="f16"><{$v['fname']}> <{$v['lname']}>
+                <{foreach $v['identify_info'] as $identify}>
+                  <{$identify.name}> <span style="display:none;"><{$identify.id}></span>
+                 <{/foreach}>
+            </h2>
+             <p>被关注<{$v['followers']}>次</p>
+         </div>
+        </a>
+     </div>
+ </li>
+ <{/foreach}>
+ 
+ 

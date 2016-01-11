@@ -1,0 +1,62 @@
+<{include file="header_comm.html"}>
+<style type="text/css?v=<{$v_css_js}>">
+body{background:#5b0780}
+</style>
+<body>
+<div id="bodywidth"></div>
+<div id="fxpage_user">
+  <div id="headerbox" class="headerbox">
+  	<div class="rowbox searchbox">
+  	<div class="top_l">	
+            	  
+          <a href="javascript:void(0);" class="back-btn rel">
+              <span class="b_ico ico-back-h"></span>
+              <span class="span_bg"></span>
+          </a>
+        </div>
+  <div class="row-flex1 text-center h2_title">现金劵</div>
+  <div class="top_r">
+      <input data-role="none" type="hidden" autocomplete="off" name="t" id="sui-Input-val" class="sui-Input" value="goods">
+      
+            	<span class="ico ico-searchtop mr-5 searchtop"></span>
+        <span class="span_bg"></span>
+            
+            <a href="/myorder/mycart.html" class="rel">
+        <span class="b_ico ico-cart"></span>
+        <span class="cartItemnum" id="cartItemnum" style="display: inline;">1</span>
+        <span class="span_bg cart_span_bg"></span>
+      </a>
+        </div>
+</div>
+  </div>
+  <div class="contentbox ui-content">
+    <div class="activitybox" style="padding-top:10px">
+    	<div class="rel act-banner">
+        	<img src="../moblie/images/activity/quan/quan01.jpg" />
+            <img id="btn-dwlm" data-action="/activity/quan_do.html" data-params='{"id":<{$id}>}' src="../moblie/images/activity/quan/quan02.jpg" />
+        </div>
+    </div>
+    <p class="blank20"></p>
+    <h2 class="text-center color-fff line40">热门明星同款</h2>
+    <div id="masonry_2" class="masonry larger-view">
+      <{include file="inc_share_item.html"}>
+    </div>
+    <div class="pager"> <span class="pager-next"><a href="<{$request_url}>"></a></span> </div>
+    <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+</div>
+<!--分享提示-->
+<div id="share_bg" class="share_bg"></div>
+<div id="share_tip" class="share_tip"></div>
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/activity.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	ActivityClass.baseactivity();
+	ActivityClass.dotmycollar();	
+})
+</script>
+</body>
+</html>

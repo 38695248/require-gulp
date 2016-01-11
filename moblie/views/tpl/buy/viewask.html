@@ -1,0 +1,93 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox"> <{include file="header_back.html"}> </div>
+    
+  <div class="contentbox">
+    <div class="byshid" data-shid="1329" data-ishid="1289">
+      <div id="viewPicImgBox" class="rowitem-c rel" data-width="736"> 
+        <!--图片列表-->
+        <div class="sliderbox" id="sliderbox_view">
+          <div class="slide_01" id="slide_01_view">
+          <{foreach $buy_ask['imgs'] as $key=>$val}>
+              <div class="mod_01">
+                <img src="<{$val[0]}>" />
+              </div>
+          <{/foreach}>
+          </div>
+          <div class="dotModule_new">
+            <div class="slide_01_dot" id="slide_01_dot_view"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sharetext protile">
+        <p class="f16 color-333 line20"><{$buy_ask['title']}></p>
+        <p class="color-red f21 font-a"><{$currency['exrtitle']}><{$buy_ask['total_ask']}>&nbsp;<span class="f12 color-999"><{$currency['exrcode']}></span></p>
+      </div>
+    </div>
+    <!--支付定制-->
+    <{if $buy_ask['isme'] && $buy_ask['status']==4}>
+    <ul class="jsbox">
+    	<li class="h2_title">付款求定制</li>
+        <{if $buy_ask['orderid']}>
+        <li class="rowbox">
+          <div class="row-flex1 line18">
+          	<p>您已下过订单，请继续下一步“支付订单”以便让设计师开始为您定制，<br/>如果您想重新下单请点击按钮“下单定制”</p>
+            <p><a href="/mybuys/myorder.html?orderfid=<{$buy_ask['orderid'][0]}>&orderid=<{$buy_ask['orderid'][1]}>"><button class="btn btn-danger btn-s fr" data-url="">支付订单</button></a></p>
+          </div>
+        </li>
+        <{/if}><{if $buy_ask['status']==4}>
+        <li class="rowbox">
+          <div class="row-flex1 line18">
+          	<p>您已经选定了设计师的报价，请继续下一步“下单定制”以便让设计师开始为您定制</p>
+            <p><a href="/ask/topay_svr.html?askid=<{$buy_ask['askid']}>"><button class="btn btn-danger btn-s fr" data-url="">下单定制</button></a></p>
+          </div>
+        </li>
+        <{/if}>
+    </ul>
+    <{/if}>
+    <!--设计师报价列表-->
+    <ul class="jsbox">
+    	<li class="h2_title">设计师报价</li>
+        <{if $buy_ask['isme'] && $buy_ask['status']==2}>
+        <li>需求正在推荐给设计师中，请耐心等待...</li>
+        <{/if}>
+        <{foreach $ask_svr_list as $key=>$val}>
+        <li class="rowbox">
+          <div class="avatar w50 mr-5"> 
+          	<a href="/share/myshares.html?fsuid=<{$val['suid']}>">
+          		<img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="lazy userThumb" style="display: block;">
+            </a>
+          </div>
+          <div class="row-flex1 line18">
+          	<p class="color-333 f16"><span class="fr color-red">报价：<{$currency['exrtitle']}><{$val['total']}></span><a href="/share/myshares.html?fsuid=<{$val['suid']}>"><{$val['uname']}>设计师<{if $buy_ask['svrid']==$val['svrid']}><span class="state ml-5 f12">被选中</span><{/if}></a></p>
+            
+            <p class="f12 color-999"><{$val['edttime_txt']}></p>
+            <p><{$val['answerinfo']}></p>
+            <p><{if $buy_ask['isme'] && $buy_ask['status']==2}><button class="btn btn-danger btn-s fr sel_server" data-askid="<{$buy_ask['askid']}>" data-svrid="<{$val['svrid']}>" data-act="sel_server"  data-url="/ask/sel_server.html" data-url2="/ask/topay_svr.html?askid=<{$buy_ask['askid']}>">选TA为我定制</button><{/if}></p>
+            
+          </div>
+        </li>
+        <{/foreach}>
+    </ul>
+    <!--需求描述-->
+    <div id="goodsdescbox" class="proinfo goodsdescbox">
+      <h2 class="goodsdesc-title">按图求定制描述</h2>
+      <div class="goodsdesc">
+        <p> <{$buy_ask['askinfo']}></p>
+      </div>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+  </div>
+<{include file="footer_comm.html"}> 
+<script src="<{$static_url}>/moblie/js/needarea.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	Needarea.needareaInt({page:'viewask'});
+});
+</script>
+</body>
+</html>

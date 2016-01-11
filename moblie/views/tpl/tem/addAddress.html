@@ -1,0 +1,95 @@
+<div id="addAddressTipbox" class="tipbox fade" data-index="0">
+    <div class="tipbox-in">
+        <h1 class="tiptop" id='page_title' data-add="<{$lang['buy_mybuys_tmp_addAddress_add']}>" data-edt="<{$lang['buy_mybuys_tmp_addAddress_edt']}>"><{$lang['buy_mybuys_tmp_addAddress_add']}></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <form id="addAddressForm" class="commForm standardForm f12" method="post">
+        <div class="tipcont">
+                <ul>
+                   
+                    <li style="border:none">
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_addressee']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" name="addressee" id="addressee" placeholder="<{$lang['buy_mybuys_tmp_addAddress_addressee']}>" data-validate="addressee">
+                        </div>
+                    </li>
+                    <li>
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_city']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" name="city" id="city" value=""  placeholder="<{$lang['buy_mybuys_tmp_addAddress_city']}>" data-validate="city">
+                        </div>
+                        <div class="blank0"></div>
+                    </li>
+                    <li>
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_address1']}></label></h3>
+                        <div class="rel">
+                             <input data-role="none" type="text" name="address1" id="address1" placeholder="<{$lang['buy_mybuys_tmp_addAddress_address1']}>" data-validate="address1">
+                        </div>
+                    </li>
+                    <li>
+                        <h3><label><{$lang['buy_cellphone']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" maxlength="11" name="cellphone" id="cellphone" value="" placeholder="<{$lang['buy_cellphone']}>" data-validate="Mobile">
+                        </div>
+                    </li>
+                    <li style="display:none">
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_country']}></label></h3>
+                        <div class="rel">
+                            <select name="country" id="country">
+                                <option>中国</option>
+                                <option>美国</option>
+                                <option>英国</option>
+                                <option>德国</option>
+                                <option>法国</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li style="display:none">
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_province']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" name="state" id="state" value="" placeholder="<{$lang['buy_mybuys_tmp_addAddress_province']}>">
+                        </div>
+                        <div class="blank0"></div>
+                    </li>
+                    
+                    <li style="display:none">
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_zip']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" name="zip" id="zip" value="" placeholder="<{$lang['buy_mybuys_tmp_addAddress_zip']}>">
+                        </div>
+                    </li>
+                     <li style="display:none">
+                        <h3><label><{$lang['buy_mybuys_tmp_addAddress_nickname']}></label></h3>
+                        <div class="rel">
+                            <input data-role="none" type="text" name="nickname" id="nickname" placeholder="<{$lang['buy_mybuys_tmp_addAddress_nickname']}>">
+                        </div>
+                        <div class="row-flex1" style="padding-left:10px">设置一个易记的名称，如：“送到家里”、“送到公司”</div>
+                    </li>
+                    <li>
+                        <h3><label>&nbsp;</label></h3>
+                      	<div class="rel rowbox">
+                        	<div class="w30"><input data-role="none" type="checkbox" name="sedefault" id="sedefault" /></div>
+                      		<div class="row-flex1 line30"><label for="sedefault"><{$lang['buy_mybuys_tmp_addAddress_setdefault']}></label></div>
+                        </div>
+                    </li>
+                    
+                </ul>
+        </div>
+        <div class="tipbottom">
+        	<div class="fl">
+                <button data-role="none" id="delBtn" class="btn-border btn rounded mr-5 closeBtnHtml" type="button"  style="display:none">
+                    <{$lang['buy_button_del']}>
+                </button>
+            </div>
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    <{$lang['buy_button_cancel']}>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger">
+                    <{$lang['buy_button_confirm']}>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </form>
+    </div>
+</div>

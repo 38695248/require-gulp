@@ -1,0 +1,181 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+    <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    <form id="userSettingsForm" class="standardForm" method="post">
+        	<ul class="f16 jsbox">
+            	<li class="sectionTitle" id="accountBasics">
+                  <h2 class="f21"><{$lang['user_user_setting_baseinfo']}></h2>
+                </li>
+                <li class="rowbox">
+                    <h3 style="width:auto"><{$lang['user_user_setting_account']}>：</h3>
+                    <{if $data['account_type']==1}>
+                    <div class="row-flex1 rowbox">
+                    		<div class="row-flex1">
+                            	<input type="text" name="account"  value="<{$data['account']}>" readonly>
+                            </div>
+                            <button data-role="none" type="button" class="btn btn-border" style="width:125px">
+                                <{$lang['user_user_setting_sendemail']}>
+                            </button>
+                    </div>
+                    <{else}>
+                        <div class="row-flex1">
+                            <{$data['account']}>
+                        </div>
+                    <{/if}>
+            	</li>
+                <li id="changePasswordButton">
+                    <h3 class="row-flex1"><{$lang['user_user_setting_changepwd']}>：</h3>
+                    <div class="ico ico-jt"></div>
+                </li>
+                <li>
+                    <h3>手机：</h3>
+                    <div class="row-flex1">
+                        <input type="text" name="cellphone" class="f16 noborder"  value="<{$data['cellphone']}>">
+                    </div>
+                </li>
+                <!-- 语言 -->
+                <!--li>
+                    <h3><label><{$lang['user_user_setting_language']}></label></h3>
+                    <div class="row-flex1">
+                        <select data-role="none" name="language">
+                        <{foreach $language as $v}>
+	            				<option value="<{$v['lgcode']}>"  <{if $v['lgcode'] eq $data['language']}>selected="selected"<{/if}>><{$v['lgname']}></option>
+                        <{/foreach}>
+                    	</select>
+                    </div>
+                </li-->
+                <!-- 时区 -->
+                <!--li>
+                    <h3><label><{$lang['user_user_setting_areatime']}></label></h3>
+                    <div class="row-flex1">
+                        <select data-role="none" class="ui-Select Module" name="areatime">
+                        <{foreach $areatime as $v}>
+	            				<option value="<{$v['zcode']}>"  <{if $v['zcode'] eq $data['timezone']}>selected="selected"<{/if}>><{$v['zname']}></option>
+                        <{/foreach}>
+                    	</select>
+                    </div>
+                </li-->
+                <!-- 汇率 -->
+                <!--li>
+                    <h3><label><{$lang['user_user_setting_exchange']}></label></h3>
+                    <div class="row-flex1">
+                        <select data-role="none" class="ui-Select Module" name="exchange">
+                        <{foreach $exchange as $v}>
+	            				<option value="<{$v['exrcode']}>"  <{if $v['exrcode'] eq $data['exchangecode']}>selected="selected"<{/if}>><{$v['exrname']}>&nbsp;( <{$v['exrtitle']}>.<{$v['exrcode']}> )</option>
+                        <{/foreach}>
+                    	</select>
+                    </div>
+                </li-->
+               <li>
+               		<h3 style="width:auto"><{$lang['user_user_setting_sex']}>：</h3>
+                    <div class="row-flex1">
+                    	<div class="fl mr-10">
+                    	<input id="setting_male" data-role="none" name="gender" type="radio" value="1" class="w30" <{if $data['sex'] eq 1}> checked="checked"<{/if}>>
+                    	<label for="setting_male" class="labradio"><{$lang['user_user_setting_male']}></label>
+                        </div>
+                        <div class="fl ml-10">
+                        <input id="setting_fmale" data-role="none" name="gender" type="radio" value="2" class="w30" <{if $data['sex'] eq 2}>checked='checked'<{/if}>>
+                        <label for="setting_fmale" class="labradio"><{$lang['user_user_setting_fmale']}></label>
+                        </div>
+                    </div>
+               </li>
+            <!--ul class="f12 jsbox">
+            	<li><h2><{$lang['user_user_setting_isopensearch']}></h2></li>
+            	<li>
+                    <div id="GenderToggle" class="fancyToggle mr-5">
+                        <div class="slider"></div>
+                        <p class="onText status"><{$lang['user_user_setting_yes']}></p>
+                        <p class="offText status"><{$lang['user_user_setting_no']}></p>
+                        <input data-role="none" type="checkbox" class="ui-Checkbox" name="Gender">
+                    </div>
+                    <div class="exclude_from_search line16">
+                        <{$lang['user_user_setting_explain']}>
+                    </div>
+               </li>
+            </ul-->
+            	<li>
+                    <h3 style="width:auto"><{$lang['user_user_setting_name']}>：</h3>
+                    <div class="row-flex1">
+                        <input data-role="none" type="text" class="f16 noborder" name="first_name" id="userFirstName" value="<{$data['fname'] }>">
+                        <input data-role="none" type="hidden" class="f16 nobordert" name="last_name" id="userLastName" value="<{$data['lname'] }>">
+                    </div>
+                </li>
+                <li>
+                	<a class="rowbox w100e" href="/common/avatar_up_cmm.html?act=user&type=avatar&ref=/user/setting.html">
+                    <h3 style="width:auto"><{$lang['user_user_setting_avatar']}>：</h3>
+                    <div class="row-flex1 text-right" data-act="user" data-type="avatar" data-title="头像 " data-avatar="<{$avatar2up[0]}>" style="margin:0">
+                    	 <div class="fr">
+                         	<img src="<{$data['avatar'][2]}>" data-original="<{$data['avatar'][1]}>" class="avatar_lazy profileImage" id="profileImage" />
+                         </div>
+                    </div>
+                    <div class="ico ico-jt"></div>
+                    </a>
+                </li>
+                <li>
+                	<a class="rowbox w100e" href="/common/avatar_up_cmm.html?act=user&type=figure&ref=/user/setting.html">
+                    <h3 style="width:auto">
+                      主页形象图片：
+                    </h3>
+                    <div class="row-flex1 text-right" data-type="figure" data-act="group" data-title="上传明星群形象图片 " style="margin:0" data-avatar="<{$figure2up[0]}>">
+                    	 <div class="fr">
+                         	<img src="<{$data['figure'][2]}>" data-original="<{$data['figure'][1]}>" class="avatar_loading profileImage" /> 
+                         </div>
+                    </div>
+                    <div class="ico ico-jt"></div>
+                    </a>
+                </li>
+                <li>
+                    <h3 style="width:auto"><{$lang['user_user_setting_aboutme']}>：</h3>
+                    <div class="row-flex1">
+                        <textarea class="mt-5" style="height:50px" name="aboutme" id="userAbout"><{$data['aboutme']}></textarea>
+                    </div>
+                </li>
+                <!--li>
+                    <h3><{$lang['user_user_setting_location']}></h3>
+                    <div class="row-flex1">
+                        <input data-role="none" type="text" name="location" id="userLocation" value="<{$data['location']}>">
+                    </div>
+                </li-->
+            </ul>
+            <div class="formFooter fixedsticky-on">
+            	<div class="blank5"></div>
+                <div class="fl formFooterDelete" style="display:none">
+                    <button data-role="none" type="button" class="btn-border btn">    
+                        <span class="buttonText"><{$lang['user_user_setting_stopaccount']}></span>
+                    </button>
+                </div>
+                <div class="formFooterButtons">
+                    <button data-role="none" type="button" class="btn-border btn" style="display:none">
+                        <span class="buttonText"><{$lang['user_user_setting_cencle']}></span>
+                    </button>
+                    <button data-role="none" type="submit" class="btn btn-danger saveSettingsButton w100e" style="margin:0">    
+                        <{$lang['user_user_setting_savesetting']}>
+                    </button>
+                </div>
+                <div class="blank0"></div>
+            </div>
+        </form>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+	MyShare.myshareBase({mod:"user_settings"});
+})
+</script>
+</body>
+
+</html>

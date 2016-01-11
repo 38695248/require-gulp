@@ -1,0 +1,153 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+     <div class="rowbox fx-nav h3_title">
+        <div class="row-flex1 current">
+        	<a href="/mybuys/cash.html">我要提现</a>
+        </div>
+        <div class="row-flex1">
+        	<a href="/mybuys/cashlist.html">提现记录</a>
+        </div>
+     </div>
+  </div>
+  <div class="contentbox settings" data-role="content">     
+    <ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_shmoney']}>
+        </div>
+        <div class="row-flex1 text-right color-red">￥<{$sharemoney['shmoney_cny']}>&nbsp;元<!--&nbsp;+&nbsp;$<{$sharemoney['shmoney_usd']}>&nbsp;USD--></div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_status']}>
+        </div>
+        <div class="row-flex1 text-right color-red"><{$sharemoney['status_txt']}></div>
+      </li>   
+      <li>
+      	<p class="color-red line24"> 因每天有几万人提现，客服发红包发到手抽筋！请最好满1元提现，减轻我们客服的工作量，为大家提供更好的服务，百享客服跪谢！</p>
+        <p class="text-center"><a href="/mybuys/cashlist.html"><button class="btn btn-danger w200">提现记录</button></a></p>
+      </li>
+   </ul>   
+      <!--li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span>提现币种<<{$lang['buy_status']}>>
+        </div>
+        <div class="row-flex1 text-right color-red">
+          <select name="cash_exrcode" id="cash_exrcode">
+            <option value="">请选择币种</option>
+            <option value="CNY">人民币</option>
+            <option value="USD">美元</option>
+          </select>
+        </div>
+      </li-->
+    <form id="cashForm" method="post" data-action="/mybuys/cash.html">
+    <ul class="jsbox" id="cash_acountbox">
+       <li class="h3_title">提现申请步骤<span class="color-red">(正常工作日48小时内到账)</span>：</li>
+       <li class="rowbox">
+        <div class="row-flex1">
+        	1. 关注百享微信公众号
+        </div>
+        <div class="w100 text-right" id="gzwx_text">
+        	<{if $weixin_isguanzhu}>
+            	已关注
+                <input type="hidden" id="weixin_isguanzhu" value="1">
+            <{else}>
+            	<a href="http://mp.weixin.qq.com/s?__biz=MzA3NTM5Mzg2NA==&mid=206134523&idx=1&sn=b052274af6c6633a2e2db14c7a10e577#rd" class="color-red">立即关注<div class="ico ico-jt ml-5"></div></a>
+                <input type="hidden" id="weixin_isguanzhu" value="0">
+            <{/if}>
+        </div>
+       </li>     
+     
+       <!--
+       <li class="rowbox">
+        <div class="row-flex1">
+        	2. 绑定登录手机
+        </div>
+        
+        <div class="text-right">
+        	<{if $ban_phone != ''}>
+            	<{$ban_phone}>
+            <{else}>
+            	<a href="javascript:void(0);" id="sns_bindmobile" class="sns_bindmobile" data-type="1">未绑定<div class="ico ico-jt ml-5"></div></a>
+            <{/if}>
+        </div>
+        
+       </li>
+       -->
+       
+       <li class="rowbox">
+	        <div class="mr-5">
+	        	2. 联系手机：
+	        </div>
+            <div class="row-flex1">
+            	<input type="text" name="cellphone" value="<{$cellphone}>" placeholder="请输入手机号码" data-validate="Mobile" class="noborder" style="height:40px; font-size:16px">
+            </div>
+       </li>      
+       <!--
+       <li class="rowbox">
+       		<div class="row-flex1 rowbox">
+            	<input name="cash_acount_type" type="radio" id="2" data-name="<{$cash_acount_alipay}>" value="2" <{if ! $isweixin}>checked<{/if}> >
+            	<label for="2">支付宝</label>
+        	</div>
+            
+            <div class="w100 text-right">
+            	<{if $cash_acount_alipay}>
+                	<{$cash_acount_alipay}>
+                <{else}>
+                	<a href="javascript:void(0);" class="setpayacount" data-type="1">未绑定<div class="ico ico-jt ml-5"></div>
+                    </a>
+                <{/if}>
+            </div> 
+        </li>
+        -->
+      <li class="rowbox">
+        <div class="mr-5">
+        	3. 提现金额：
+        </div>
+        <div class="row-flex1">
+           <input type="hidden" name="skey" value="<{$skey}>" />
+           <input type="hidden" name="cash_exrcode" value="CNY" />
+           <input type="hidden" name="act" value="apply" />
+           <input id="cash_shmoney" type="text" name="cash_shmoney" value="<{$sharemoney['shmoney_cny']}>" placeholder="请输入金额" data-validate="Money" class="noborder" style="height:40px; font-size:16px">
+        </div>
+      </li>
+      <li class="rowbox">
+      		<p class="line24">4. 点击“下一步"复制<span class="color-red">"提现码"</span>给百享客服，否则无法提现。</p>
+      </li>
+      <li style=" padding:10px 0;border:none">
+      	<button type="button" id="applycashbtn" class="btn btn-danger btn-danger-gray w100e" style="margin:0; height:40px">下一步</button>
+      </li>
+      <li style="line-height:26px; padding-bottom:15px">
+      	<p>您关注公众号了吗？“<span class="color-red">提现申请</span>”按钮还是灰色的话，请尝试点击这里：</p>
+        <p class="text-center mt-5"><a href="/mybuys/cash.html" class="btn btn-border">刷新页面</a></p>
+      </li>
+    </ul>  
+     </form> 
+    <ul class="jsbox">
+    	<li>提现说明：</li>
+        <li>
+        	<p class="line30">1. 如果提现过程中遇到问题，请联系我们客服：</p>
+            <p class="text-center" style="padding:0 20px"><button class="btn lxkefu_btn w200" data-checkid="<{$val['check_id']}>">联系客服</button><a href="/mybuys/cashlist.html"><button class="btn btn-danger w200">提现记录</button></a></p>
+        	<p>2. 请关注"<a href="http://mp.weixin.qq.com/s?__biz=MzA3NTM5Mzg2NA==&mid=206134523&idx=1&sn=b052274af6c6633a2e2db14c7a10e577#rd">百享时尚社交定制</a>"公众号</p>
+            <p>3. 请填写正确手机号，以便资金安全</p>
+            <p>4. 请勿泄漏您将得到的“提现码”</p>
+            <p>5. 请一定将您的“<a href="/mybuys/cashlist.html">提现码</a>”发送给我们的客服，否则无法提现</p>
+            <p>6. 提现处理时间：工作日（9:00-17:00）</p>
+            
+        </li>
+    </ul> 
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+<script data-main="<{$static_url}>/moblie/app/js/myShare_cash.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

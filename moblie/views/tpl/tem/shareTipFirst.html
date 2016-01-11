@@ -1,0 +1,217 @@
+<div id="shareFirstTipbox" class="tipbox fade" data-index="0" style="display:block; border-radius:0">
+  <div class="tipbox-in">
+    <div id="tipbottom" class="tipbottom" style="border-radius:0;height:25px; overflow:hidden;border-bottom: #ddd solid 1px;">
+      <div class="top_l closeBtnHtml" style=" padding:0"> 
+      	<span class="b_ico ico-back-h"></span> 
+      </div>
+      <div class="top_r formFooterButtons" style="right:0; top:0">
+        <div class="btn btn-one btn-danger btn-danger-gray" style="line-height:45px; padding:0; border-radius:0; margin-top:-1px; margin-right:-5px; width:100px; text-align:center"><{$lang['sns_temsharetipfirst_next']}></div>
+      </div>
+    </div>
+    <div id="CustomizedFrom" method="post">
+      <div id="shareOne" class="tipcont">
+        <!-- 新增内容开始 --> 
+        <{if $isvalue eq 1}>
+        <div id="showPic" class="showPic">
+          <div class="boxslider" id="boxslider">
+            <ul class="boxslider" id="slide_01tip">
+            <{foreach name=num item=v from=$data['imgs']}>
+              <li>
+                <form  method="post" action="javascript:void(0);" class="showPicImg" style="width: <{$v['width']}>px; height: <{$v['height']}>px;" data-simgurl="<{$v['m']}>" data-bimgurl="<{$v['b']}>" data-sh="<{$v['sheight']}>" data-sw="<{$v['swidth']}>" data-h="<{$v['height']}>" data-w="<{$v['width']}>" data-color="<{$v['color']}>" data-imgrel="<{$v['rel']}>">
+                  <img class="picImg" style="width: <{$v['widht']}>px; height: <{$v['height']}>px;" src="<{$v['b']}>">
+                  <input class="relBoxSize" type="hidden" name="relBoxSize" value="">
+                  <!-- 标签开始 --> 
+                  <!-- 说说标签开始 --> 
+                  <{if $v['tagsay'] neq ''}>
+                  <{foreach name=numsun item=s from=$v['tagsay']}>
+                  <{$newnum = $smarty.foreach.num.iteration}>
+                  <div id="addTagDiv_<{$smarty.foreach.num.iteration-1}>_<{$smarty.foreach.numsun.iteration-1}>" class="item-tag darg-tag loaded item-hover olddata" data-val="1" style="left: <{$s['imgx']}>px; top: <{$s['imgy']}>px; z-index: 0;" data-type="tag" data-left="<{$s['imgx']}>" data-top="<{$s['imgy']}>">
+                    <div class="cilckItem"> <span class="item-tag-label"></span> <span class="ico ico-stag"></span>
+                      <div class="item-tag-form" style="width:auto;">
+                          <div class="tip"><span><{$s['tagtxt']}></span></div>
+                      </div>
+                    </div>
+                    <div class="item-tag-form item-tag-box" style="display:none">
+                      <h2 class="tiptop"><{$lang['sns_tagtip_tag']}></h2>
+                      <span class="fr ico02 tipclose ico-tag-close hide"></span> <span class="ico02 ico-tag-span"></span>
+                      <div class="CustomizedFrom">
+                        <div class="addTagFrom">
+                          <div class="tipcont">
+                            <div class="modal-body">
+                              <ul class="list-unstyled pick-span">
+                                <li class="rel">
+                                  <h3>
+                                    <label><{$lang['sns_tagtip_tagdesc']}></label>
+                                  </h3>
+                                  <div class="right-con">
+                                    <input class="byshareInputName searchTag" type="text" name="Tag" value="<{$s['tagtxt']}>" placeholder="<{$lang['sns_tagtip_tagdesc2']}>" data-validate="isempty" isarray="true">
+                                    <div class="tag_itembox">
+                                      <ul class="board_items tag_items">
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <input type="hidden" name="tagCoordinate" value="<{$s['imgx']}>|<{$s['imgy']}>" class="Coordinate" isarray="true">
+                                </li>
+                              </ul>
+                              <div class="blank0"></div>
+                            </div>
+                          </div>
+                          <div class="tipbottom">
+                            <div class="fr formFooterButtons">
+                              <button class="btn-border btn rounded mr-5 delTipBtn" type="button"> <span class="buttonText"><{$lang['sns_peopletip_del']}></span> </button>
+                              <button type="button" class="btn btn-danger addTagTipBtn"> <span class="buttonText"><{$lang['sns_peopletip_done']}></span> </button>
+                            </div>
+                            <div class="blank0"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <{/foreach}>
+                  <{/if}> 
+                  <!-- 说说标签结束 --> 
+                  <!-- 地点标签开始 --> 
+                  <{if $v['tagplace'] neq ''}>
+                  <{foreach name=numsun item=s from=$v['tagplace']}>
+                  <{$newnum1 = $newnum + $smarty.foreach.num.iteration}>
+                  <div id="addTagDiv_<{$smarty.foreach.num.iteration-1}>_<{$newnum1-1}>" class="item-tag darg-tag loaded item-hover olddata" data-val="1" style="left: <{$s['imgx']}>px; top: <{$s['imgy']}>px; z-index: 0;" data-type="place" data-left="<{$s['imgx']}>" data-top="<{$s['imgy']}>">
+                    <div class="cilckItem"> <span class="item-tag-label"></span> <span class="ico ico-sPlace"></span>
+                      <div class="item-tag-form" style="width:auto;">
+                         <div class="tip"><span><{$s['tagtxt']}></span></div>
+                      </div>
+                    </div>
+                    <div class="item-tag-form item-tag-box" style="display:none">
+                      <h2 class="tiptop"><{$lang['sns_placetip_tag']}></h2>
+                      <span class="fr ico02 tipclose ico-tag-close hide"></span> <span class="ico02 ico-tag-span"></span>
+                      <div class="CustomizedFrom" method="post">
+                        <div class="addTagFrom">
+                          <div class="tipcont">
+                            <div class="modal-body">
+                              <ul class="list-unstyled pick-span">
+                                <li class="rel">
+                                  <h3>
+                                    <label><{$lang['sns_placetip_tagdesc']}></label>
+                                  </h3>
+                                  <div class="right-con">
+                                    <input class="byshareInputName place" type="text" name="Place" value="<{$s['tagtxt']}>" placeholder="<{$lang['sns_placetip_tagdesc2']}>" data-validate="isempty" isarray="true">
+                                    <div class="tag_itembox">
+                                      <ul class="board_items tag_items">
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <input type="hidden" name="placeCoordinate" value="<{$s['imgx']}>|<{$s['imgy']}>" class="Coordinate" isarray="true" >
+                                </li>
+                              </ul>
+                              <div class="blank0"></div>
+                            </div>
+                          </div>
+                          <div class="tipbottom">
+                            <div class="fr formFooterButtons">
+                              <button class="btn-border btn rounded mr-5 delTipBtn" type="button"> <span class="buttonText"><{$lang['sns_peopletip_del']}></span> </button>
+                              <button type="button" class="btn btn-danger addTagTipBtn"> <span class="buttonText"><{$lang['sns_peopletip_done']}></span> </button>
+                            </div>
+                            <div class="blank0"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <{/foreach}>
+                  <{/if}> 
+                  <!-- 地点标签结束 --> 
+                  <!-- 人物标签开始 --> 
+                  <{if $v['tagperson'] neq ''}>
+                  <{foreach name=numsun item=s from=$v['tagperson']}>
+                  <{$newnum2 = $newnum1 + $smarty.foreach.num.iteration}>
+                  <div id="addTagDiv_<{$smarty.foreach.num.iteration-1}>_<{$newnum2-1}>" class="item-tag darg-tag loaded item-hover olddata" data-val="1" style="left: <{$s['imgx']}>px; top: <{$s['imgy']}>px; z-index: 0;" data-type="people" data-left="<{$s['imgx']}>" data-top="<{$s['imgy']}>">
+                    <div class="cilckItem"> <span class="item-tag-label"></span> <span class="ico ico-sPeople"></span>
+                      <div class="item-tag-form" style="width:auto;">
+                         <div class="tip"><span><{$s['tagtxt']}></span></div>
+                      </div>
+                    </div>
+                    <div class="item-tag-form item-tag-box" style="display:none">
+                      <h2 class="tiptop"><{$lang['sns_peopletip_people']}></h2>
+                      <span class="fr ico02 tipclose ico-tag-close hideClose"></span> <span class="ico02 ico-tag-span"></span>
+                      <div class="CustomizedFrom" method="post">
+                        <div class="addTagFrom">
+                          <div class="tipcont">
+                            <div class="modal-body">
+                              <ul class="list-unstyled pick-span">
+                                <li class="rel">
+                                  <h3>
+                                    <label><{$lang['sns_peopletip_peopledesc']}></label>
+                                  </h3>
+                                  <div class="right-con">
+                                    <input class="byshareInputName people" type="text" name="People" value="<{$s['tagtxt']}>" placeholder="<{$lang['sns_peopletip_peopledesc2']}>" data-validate="isempty" isarray="true">
+                                    <input class="tosuid" type="hidden" name="suid" placeholder="Search">
+                                    <div class="userCircleSelect ui-Typeahead sendfried peopleSearch">
+                                      <ul class="userList results">
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <input type="hidden" name="peopleCoordinate" value="<{$s['imgx']}>|<{$s['imgy']}>" class="Coordinate" isarray="true">
+                                </li>
+                              </ul>
+                              <div class="blank0"></div>
+                            </div>
+                          </div>
+                          <div class="tipbottom">
+                            <div class="fr formFooterButtons">
+                              <button class="btn-border btn rounded mr-5 delTipBtn" type="button"> <span class="buttonText"><{$lang['sns_peopletip_del']}></span> </button>
+                              <button type="button" class="btn btn-danger addTagTipBtn"> <span class="buttonText"><{$lang['sns_peopletip_done']}></span> </button>
+                            </div>
+                            <div class="blank0"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <{/foreach}>
+                  <{/if}> 
+                  <!-- 人物标签结束 --> 
+                  
+                  <!-- 标签内容结束  -->
+                </form>
+              </li>
+              <{/foreach}> 
+            </ul>
+            <div class="blank0"></div>
+   			<div class="boxslider-num"></div>
+          </div>
+          <div id="addTagFromBox" class="addTagFromBox" style="display: none;">
+            <div class="tagBgShade"></div>
+            <div class="addTagList f12">
+              <button data-role="none" id="isOri" class="addTagBtn" type="button" data-type="cus" style="display:none"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Customized"></em> <span class="addTagBtnText">原创</span> </button>
+              <div class="blank5"></div>
+              <button data-role="none" class="addTagBtn" type="button" data-type="tag"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-tag"></em> <span class="addTagBtnText">说说</span> </button>
+              <button data-role="none" class="addTagBtn" type="button" data-type="place"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Place"></em> <span class="addTagBtnText">地点</span> </button>
+              <button data-role="none" class="addTagBtn" type="button" data-type="people"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-People"></em> <span class="addTagBtnText">人物</span> </button>
+            </div>
+          </div>
+        </div>
+        <{else}>
+        <div id="showPic" class="showPic">
+          <div class="boxslider" id="boxslider">
+            <ul class="boxslider" id="slide_01tip"></ul>
+            <div class="blank0"></div>
+   			<div class="boxslider-num"></div>
+          </div>
+          <!-- 新增内容结束 -->
+          <div id="addTagFromBox" class="addTagFromBox">
+            <div class="tagBgShade"></div>
+            <div class="addTagList f12">
+              <button data-role="none" data-type="cus" id="isOri" class="addTagBtn" type="button" style="display:none"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Customized"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_customized']}></span> </button>
+              <div class="blank5"></div>
+              <button data-role="none" data-type="tag" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-tag"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_tag']}></span> </button>
+              <button data-role="none" data-type="place" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Place"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_place']}></span> </button>
+              <button data-role="none" data-type="people" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-People"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_people']}></span> </button>
+            </div>
+          </div>
+        </div>
+        <{/if}> </div>
+      <h1 id="tiptop" class="tiptop" style="border-radius:0; padding:10px 0 15px 10px; height:25px; overflow:hidden; border-top:#ddd solid 1px">
+        <p class="h1-cont f12 f-normal" style="padding-right:40px"><{$lang['sns_temsharetipfirst_prompt']}></p>
+      </h1>
+    </div>
+  </div>
+</div>

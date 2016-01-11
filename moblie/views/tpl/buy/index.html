@@ -1,0 +1,126 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div style="height:0px; overflow:hidden"> <img id="weixin_first_img" src="<{$weixin_first_img}>" />
+</div>
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+  	<{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    <{include file="inc_ad_topslip.html"}>
+    
+	<div class="typebox-n" style="border-bottom:#e5e5e5 solid 1px; border-top:#e5e5e5 solid 1px">
+	   <ul class="typebox-start typebox-start-buy rowbox-r">
+	      
+	      <!--
+	      <li><a href="/m_buy/showcat.html?catid=86&mod=&h_name=箱包&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>箱包</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=women_clothes&h_name=女装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>女装</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=man_clothes&h_name=男装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>男装</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=shoes&h_name=男鞋女鞋&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>男鞋女鞋</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=beauty&h_name=美妆日化&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>美妆日化</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=digital&h_name=数码家电&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>数码家电</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=&mod=warm_home&h_name=保暖居家&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>保暖居家</p>
+	      </a> </li>
+	      -->
+	      
+	      <li><a href="/m_buy/showcat.html?catid=17&mod=&h_name=上装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.0.img}>"></p>
+	      <p>上装</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=18&mod=&h_name=裙装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.1.img}>"></p>
+	      <p>裙装</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=19&mod=&h_name=裤装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.2.img}>"></p>
+	      <p>裤装</p>
+	      </a> </li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=93&mod=&h_name=套装&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.3.img}>"></p>
+	      <p>套装</p>
+	      </a></li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=147&mod=&h_name=礼服&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.4.img}>"></p>
+	      <p>礼服</p>
+	      </a></li>
+	      
+	      <li><a href="/m_buy/showcat.html?catid=85&mod=&h_name=饰品&color=t_e47d7e">
+	      <p><img src="<{$cat_imgs.5.img}>"></p>
+	      <p>饰品</p>
+	      </a></li>
+	      
+	  </ul>
+	</div>
+	
+    <div class="blank10"></div>
+    <div class="edt_box"> <{$adv.middle_txt_adv.0.text_val}> </div>
+    
+    <{if $adv.bottom_pic}>
+    <div class="bottom_pic">
+    	<{foreach $adv.bottom_pic as $v}>
+   			<a href="<{$v.link}>" class="mt-10 block"><img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v.src}>"/></a>
+    	<{/foreach}>
+    </div>
+    <{/if}>    
+    <div class="combox">
+      <div id="choose_dh" class="masonry_dh">
+      	<ul class="rowbox text-center f16">
+        	<li class="dhpjax current" data-url="/m_buy/index.html?type=new&orders=new">每日新品</li>
+            <li class="line">|</li>
+            <li class="dhpjax" data-url="/m_buy/index.html?type=hot&orders=hot">人气热销</li>
+            <li class="line">|</li>
+            <li class="dhpjax" data-url="/m_buy/index.html?type=low_price&orders=price_asc">特价优惠</li>
+        </ul>
+      </div>
+      <div id="masonry_2" class="masonry larger-view">
+      	<{include file="inc_share_item.html"}>
+      </div>
+    </div>
+    
+    <div class="pager"> 
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    
+    <{include file="group/home_comm.html"}>
+    
+    <div class="x-cont">
+    	<ul class="jsbox" style="margin:0">
+        	<li class="b">星简介:</li>
+            <li>
+            <{$user_group.gpdesc}>
+            </li>
+        </ul>
+    </div>
+    
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="s" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

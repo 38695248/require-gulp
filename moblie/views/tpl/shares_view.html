@@ -1,0 +1,283 @@
+<{if !$pjax}>
+<{include file="header_comm.html"}>
+<body class="bodybox">
+<img style="height:0; width:0; max-width:none" id="weixin_first_img" src="<{$weixin_first_img}>" /> <{/if}>
+<div class="mainbox" id="viewpage" style="padding-top:0">
+  <div class="headerbox showhide headerbox_view"> <{include file="header_back.html"}> </div>
+  <div class="contentbox">
+    <div class="byshid" data-shid="<{$data['shid']}>" data-ishid="<{$data['ishid']}>">
+      <{if $gdid>0}>
+      <div id="viewPicImgBox" class="rowitem-c rel" data-width="<{$data['imgs'][0]['width']}>"> <{else}>
+        <div id="sharePicImgBox" class="rowitem-c rel" data-width="<{$data['imgs'][0]['width']}>"> <{/if}>
+          <{if $gdid>0}> 
+          <!--商品-->
+          <div class="swiper-container" id="sliderbox_view">
+            <div class="swiper-wrapper baguetteBoxOne" id="slide_01_view"> <{foreach $goods_infor.imgs as $k=>$v}>
+              <div class="swiper-slide"><a href="<{$v.b}>"><img src="<{$v.b}>" /></a></div>
+              <{/foreach}> </div>
+            <div class="swiper-pagination slide_01_dot_view"></div>
+          </div>
+          <{/if}>
+        </div>
+        <{if $gdid>0}>
+        <div class="sharetext protile">
+          <p class="f16 color-333 line20"><{$goods_infor.gdname}></p>
+          <p class="color-red f21 font-a"><{$currency.exrtitle}>&nbsp;<{$goods_infor.priv_price}>&nbsp;<{if $goods_infor.priv_price_ini>0}><span class="f14 color-999 market"><{$currency.exrtitle}><{$goods_infor.priv_price_ini}></span><span class="f12 ml-5 bg-f13e3a market-zhe"><{$goods_infor.priv_price_rate}>折</span><{/if}><{if $goods_infor.status==1 and $goods_infor['activity_bsh']==4}><span class="f12 ml-5 bg-fc9b00 market-zhe">返 <{$currency.exrtitle}><{$goods_infor['money_act']}></span><{/if}><span class="f12 ml-5 bg-00a0e8 market-zhe">包邮</span><{if $goods_infor['iscod']}><span class="f12 ml-5 bg-8206eb market-zhe">货到付款</span><{/if}><{if $goods_infor.status==1 and $goods_infor.activity_bsh==5}><span class="f12 ml-5 bg-f13e3a market-zhe">0元试穿</span><{/if}></p>
+        </div>
+        <div class="proinfo" style="margin:0; border-top:none">
+          <ul>
+            <li class="btn-cuscom"  data-type="buy" style="height:50px; line-height:50px"> <span class="fr ico ico-jt" style="margin-top:17px"></span> <span class="ico-coms ico-color"></span> 个性定制选择：颜色，尺码，领型，腰型... </li>
+          </ul>
+        </div>
+        <{/if}>
+        
+        <{if $gdid>0}>
+        	<div class="rowitem-b">
+              <ul class="rowbox">
+                <{if $data.islike == 0}>
+                <li class="row-flex1 btn-praise" data-like="0"><span class="ico ico-zhan"></span><span class="btn-praise-text">赞TA</span></li>
+                <{else}>
+                <li class="row-flex1 btn-praise current" data-like="1"><span class="ico ico-zhan"></span><span class="btn-praise-text">已赞TA</span></li>
+                <{/if}>
+                <li class="row-flex1 li-line-l btn-repeat" data-bigimgUrl="<{$data['imgs'][0]['b']}>" data-title="<{$data['description']|escape:'html'}>"><span class="ico ico-share"></span><{$lang['sns_inc_share_item_share']}></li>
+                <{if $data.isme==1}>
+                <li class="row-flex1 li-line-l btn-edit" data-shid="<{$data['shid']}>"  data-boradid="<{$data['ucatid']}>"> <span class="ico ico-sent"></span>编辑 </li>
+                <{else}>
+                <{if $shid>0}>
+                <li class="row-flex1 li-line-l btn-addpl" data-type="view" data-num="5"> <span class="ico ico-sent"></span>评论 </li>
+                <{/if}>
+                <{/if}>
+                <{if $data['gpid']>0}>
+                <li class="row-flex1 li-line-l"> <a href="/user_group/home.html?gpid=<{$data['gpid']}>"> <span class="ico ico-more"></span><span>进群>></span> </a> </li>
+                <{/if}>
+              </ul>
+            </div>
+            <{if $goods_comment}>
+            <ul class="jsbox" style="display:">
+              <li class="h2_tile"><a href="/goods/comment_list.html?gdid=<{$gdid}>" class="block">宝贝评论(<{$total_comment}>)</a></li>
+              <li class="line20 item">
+                <div class="pl_t mb-5 rowbox">
+                  <div class="avatar w30 mr-5"> <img src="<{$goods_comment['avatar'][2]}>" data-original="<{$goods_comment['avatar'][1]}>" class="avatar_lazy userThumb" /> </div>
+                  <div class="row-flex1 line30"><{$goods_comment.uname}></div>
+                </div>
+                <div class="pl_cont mb-10">
+                  <div class="pl_cont_text mb-10"><{$goods_comment.comment}></div>
+                  <{if $goods_comment.pics}>
+                  <div class="pl_cont_img rowbox"> <{foreach $goods_comment.pics as $key2=>$val2}> <a href="http:<{$val2}>"><img class="up-img" src="http:<{$val2}>_40x40.jpg" /></a> <{/foreach}> </div>
+                  <{/if}> </div>
+                <div class="pl_b"> <{$goods_comment.edttime_txt}> <{$goods_comment.color_size}> </div>
+              </li>
+              <li class="text-center f16"><a href="/goods/comment_list.html?gdid=<{$gdid}>" class="block">查看更多评论</a></li>
+            </ul>
+            <{/if}>
+            <div class="text-center jsbox">
+              <h2 class="line36 b color-777 mb-10" style="border-bottom:#e5e5e5 solid 1px">百享保证</h2>
+              <div class="rowbox line20 mb-10">
+                <div class="row-flex1"> <span class="b_ico b_ico_zhi"></span>
+                  <p>质量保证</p>
+                </div>
+                <div class="row-flex1"> <span class="b_ico b_ico_tui"></span>
+                  <p>7天退货</p>
+                </div>
+                <div class="row-flex1"> <span class="b_ico b_ico_bu"></span>
+                  <p>退货补贴运费</p>
+                </div>
+              </div>
+            </div>
+            <{if $adv.pic_1}>
+            <div class="text-center jsbox">
+                <a href="<{$adv.pic_1.0.link}>"><img src="<{$adv.pic_1.0.src}>" /></a>
+            </div>
+            <{/if}>
+            <ul class="jsbox">
+              <li class="rowbox" style="border:none; padding-bottom:0"> <a href="/share/myshares.html?fsuid=<{$data['user']['suid']}>">
+                <div class="rowbox avatar useravatar_bg w50 mr-5 mt-15"> <img src="<{$data['user']['avatar'][2]}>" data-original="<{$data['user']['avatar'][1]}>" class="avatar_lazy userThumb" alt="<{$data['user']['uname']}>" title="<{$data['user']['uname']}>"> </div>
+                </a>
+                <div class="row-flex1 avatar-text line20 mt-10">
+                  <div class="commenterWrapper rowbox"> <a class="color-blue row-flex1 mr-5" href="javascript:void(0);" data-fsuid="<{$data['user']['suid']}>" data-fuid_uname="<{$data['user']['uname']}>"><{$data['user']['uname']}></a> <{if $data['user']['identify_info']}>
+                    <div class="color-555"> <span class="ico ico-vip" title="设计师"></span> <span class="f12 color-gray" title="设计师">设计师</span> </div>
+                    <{/if}> </div>
+                  <div class="f12">分享：<{$data['user']['sharenum']}>&nbsp;&nbsp;粉丝：<{$data['user']['followernum']}></div>
+                </div>
+                <div class="f12 text-left line30"> <a href="/b_goods/mygdshares.html?fsuid=<{$data['user']['suid']}>">
+                  <button class="btn btn-border btn-s w100" style="letter-spacing:0px;">查看TA设计</button>
+                  </a>
+                  <p class="blank0"></p>
+                  <{if $data['user']['isfollow'] == 1}>
+                  <button class="row-flex1 btn btn-border btn-s w100 followBtn current" data-text="1" data-fsuid="<{$data['user']['suid']}>" data-type="person" data-follow="<{$data['user']['isfollow']}>" style="letter-spacing:0px;"><span class="text"><{$lang['sns_inc_share_item_have_follow']}></span></button>
+                  <{else}>
+                  <button class="row-flex1 btn btn-border btn-s w100 followBtn"  data-text="1" data-fsuid="<{$data['user']['suid']}>" data-type="person" data-follow="<{$data['user']['isfollow']}>" style="letter-spacing:0px;"><span class="text"><{$lang['sns_inc_share_item_follow']}></span></button>
+                  <{/if}> </div>
+              </li>
+              <p class="blank5"></p>
+            </ul>
+            <{if $adv.pic_2}>
+            <div class="text-center jsbox">
+                <a href="<{$adv.pic_2.0.link}>"><img src="<{$adv.pic_2.0.src}>" /></a> 
+            </div>
+            <{/if}>
+            <ul class="jsbox" id="tjcp_list_box">
+              <li class="h3_title">猜你喜欢的</li>
+              <li style="padding-top:10px">
+                <dl id="tjcp_list" class="tjcp_list" data-url="<{$relation_url}>&page_size=9&tpl=inc_share_item_tj&gdid=<{$gdid}>">
+                </dl>
+              </li>
+            </ul>
+        <{else}>
+        	<{foreach $data['imgs'] as $img}>
+            <div class="imgtag rel <{if $img@index > 0}>mt-10<{/if}>" data-width="<{$img['width']}>"> 
+              <img class="shareimg" src="<{$img['b']}>" /> 
+              <{foreach $img.tagsay as $v}>
+              <div class="fade item-tag" data-val="1" data-left="<{$v['imgx']}>" data-top="<{$v['imgy']}>" style="left: <{$v['imgx']}>px; top: <{$v['imgy']}>px;"> <span class="item-tag-label"></span> <span class="ico ico-stag"></span>
+                <div class="item-tag-form" style="width:auto;"> <a href="/m_search/search.html?t=tagsay&s=<{$v['tagtxt']|escape:'url'}>" title="<{$v['tagtxt']|escape:'html'}>">
+                  <div class="tip"><span><{$v['tagtxt']|escape:'html'}></span></div>
+                  </a> </div>
+              </div>
+              <{/foreach}>
+              <{foreach $img.tagplace as $v}>
+              <div class="fade item-tag" data-val="1" data-left="<{$v['imgx']}>" data-top="<{$v['imgy']}>"  style="left: <{$v['imgx']}>px; top: <{$v['imgy']}>px;"> <span class="item-tag-label"></span> <span class="ico ico-sPlace"></span>
+                <div class="item-tag-form" style="width:auto;"> <a href="/m_search/search.html?t=tagplace&s=<{$v['tagtxt']|escape:'url'}>" title="<{$v['tagtxt']|escape:'html'}>">
+                  <div class="tip"><span><{$v['tagtxt']|escape:'html'}></span></div>
+                  </a> </div>
+              </div>
+              <{/foreach}>
+              <{foreach $img.tagperson as $v}>
+              <div class="fade item-tag" data-val="1" data-left="<{$v['imgx']}>" data-top="<{$v['imgy']}>"  style="left: <{$v['imgx']}>px; top: <{$v['imgy']}>px; "> <span class="item-tag-label"></span> <span class="ico ico-sPeople"></span>
+                <div class="item-tag-form" style="width:auto;"> <{if $v['link_suid'] neq 0}> <a href="/share/myshares.html?fsuid=<{$v['link_suid']}>"> <{else}> <a href="/m_search/search.html?t=tagperson&s=<{$v['tagtxt']|escape:'url'}>" title="<{$v['tagtxt']|escape:'html'}>"> <{/if}>
+                  <div class="tip"><span><{$v['tagtxt']|escape:'html'}></span></div>
+                  </a> </div>
+              </div>
+              <{/foreach}> 
+            </div>
+            <{/foreach}>
+            <div class="rowitem-b">
+              <ul class="rowbox">
+                <{if $data.islike == 0}>
+                <li class="row-flex1 btn-praise" data-like="0"><span class="ico ico-zhan"></span><span class="btn-praise-text">赞TA</span></li>
+                <{else}>
+                <li class="row-flex1 btn-praise current" data-like="1"><span class="ico ico-zhan"></span><span class="btn-praise-text">已赞TA</span></li>
+                <{/if}>
+                <li class="row-flex1 li-line-l btn-repeat" data-bigimgUrl="<{$data['imgs'][0]['b']}>" data-title="<{$data['description']|escape:'html'}>"><span class="ico ico-share"></span><{$lang['sns_inc_share_item_share']}></li>
+                <{if $data.isme==1}>
+                <li class="row-flex1 li-line-l btn-edit" data-shid="<{$data['shid']}>"  data-boradid="<{$data['ucatid']}>"> <span class="ico ico-sent"></span>编辑 </li>
+                <{else}>
+                <{if $shid>0}>
+                <li class="row-flex1 li-line-l btn-addpl" data-type="view" data-num="5"> <span class="ico ico-sent"></span>评论 </li>
+                <{/if}>
+                <{/if}>
+                <{if $data['gpid']>0}>
+                <li class="row-flex1 li-line-l"> <a href="/user_group/home.html?gpid=<{$data['gpid']}>"> <span class="ico ico-more"></span><span>进群>></span> </a> </li>
+                <{/if}>
+              </ul>
+            </div>
+            <{if $tags}>
+            <div class="description mt-10"> 
+                <span><{$lang['sns_shares_view_tags']}>：</span> 
+                <{foreach $tags as $tags_val}> 
+                <span>
+                <a href="/m_search/search.html?t=goods&s=<{$tags_val|escape:'url'}>"><{$tags_val|escape:'html'}></a> <{if (! $tags_val@last) }>&nbsp;&nbsp;<{/if}> 
+                </span> 
+                <{/foreach}> 
+            </div>
+            <{/if}>
+            <{if $group_rec}>
+            <p class="blank10"></p>
+            <div class="rowbox start-tjbox">
+              <div class="ml-5 mr-10" style="line-height:60px">明星推荐群：</div>
+              <div class="row-flex1"> <{foreach $group_rec as $v_group}> <a href="/user_group/home.html?gpid=<{$v_group.gpid}>&ch=samestyle">
+                <dd class="text-center">
+                  <div class="avatar-start"> <img src="<{$v_group['avatar'][2]}>" data-original="<{$v_group['avatar'][1]}>" class="avatar_lazy userThumb"> </div>
+                  <p><{$v_group['gpname']}></p>
+                </dd>
+                </a> <{/foreach}> </div>
+            </div>
+            <{/if}>
+            <ul class="jsbox" style="display:" id="commentslist" data-shareid="<{$data['shid']}>">
+              <div style="display:none">
+                <img class="avatar_lazy" src="<{$avatar[2]}>" data-original="<{$avatar[1]}>" data-username="<{$uname}>" id="useravatar" />
+              </div>
+              <li class="h2_tile">
+              	<a href="#" class="block">评论(<{$data['count']['commentnum']}>)</a>
+              </li>
+              <li id="firstitem" class="line20 recommtbtn" data-fuid_uname="<{$data['user']['uname']|escape:'html'}>">
+                <div class="pl_t mb-5 rowbox">
+                  <div class="avatar w30 mr-5">
+                  	<img src="<{$data['user']['avatar'][2]}>" data-original="<{$data['user']['avatar'][1]}>" class="avatar_lazy userThumb" alt="<{$data['user']['uname']|escape:'html'}>" title="<{$data['user']['uname']|escape:'html'}>"/>
+                  </div>
+                  <div class="row-flex1 line30"><{$data['user']['uname']|escape:'html'}><span class="color-999"> • <{$data['edttime_txt']}></span></div>
+                </div>
+                <div class="pl_cont mb-10">
+                  <div class="pl_cont_text mb-10"><{$data['description']}></div>
+                </div>
+              </li>
+            </ul>
+        <{/if}> 
+    </div>
+    
+    <{if ($shid>0) && $datalist}>
+    <h2 class="text-center line40">明星同款推荐</h2>
+    <div id="masonry-tj" class="masonry larger-view"> <{include file="inc_share_item.html"}> </div>
+    <div class="pager"> <span class="pager-next"><a href="<{$request_url}>"></a></span> </div>
+    <{/if}>
+    
+    <{if $gdid>0}>
+    <input type="hidden" id="goods" value="1" />
+    <!--商品描述-->
+    <div id="goodsdescbox" class="proinfo goodsdescbox">
+      <h2 class="goodsdesc-title">图文详情</h2>
+      <div class="goodsdesc"><{$goods_infor['goodsdesc']}></div>
+    </div>
+    <{/if}> 
+  </div>
+  <{if $gdid>0}>
+  <input type="hidden" id="gdid" value="<{$gdid}>" />
+  <div class="buyfooter">
+    <div class="rowbox footerbox f12 btn-buy" style="border-top:#f2f2f2 solid 1px">
+      <div class="line20 pt-10 w60" style="border-right:#f2f2f2 solid 1px"> <a href="/message/msgbox.html?tosuid=<{$data['good']['suid']}>&gdid=<{$gdid}>" class="block"> <span class="ico ico-kefu"></span>
+        <p class="text-ell">客服</p>
+        </a> </div>
+      <{if $goods_infor.cut_ok}>
+      <div class="row-flex1 btn-0359db f16 btn-cuscom" style="width:auto" data-type="bargain" data-money="<{$goods_infor.money_act}>" data-isfirst="<{$goods_infor.cut_isfirst}>">马上砍价</div>
+      <{/if}>
+      <{if $goods_infor.status==1 and $goods_infor.activity_bsh==5}>
+      <div class="row-flex1 btn-e15a99 f16 btn-cuscom" style="width:auto" data-type="tryon" data-istryon="<{$money_act}>">我要试穿</div>
+      <{/if}>
+      <{if $goods_infor.status==1 and $goods_infor.activity_bsh==2}>
+      <div class="row-flex1 btn-7a1786 f16 btn-cuscom" style="width:auto" data-type="crowd" data-iszc="<{$num_raise_ing}>">立即众筹</div>
+      <{/if}>
+      <{if $goods_infor.status==1}>
+      <div class="row-flex1 btn-ff9402 btn-cuscom f16" style="width:auto" data-type="addcart">加入购物车</div>
+      <div class="row-flex1 btn-ff5000 btn-cuscom f16" style="width:auto" data-type="buy">立即定制</div>
+      <{else}>
+      <div class="row-flex1 btn-pri-buy btn-pri-gray" style="width:auto">已经下架</div>
+      <{/if}> </div>
+  </div>
+  <{/if}>
+</div>
+<div id="sns_pltip" class="tipbox tipbox_fixed_bottom" data-index="0" style="z-index:99999; display:none"> <span class="ico02 tipclose closeBtnHtml" style="z-index:9999"></span>
+  <form id="sns_plform" class="addCommentForm" method="post">
+    <div class="tipbox-in" data-index="0">
+      <div class="tipcont tipcontbox">
+        <div>
+          <div class="mbar fl" id="mbar">
+            <button type="button" class="b_ico ico-bq"></button>
+          </div>
+          <div class="fl ml-5"> <span class="b_ico ico-pic add-share"></span> </div>
+          <div class="blank0"></div>
+        </div>
+        <div id="meditor" class="mcont rowbox">
+          <div id="bqbox" class="bqbox"> <span class="ico02 ico-bqjt"></span> </div>
+          <div class="row-flex1 pl_text">
+            <input id="meditortxt" class="myeditable" name="comment" placeholder="<{$lang['sns_shares_view_addcomment']}>" style="display:none" data-validate="isempty" />
+          </div>
+          <button class="btn commentBtn w80" type="button" style="padding:10px 5px"> 发送 </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<{if !$pjax}>
+<{include file="footer_comm_new.html"}> 
+<script data-main="<{$static_url}>/moblie/app/js/shareView.js" src="<{$static_url}>/moblie/app/require.js"></script>
+</body>
+</html><{/if}>

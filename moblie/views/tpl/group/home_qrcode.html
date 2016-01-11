@@ -1,0 +1,42 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    
+    <{include file="group/home_comm.html"}>
+    
+    <div class="userbox-cont">
+      <ul class="rowbox user-c-dh h3_title">
+        <li class=""><a href="/user_group/home.html?gpid=<{$gpid}>&ch=share">群的分享</a></li>
+        <li class="current"><a href="/user_group/home.html?gpid=<{$gpid}>&ch=qrcode">群聊</a></li>
+      </ul>
+    </div>
+    <div>
+        <ul class="jsbox">
+        	<li>长按图片并识别二维码，进入明星群,嗨聊！</li>
+            <li style="padding:10px 0" class="text-center">
+            	<img src="<{$user_group['qrcode'][2]}>" data-original="<{$user_group['qrcode'][1]}>" class="avatar_lazy qrcodeimg">
+            </li>
+        </ul>
+    </div>
+    
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+    <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+  <div id="masonry" class="masonry">
+  <{foreach $orderlist as $key=>$val}>
+    <ul class="jsbox item rowitem">
+      <li class="h3_title">
+      	<a class="rowbox" href="/mybuys/myorder.html?orderfid=<{$val['orderfid']}>&orderid=<{$val['orderid']}>">
+      	<div class="row-flex1 w60 color-red"><{$val['status_txt']}></div>
+        <div class="row-flex1 text-right">
+        <{if $val['status_pay']==1}>支付单号：<{$val['orderfid']}><{else}><{$lang['buy_orderno']}>：<{$val['orderid']}><{/if}>
+        </div>
+        <!--div class="ico ico-delete ml-10"></div-->
+        </a>
+      </li>
+      
+      <{foreach $val['goods'] as $key2=>$val2}>
+      
+      <li class="orderinfo">
+      	<a class="rowbox" href="/mybuys/myorder.html?orderfid=<{$val['orderfid']}>&orderid=<{$val['orderid']}>">
+      	<div class="cartimg w70 mr-10">
+            <img src="<{$val2['img']}>" />
+        </div>
+        <div class="cartinfo row-flex1">
+            <h3 class="color-333">
+                <{if $val2['tuanid']>0}><span class="order_type">团</span><{/if}>
+                <{$val2['gdname']}>
+            </h3>
+            <div class="color-777">
+              <span><{$lang['buy_color']}>：</span><span class="color-333 mr-10"><{$val2['color'][1]}><{if $val2['color'][2]}>（<{$val2['color'][2]}>）<{/if}></span>
+              <span><{$lang['buy_size']}>：</span><span class="color-333"><{$val2['size'][1]}><{if $val2['size'][2]}>（<{$val2['size'][2]}>）<{/if}></span>
+            </div>
+            <div class="color-777">
+              <span class="mr-10">X <{$val2['num']}></span>
+              <span class="mr-10"><{$val2['exrtitle']}><{$val2['price']}>&nbsp;<{$val2['exrcode']}></span>
+            </div>
+        </div>
+        </a>
+      </li>
+      
+      <{/foreach}>
+      <li class="rowbox ">
+      	<div class="row-flex1 f18 color-333">
+        	<{$val['exrtitle']}><{$val['ordertotal']}>&nbsp;<span class="f12 color-777"><{$val['exrcode']}></span>
+        </div>
+        <!--订单操作-->
+        <div class="row-flex2 text-right">
+        <{foreach $val['useract'] as $key2=>$val2}>
+        <{if $val2['act']=='topay'}>
+        	<a href="/myorder/paymentlist.html?orderid=<{$val['orderid']}>"><span class="spanbtn"><{$val2['title']}></span></a>
+        <{elseif $val2['act']=='topay_tryon'}><!--支付穿后补差-->
+        <a href="/m_tryon/topay.html?orderid=<{$val['orderid']}>"><span class="spanbtn"><{$val2['title']}></span></a>
+        <{elseif $val2['act']=='shouhou'}>
+            <a href="/mybuys/myorder.html?orderid=<{$val['orderid']}>&orderfid=<{$val['orderfid']}>#goodslist"><span class="spanbtn"><{$val2['title']}></span></a>
+        <{elseif $val2['act']=='shippingstep'}>
+            <a href="/mybuys/shipping_step.html?orderid=<{$val['orderid']}>"><span class="spanbtn"><{$val2['title']}></span></a>
+        <{else}>
+            <span class="spanbtn order-act-btn" data-ch="order" data-act="<{$val2['act']}>" data-orderid="<{$val['orderid']}>" data-orderfid="<{$val['orderfid']}>"><{$val2['title']}></span>
+        <{/if}>
+        <{/foreach}>
+      </li>
+    </ul>
+    <{/foreach}>
+
+    </div>
+    <div class="pager">
+       <span class="pager-next"><a href="/mybuys/myorders.html?page=1"></a></span>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+</div>
+  <div style="display:none"><{$pagehtml}></div>
+</div>
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({order:1,flag:0});	
+	
+	//订单操作
+	
+	
+})
+</script>
+</body>
+
+</html>

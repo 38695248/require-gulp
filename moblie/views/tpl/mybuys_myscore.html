@@ -1,0 +1,68 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">
+    <ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_mybuys_myscore_total']}>
+        </div>
+        <div class="row-flex1 text-right color-red"><{$currency['exrtitle']}><{$userscore['data']['score']}>&nbsp;<{$currency['exrcode']}></div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_status']}>
+        </div>
+        <div class="row-flex1 text-right color-red"><{if !$userscore['status']}><{$lang['buy_mybuys_myscore_frozen']}><{else}><{$lang['buy_mybuys_myscore_normal']}><{/if}></div>
+      </li>
+      <li>
+          <a href="/theme/view.html?id=9" class="rowbox">
+          <div class="row-flex1">
+              &nbsp;享金使用方法
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+      </li>
+      <li>
+          <a href="/m_buy/index.html" class="rowbox">
+          <div class="row-flex1">
+              &nbsp;立即使用
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+      </li>
+    </ul>
+    <{if $datalist}>
+    <ul id="masonry" class="jsbox masonry">
+    	<{foreach $datalist as $key=>$val}>
+    	<li class="item">
+        	<div class="row-flex1"><span class="color-red fr"><{if $val['type']==1}>+<{else}>-<{/if}>&nbsp;<{$currency['exrtitle']}><{$val['score']}></span><{$val['edttime_txt']}></div>
+            <div class="row-flex1">
+            	<{$val['desc_txt']}>
+            </div>
+        </li>
+       <{/foreach}>
+    </ul>
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+    </div>
+    <{/if}>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

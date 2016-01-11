@@ -1,0 +1,31 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox">
+    <div class="blank10"></div>
+    <{include file="group/popular_icon.html"}>
+    
+    <ul id="masonry" class="masonry jsbox grouplist" style="line-height:20px;">
+      <{include file="group/inc_group.html"}>
+    </ul>
+    <div class="pager">
+       <span class="pager-next"><a href="<{$pageurl}>"></a></span> 
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="<{if $mod_page}>1<{else}>0<{/if}>" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

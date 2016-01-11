@@ -1,0 +1,44 @@
+<div id="reportTip" class="tipbox fade" data-index="0">
+	<form id="reportFrom" method="post">
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['sns_snsreport_thanks']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont" style="padding:20px 30px">
+            <h2 class="f16 mb-10"><{$lang['sns_snsreport_title']}></h2>
+            <ul class="reportList">
+            	<li>
+                    <input data-role="none" name="reason" type="radio" id="spam" value="<{$lang['sns_snsreport_desc1']}>" checked="checked">
+                    <label for="spam" class="labradio"><{$lang['sns_snsreport_desc1']}></label>
+                </li>
+                <li>
+                    <input data-role="none" type="radio" value="<{$lang['sns_snsreport_desc2']}>" name="reason" id="nudity">
+                    <label for="nudity" class="labradio"><{$lang['sns_snsreport_desc2']}></label>
+                </li>
+                <li>
+                	<input data-role="none" type="radio" value="<{$lang['sns_snsreport_desc3']}>" name="reason" id="graphic-violence"><label for="graphic-violence" class="labradio"><{$lang['sns_snsreport_desc3']}></label>
+                </li>
+                <li class="rowbox">
+                    <input data-role="none" type="radio" value="<{$lang['sns_snsreport_desc4']}>" name="reason" id="self-harm"><label for="self-harm" class="labradio"><{$lang['sns_snsreport_desc4']}></label>
+                </li>
+                <li class="rowbox">
+                    <input data-role="none" type="radio" value="<{$lang['sns_snsreport_desc5']}>" name="reason" id="attacks"><label for="attacks" class="labradio"><{$lang['sns_snsreport_desc5']}></label>
+                </li>
+                <li class="rowbox">
+                    <input data-role="none" type="radio" value="<{$lang['sns_snsreport_desc6']}>" name="reason" id="hate-speech"><label for="hate-speech" class="labradio"><{$lang['sns_snsreport_desc6']}></label>
+                </li>
+            </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['sns_snsreport_cancel']}></span>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                    <span class="buttonText butttonsubmit"><{$lang['sns_snsreport_submit']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

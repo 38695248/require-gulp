@@ -1,0 +1,127 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+     
+  </div>
+  
+  <div data-role="content" class="contentbox">
+  	<ul class="jsbox item rowitem">
+      <li class="rowbox mb-10">
+        <div class="row-flex1 w60">
+            <p class="line30">服务单号：<{$ordercancel.ccid}></p>
+            <p class="line20 mb-5">订单编号：<{$ordercancel.orderid}></p>
+        </div>
+        <!--售后按钮-->
+        <div class="row-flex1 text-right mt-5">
+        	申请时间：<{$ordercancel['addtime_txt']}>
+        </div>
+      </li>
+      <!--商品-->
+      <li class="ordercancel rowbox">
+            <div class="cartimg w70 mr-10">
+                <a href="/share/sharepage.html?gdid=<{$ordercancel['gdid']}>" data-role="none" rel="external"><img src="<{$ordercancel['gdpic']}>" /></a>
+            </div>
+            <div class="cartinfo row-flex1">
+                <h3 class="color-333">
+                    <{$ordercancel['gdname']}>
+                </h3>
+                <div class="color-777">
+                	<span class="mr-10">申请数量：<{$ordercancel['num']}></span>
+                    <{if $ordercancel['type']==3}><span class="mr-10">申请金额：<{$currency['exrtitle']}><{$ordercancel['total_user']}><{$currency['exrcode']}><{/if}></span>
+                </div>
+            </div>
+      </li>
+      <!--状态，操作-->
+      <li class="rowbox">
+        <div class="row-flex1">状态：<span class="color-red"><{$ordercancel['status_txt']}></span></div>
+        <div class="text-right">
+        	<{foreach $ordercancel.useract as $key2=>$val2}>
+        	<span class="spanbtn order-act-btn" data-ch="aftersales" data-ccid="<{$ordercancel['ccid']}>" data-orderfid="<{$ordercancel['orderfid']}>" data-orderid="<{$ordercancel['orderid']}>" data-ogid="<{$ordercancel['ogid']}>" data-gdid="<{$ordercancel['gdid']}>" data-act="<{$val2['act']}>" data-num="<{$ordercancel['num']}>" data-price="<{$ordercancel['price']}>"><{$val2['title']}></span>
+            <{/foreach}>
+        </div>
+      </li>
+    </ul>
+    <!--退款方式-->
+  	<ul class="jsbox">
+    	<li class="h2_title">退款方式</li>
+        <li><{$lang['buy_mybuys_myrefunds_total']}>：<{$currency['exrtitle']}><{$ordercancel['total']}>&nbsp;<{$currency.exrcode}></li>
+        <li>其中退回<{$lang['buy_score']}> ：<{$currency['exrtitle']}><{$ordercancel['score']}>&nbsp;<{$currency.exrcode}></li>
+        <li>其中退回<{$lang['buy_shmoney']}> ：<{$currency['exrtitle']}><{$ordercancel['shmoney']}>&nbsp;<{$currency.exrcode}></li>
+    </ul>
+    <!--商品处理方式-->
+    <ul class="jsbox">
+    	<li class="h2_title">商品处理方式</li>
+        <li><{$ordercancel['type_txt']}></li>
+    </ul>
+    <!--取消原因-->
+    <ul class="jsbox">
+    	<li class="h2_title">取消原因</li>
+        <li><{$ordercancel['resontxt']}></li>
+    </ul>
+  	<ul class="jsbox">
+    	<li class="h2_title">问题描述</li>
+        <li class="line20 mt-10 mb-10"><{$ordercancel['txt']}></li>	
+    </ul>
+    <!--凭证图片-->
+    <ul class="jsbox">
+    	<li class="h2_title">凭证图片</li>
+        <{if $ordercancel['proveimg']}>
+        <li class="line20 mt-10 mb-10">
+            <a href="<{$ordercancel['proveimg']}>" data-role="none" rel="external"><img src="<{$ordercancel['proveimg']}>?imageView2/0/w/236/h/300|imageMogr2/auto-orient"  style="width:150px" /></a>
+        </li>
+        <{else}>
+        <li class="line20 mt-10 mb-10">无</li>	
+        <{/if}>	
+    </ul>
+    
+    <!--跟踪信息-->
+    <{if $ordercancel['isdone']!=1}>
+    <ul class="jsbox"> 
+      <li style="padding-bottom:5px">
+        <div class="h2_title">
+        	问题留言
+        </div>
+        <div class="row-flex1 mb-5">
+           <form id="orderquestion">
+             <textarea name="txt" id="txt" class="fr" maxlength="1000" data-validate="isempty"></textarea>
+             <input type="hidden" value="<{$ordercancel['ccid']}>" name="ccid">
+            <p class="blank10"></p>
+            <button type="submit" class="btn btn-danger w100e line24" style="margin:0"><{$lang['buy_button_submit']}></button>
+        </form>
+        </div>
+      </li>
+    </ul>
+    <{/if}>
+  	<ul class="jsbox">
+    	<li class="h2_title">
+        	跟踪信息
+        </li>
+        <div id="messageList">
+    	<{foreach $ordercancel['qaslist'] as $key=>$val}>
+    	<li class="line24 mt-10 mb-10">
+        	<p>时间：<span class="color-333"><{$val['edttime_txt']}></span> 操作：<span class="color-333"><{if $val['suid']>0}><{$cmm_msg_yourself}><{elseif $val['admsuid']>0}><{$cmm_msg_admin}>:<{$val['admsname']}><{/if}></span></p>
+        	<p><{$val['txt']}></p>
+        </li>
+    	<{/foreach}> 
+        </div>
+    </ul>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+	MyShare.myshareBase({mod:'aftersales'});	
+})
+</script>
+</body>
+
+</html>

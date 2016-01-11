@@ -1,0 +1,168 @@
+<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/jquery-ui.css?v=<{$v_css_js}>">
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/dz.css?v=<{$v_css_js}>">
+<body>
+<div id="bodywidth"></div>
+<div id="fxpage_user" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <div class="rowbox searchbox"> 
+      <div class="top_l">
+          <a href="javascript:void(0);" id="toggle-switch" class="toggle-switch mylist" data-role="none" rel="external"> 
+            <span class="ico ico-list"></span>
+          </a>
+      </div>
+      <div class="row-flex1 text-center h2_title" style="white-space:nowrap;  overflow:hidden"><span>百享T恤定制中心</span></div>
+      <div class="top_r">
+          <a href="/myorder/mycart.html" calss="rel">
+            <span class="b_ico ico-cart"></span>
+            <span class="cartItemnum" id="cartItemnum"></span>
+            </a>
+       </div>
+    </div>
+  </div>
+  <div class="contentbox" style="padding:42px 0 40px 0; height:100%">
+    <div id="dz-product-box">
+      <div id="product-positive" class="dz-product" style="background-image:url(<{$static_url}>/moblie/images/activity/bg/front-female-ffffff.jpg); background-repeat:no-repeat; background-position:center 0;background-size:cover" data-w="750" data-h="980" data-key="front-female-ffffff.jpg">
+      	<div id="printdata" style="display:none">
+          	<input type="hidden" name="printableColor" id="printableColor" value="ffffff" data-sub="" data-title="白色">
+            <input type="hidden" name="selectSize" id="selectSize" data-sub='' value="">
+          	<input type="hidden" name="printableGdid" id="printableGdid" value="936" data-type="female" data-tuanid="334" data-buynum="1">
+            <input type="hidden" name="domain" id="domain" value="">
+            <input type="hidden" name="aroundVal" id="aroundVal" value="front">
+            <input type="hidden" name="front_bg" id="front_bg" value="front-female-ffffff.jpg">
+            <input type="hidden" name="back_bg" id="back_bg" value="back-female-ffffff.jpg">
+        </div>
+        <div id="printableArea" class="printableArea" data-w="250" data-h="360">
+        </div>
+        <div id="aroundselect" class="aroundselect">
+        	<span class="front current" data-aroundval="front">前</span>
+            <span class="back" data-aroundval="back">后</span>
+            <span class="left" data-aroundval="left" style="display:none">左</span>
+            <span class="right" data-aroundval="right" style="display:none">右</span>
+        </div>
+      </div>
+    </div>
+    <div id="uploader" style="display:none">
+      <div class="queueList">
+        <div id="dndArea" class="placeholder rowbox">
+          <div class="webuploader-container" id="filePicker"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footerbox" style="overflow:visible; padding:0">
+    <div class="rowbox footerbox-in" id="defaultMenu">
+      <div class="row-flex1 mt-5" id="help-btn"> <span class="ico-help"></span>
+        <p>帮助</p>
+      </div>
+      <div class="row-flex1 footerMenu selectStyle mt-5" data-type="selectStylebox"> <span class="ico-selectStyle"></span>
+        <p>选择款式</p>
+      </div>
+      <div class="row-flex1 dzUpload" style="margin:0"> 
+        <div id="container">
+        	<div  id="pickfiles">
+                <span class="ico-uppic"></span>
+                <p style="font-size:16px">上传图片</p>
+            </div>
+            <input id="html5_19nttuvqn1oev1g2e1f94f88ke3" type="file" style="font-size:999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple accept="">
+        </div>
+        
+      </div>
+      <div class="row-flex1 footerMenu selectColor mt-5" data-type="selectColorbox"> <span class="ico-selectColor"></span>
+        <p>颜色尺码</p>
+      </div>
+      <div class="row-flex1 mt-5" id="next-btn"> <span class="ico-next-btn"></span>
+        <p>购买</p>
+      </div>
+    </div>
+    <div class="footerbox-in pdefaultMenu" id="selectStylebox" style="display:none">
+      <div class="selectStyleControls rowbox">
+        <div id="action-styleCancel" class="action-Cancel text-center w60 color-blue"> 取消 </div>
+        <div id="Controls-styletitle" class="Controls-title row-flex1 text-center" data-gdid="2"  data-type="2">女</div>
+        <div id="action-styleAccept" class="action-Accept text-center w60 color-blue"> 确认 </div>
+      </div>
+      <div id="selectStyle" class="selectStyle rowbox"> </div>
+    </div>
+    <div class="footerbox-in pdefaultMenu" id="selectColorbox" style="display:none">
+      <div class="ColorPickerControls rowbox">
+        <div id="action-Cancel" class="action-Cancel text-center w60 color-blue"> 取消 </div>
+        <div id="Controls-title" class="Controls-title row-flex1 text-center">白色</div>
+        <div id="action-Accept" class="action-Accept text-center color-blue mr-5"> 加入购物车 </div>
+      </div>
+      <div class="selectColorSizesbox">
+      	 <div class="rowbox">
+         	<div class="line50">颜色：</div>
+            <div class="row-flex1 selectColorbox" id="selectColors"></div>
+         </div>
+         <div class="rowbox">
+         	<div class="line50">尺码：</div>
+            <div class="row-flex1 selectSizes" id="selectSizes">
+            	
+            </div>
+         </div>
+         <div class="rowbox">
+         	<div class="line36">数量：</div>
+            <div class="row-flex1 num-list selectNums" id="selectNums" style="margin-bottom:10px">
+            	<ul class="row-flex1 buynum plusbox">
+                    <li class="l-rad minus">-</li>
+                    <li class="buynum-input number">
+                    	<span id="buynumbox">1</span>
+                        <input type="hidden" id="buynum" name="buynum" value="1" class="w70">
+                    </li>
+                    <li class="r-rad plus">+</li>
+                </ul>
+            </div>
+         </div>
+         <div class="rowbox">
+         	<div class="line30">当前价格：</div>
+            <div class="row-flex1 color-red line30 text-left">¥39.9</div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--帮助中心-->
+<div id="sns_helpTipbox" class="tipbox" data-index="0" style="display:none; border-radius:0">
+  <div class="tipbox-in">
+    <div class="tipbottom rowbox" style="border-radius:0; height:30px; border-bottom:#ddd solid 1px; padding:3px 10px 10px">
+      <div class="closeBtnHtml"> 
+      	<span class="b_ico ico-back-h"></span> 
+      </div>
+      <div class="row-flex1 text-center line36" style="margin-right:-50px">帮助中心</div>
+      <div class="closeBtnHtml w50"> 
+        <span class="ico02 tipclose" style="margin-top:3px"></span>
+      </div>
+    </div>
+    <div class="tipcont" id="help-cont" style="border-radius:0; overflow:hidden; overflow-y:auto">
+    	<div style="padding:20px; line-height:30px">
+            <p>第一步：选择款式，男款T恤、女款T恤、青少年款T恤，选中后确认；</p>
+            <p>第二步：点击“+”，上传您要定制的一张图片，上传后可以移动、缩放；</p>
+            <p>第三步：选择颜色，选择您喜欢的T恤颜色，选中后确认；</p>
+            <p>第四步：若您不需要图片定制，可以不用上传图片点击”下一步“，按提示点击”确定“即可；</p>
+            <p>第五步：点击“下一步”，进入选择尺码，完成本件定制；</p>
+            <p>第六步：点击“粉丝团定”，进入确认定制页面;</p>
+            <p>第七步：若需要继续定制请点击“继续定制”定制下一件</p>
+            <p>第八步：若无继续定制需要，点击“提交结算”进入付款页面</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--分享提示--> 
+<{include file="footer_comm.html"}> 
+<script src="<{$static_url}>/moblie/js/qiniu/plupload.full.min.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/qiniu/qiniu.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/qiniu/ui.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/jqui/jquery-ui.min.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/jqui/hammer.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/jqui/jquery.ui.touch-punch.min.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/activity/datav2.0.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/dzv2.0.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	dzClass.basedz();
+	dzClass.dzInit();	 
+})
+</script>
+</body>
+</html>

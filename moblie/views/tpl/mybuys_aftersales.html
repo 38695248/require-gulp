@@ -1,0 +1,74 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+     <div class="rowbox fx-nav h3_title">
+     <{if $type>0}>
+        <div class="row-flex1 <{if $type==1}>current<{/if}>"><a href="/mybuys/aftersales.html?type=1">退货记录</a></div>
+        <div class="row-flex1  <{if $type==2}>current<{/if}>"><a href="/mybuys/aftersales.html?type=2">换货记录</a></div>
+        <div class="row-flex1  <{if $type==3}>current<{/if}>"><a href="/mybuys/aftersales.html?type=3">补偿金记录</a></div>
+    <{else}>
+    	<div class="row-flex1 current">商品：<{$gdname}></div>
+    <{/if}>
+    </div>
+  </div>
+  
+  <div data-role="content" class="contentbox">
+  	<div id="masonry" class="masonry">
+    <{foreach $ordercancellist as $key=>$val}>
+        <ul class="jsbox item rowitem">
+          <li class="rowbox">
+            <div class="row-flex1 w60">
+                <p class="line30">服务单号：<{$val['ccid']}></p>
+                <p class="line20 mb-5">订单编号：<{$val['orderid']}></p>
+            </div>
+            <div class="row-flex1 text-right mt-5">
+                <a href="/mybuys/aftersales_view.html?ccid=<{$val['ccid']}>"><span class="spanbtn">进度查询</span></a>
+            </div>
+          </li>
+          <li class="orderinfo rowbox">
+                <div class="cartimg w70 mr-10">
+                    <a href="/share/sharepage.html?gdid=<{$val['gdid']}>"><img src="<{$val['gdpic']}>" /></a>
+                </div>
+                <div class="cartinfo row-flex1">
+                    <h3 class="color-333">
+                        <{$val['gdname']}>
+                    </h3>
+                    <div class="color-777">
+                    	<span class="mr-10">申请数量：<{$val['num']}></span>
+                        <{if $val['type']==3}><span class="mr-10">申请金额：<{$currency['exrtitle']}><{$val['total_user']}><{$currency['exrcode']}><{/if}></span>
+                    </div>
+                </div>
+          </li>
+          <li class="rowbox">
+            <div class="row-flex1">类型：<{$val['type_txt']}>&nbsp;&nbsp;<{$val['addtime_txt']}></div>
+            <div class="text-right">状态：<span class="color-red"><{$val['status_txt']}></span></div>
+          </li>
+        </ul>
+    <{/foreach}>   
+	</div>
+    <div class="pager">
+       <span class="pager-next"><a href="<{$pageurl}>"></a></span>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({order:1,flag:0});	
+	
+	//订单操作
+	
+	
+})
+</script>
+</body>
+
+</html>

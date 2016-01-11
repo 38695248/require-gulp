@@ -1,0 +1,89 @@
+<div id="InviteFriendTipbox" class="tipbox fade" data-index="0" style="display:none;">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><{$lang['sns_invitefriend_title']}><p class="f12"><{$lang['sns_invitefriend_titledesc']}></p></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+            <div class="inviteFriend f12" id="inviteFriendBox">
+                <ul class="header tab">
+                    <li data-tab-index="0">
+                        <div class="tabName active"><{$lang['sns_invitefriend_invitefriend']}></div>
+                    </li>
+                    <li data-tab-index="0" style="display:none">
+                        <div class="tabName active">Facebook friends</div>
+                    </li>
+                    <li data-tab-index="1">
+                        <div class="tabName"><{$lang['sns_invitefriend_inviteemail']}></div>
+                    </li>
+                </ul>
+                <div class="content-main">
+                    <div class="content" style="display:block">
+                        <div class="disconnected" style="padding:30px 30px; text-align:left">
+                        	<p class="text-left f12 color-red"><{$lang['sns_invitefriend_inviteurl']}></p>
+                            <p class="blank10"></p>
+                            <div>
+                            <input data-role="none" type="text" id="invite" name="invite" class="w100e" value="http://www.byshare.com/user/userinfo.html?fsuid=<{$suid}>" onclick="this.focus();this.select();">
+                            <p class="blank10"></p>
+                            <button data-role="none" id="copy-input" type="button" class="btn-danger btn">
+                                <{$lang['sns_invitefriend_copyurl']}>
+                            </button>
+                            </div>
+                            <p class="blank20"></p>
+                            <p class="color-555 line24"><{$lang['sns_invitefriend_copyurldesc']}></p>
+                        </div>
+                    </div>
+                    <div class="content" style="display:none">
+                        <div class="disconnected">
+                            <span class="ico ico-facebookIcon"></span>
+                            <div class="blank20"></div>
+                            <button data-role="none" type="button" class="medium rounded Button hasText Module ajax btn">
+                                <span class="buttonText">Connect with Facebook</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content" style="display:none">
+                        <div class="inviteEmailImage text-center">
+                            <span class="ico02 ico-mailIcon"></span>
+                        </div>
+                        <div class="inviteEmail">
+                            <form id="emailInviteForm" class="standardForm emailInviteForm">
+                                <div class="fl rel mr-10">
+                                    <input data-role="none" type="text" id="Email" name="Email" class="emailInput hasError w320" placeholder="<{$lang['sns_invitefriend_emailaddress']}>" data-validate="Email">
+                                </div>
+                                <button data-role="none" type="submit" class="btn-border btn">
+                                    <span class="buttonText"><{$lang['sns_invitefriend_sendinvite']}></span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="networkConnect gmailConnect">
+                            <em class="ico ico-gmail mr-10"></em>
+                            <span class="networkName">
+                                Gmail
+                            </span>
+                            <button data-role="none" type="button" class="btn-border btn">
+                                <span class="buttonText"><{$lang['sns_invitefriend_emailfriend']}></span>
+                            </button>
+                        </div>
+                        <div class="networkConnect microsoftConnect">
+                            <em class="ico ico-microsoft mr-10"></em>
+                            <span class="networkName">
+                                Hotmail
+                            </span>
+                            <button data-role="none" type="button" class="btn-border btn">
+                                <span class="buttonText"><{$lang['sns_invitefriend_emailfriend']}></span>
+                            </button>
+                        </div>
+                        <div class="networkConnect yahooConnect">
+                            <em class="ico ico-yahoo mr-10"></em>
+                            <span class="networkName">
+                                Yahoo
+                            </span>
+                            <button data-role="none" type="button" class="btn-border btn"> 
+                                <{$lang['sns_invitefriend_emailfriend']}>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

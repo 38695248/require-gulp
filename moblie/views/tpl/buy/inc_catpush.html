@@ -1,0 +1,35 @@
+    <{if $catinfo.pic || $catinfo.pushgoods}>
+  	<div class="cp_tj">
+  	    <{if $catinfo.pic}>
+  	      <div>
+  	       <a href="<{$catinfo.pic.link}>"><img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$catinfo.pic.src}>"/></a>
+  	      </div>
+  	    <{/if}>
+  	    
+  	    <{if $catinfo.pushgoods}>
+    	<div class="text-center cp_tj_title">
+        	<span class="b_ico ico_cp_tile"></span>
+            <span>正在热销</span>
+            <span class="b_ico ico_cp_tile"></span>
+        </div>
+        <ul class="cp_tj_cont">
+            <{foreach $catinfo.pushgoods as $v}>
+            <li>
+            	<div class="li_img">
+            	  <a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+                	<img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v['imgs'][0]['m']}>" alt="<{$v['description_cut']|escape:'html'}>">
+                  </a>
+                </div>
+                <div class="p-price text-center line24">
+            	<div class="li_img">
+            	  <a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+                    <p class="line30"><{$v['good']['exrtitle']}><{$v['good']['priv_price']}></p>
+                   </a>
+                </div>
+            </li>
+            <{/foreach}>
+        </ul>
+        <{/if}>
+        <div class="blank10"></div>
+    </div>
+    <{/if}>

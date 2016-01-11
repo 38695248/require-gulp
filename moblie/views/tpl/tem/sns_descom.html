@@ -1,0 +1,96 @@
+<!-- 设计师认证页面 -->
+
+<div>
+  <input data-role="none" type="text" name="companyname" value="" placeholder="企业名称" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="truename" value="" placeholder="负责人" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="email" value="" placeholder="邮箱" data-validate="Email" />
+</div>
+<div>
+  <input data-role="none" type="text" name="mobile" value="" placeholder="手机号码" maxlength="11" data-validate="Mobile" />
+</div>
+<div>
+  <input data-role="none" type="text" name="idcard" value="" placeholder="身份证号码" data-validate="num" />
+</div>
+<div>
+  <input data-role="none" type="text" name="address" value="" placeholder="通讯地址" data-validate="isempty" />
+</div>
+<div>上传身份证正面：
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="上传身份证正面" data-name="idcardpic1" class="btn btn-danger w100 up_rzpic"> 本地上传 </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>上传手持身份证：
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="上传手持身份证" data-name="idcardpic2" class="btn btn-danger w100 up_rzpic"> 本地上传 </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>上传营业执照：
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" class="btn btn-danger w100 up_rzpic" data-name="companypic" data-type="3" data-title="上传营业执照" class="btn btn-danger w100 up_rzpic">
+        本地上传
+        </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="jsbox" style="margin-bottom:10px">
+  <li>2. 其他信息<span class="color-red">（选填项）</span></li>
+</ul>
+<div>
+  <input data-role="none" type="text" name="weixin2" value="" placeholder="微信公众号" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weibourl" value="" placeholder="微博地址" />
+</div>
+<div>
+  <input data-role="none" type="text" name="website" value="" placeholder="个人主页" />
+</div>
+<div style="display:none">
+  <div class="select_box w150" id="cat_b" style="margin-right:35px">
+  <div data-value="0" class="select_showbox w150"> <em class="ico02 ico-downArrow"></em> <span>设计风格</span>
+    <input data-role="none" type="text" name="cat_b" value="" maxlength="2" class="int_bg select_analog">
+  </div>
+  <div class="createPanels select_option" style="display:none; width:163px;top:35px">
+  <ul class="board_items CategoryList">
+    <li data-tagid="15" value="15">女装
+    </div>
+    <li data-tagid="16" value="16">男装
+    </div>
+  </ul>
+</div>
+</div>
+</div>
+<div>
+  <textarea cols="3" rows="5" style="height:50px" name="desc" placeholder="企业介绍"></textarea>
+  <input data-role="none" type="hidden" name="type" value="designer">
+  <input data-role="none" type="hidden" name="iscompany" value="1">
+</div>

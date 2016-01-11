@@ -1,0 +1,60 @@
+<div class="item rowitem byshid" data-shid="<{$v['shid']}>" data-ishid="<{$v['ishid']}>" data-page="<{$request_url}>">
+  <div class="item-in">
+      <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+  	  <div class="icons-group">
+        <{if ($v['good']['priv_price']>50) && ($v['good']['activity_bsh']==2)}>
+        <div class="fl mr-5 w35"><img src="<{$static_url}>/moblie/images/ico/1111.png?v=4" /></div>
+        <{/if}>
+        <div class="fl mr-5 w35 hide"><img src="<{$static_url}>/moblie/images/ico/5555.png?v=4" /></div>
+      </div>
+      <{/if}>
+      <div class="rowitem-c rel rowitemTag" data-width="<{$v['imgs'][0]['width']}>"> 
+        <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+          <a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+        <{else}>
+          <a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?shid=<{$v['shid']}>&ukey=<{ukey(1)}>">
+        <{/if}>
+        <img class="lazy-mas" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v['imgs'][0]['m']}>" alt="<{$v['description']}>" />
+        </a>
+      </div>
+      <div class="rowitem-b">
+      	<{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+      	<a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+        <{else}>
+        <a class="pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?shid=<{$v['shid']}>&ukey=<{ukey(1)}>">
+        <{/if}>
+        <p class="color-333 p-title"><{$v['description_cut']|escape:'html'}></p>
+        <p class="p-price">
+            <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+            <{$v['good']['exrtitle']}> <{$v['good']['priv_price']}> 
+            <{if $v['good']['priv_price_ini']>0}><span class="f12 color-999 market"><{$v['good']['exrtitle']}><{$v['good']['priv_price_ini']}></span><{/if}>
+            <{if $v['good']['priv_price_rate']>0 && $v['good']['priv_price_rate']<10}><span class="f12 ml-5 bg-f13e3a market-zhe"><{$v['good']['priv_price_rate']}>折</span><{/if}>
+            <{/if}>
+            <{if $v['good']['activity_bsh']==4}>
+            <span class="f12 ml-5 bg-fc9b00 market-zhe">返<{$v['good']['exrtitle']}><{$v['good']['money_act']}></span>
+            <{/if}>
+            
+            <{if $v['good']['activity_bsh']==5}>
+            <span class="f12 ml-5 bg-00a0e8 market-zhe">0元试穿</span>
+            <{/if}>
+      	</p>
+        </a>
+        <a class="user_div rowbox" href="/share/myshares.html?fsuid=<{$v['user']['suid']}>">
+          <div class="avatar w30 mr-5"> 
+          	<img src="<{$v['user']['avatar'][2]}>" data-original="<{$v['user']['avatar'][1]}>" class="lazy-mas userThumb" alt="<{$v['user']['uname']|escape:'html'}>" title="More from <{$v['user']['uname']|escape:'html'}>"/>
+          </div>
+           <div class="row-flex1 avatar-text">
+              <h2><{$v['user']['uname']|escape:'html'}>
+             <{foreach $v['user']['identify_info'] as $identify}>
+               <span class="ico ico-vip" title="<{$identify.name}>"></span>
+               <span class="f12 color-gray" title="<{$identify.name}>"><{$identify.name}></span>
+             <{/foreach}> 
+            </h2>
+            <p>
+             <span class="x_view"></span><{$v['count']['pv']}>
+            </p>
+            </div>
+        </a> 
+      </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<{foreach $datalist as $v}>
+	<li class="item byshid">
+    	<a class="rowbox pjax" data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/m_cut/goodscut_view.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+        	<div class="goodscut_img">
+            	<img class="lazy-mas" src="<{$v['imgs'][0]['m']}>" alt="<{$v['description_cut']|escape:'html'}>" style="display: block;">
+            </div>
+            <div class="row-flex1 goodscut_text">
+            	<h2 class="line20 mt-10"><{$v['description']}></h2>
+                <p class="color-red mt-5 f16"><{$v['good']['exrtitle']}><{$v['good']['priv_price']}> <span class="market color-999 f14"><{$v['good']['exrtitle']}><{$v['good']['priv_price_ini']}></span>
+                <{if $v['good']['priv_price_rate']>0 && $v['good']['priv_price_rate']<10}><span class="f12 ml-5 bg-f13e3a market-zhe"><{$v['good']['priv_price_rate']}>折</span><{/if}>
+                </p>
+                <div class="goodscut_btn rowbox mt-10">
+                	<div class="goodscut_num mr-10">
+                    	<p>已领 <{$v['good']['getnum']}> 件 <span>，还剩：<{$v['good']['leftdays']}>天</span></p>
+                        <p class="goodscut_jd">
+                        	<span class="goodscut_jd_in" style="display:block; width:<{$v['good']['width_rate']}>%"></span>
+                        </p>
+                        <p class="color-red">名额有限，仅剩 <{$v['good']['num_act']}> 件</p>
+                    </div>
+                </div>
+                <div class="mt-10">
+                    <button class="btn btn-red ">马上砍"0元领走"</button>
+                </div>
+            </div>
+    	</a>
+    </li>
+<{/foreach}>

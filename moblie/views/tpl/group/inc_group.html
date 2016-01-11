@@ -1,0 +1,9 @@
+<{foreach $datalist as $key=>$val}>
+<li class="item" data-page="<{$pageurl}>">
+  <a href="/user_group/home.html?gpid=<{$val.gpid}>" class="rowbox">
+  <div class="row-flex1">
+      <span class="ico groupavatar"><img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="lazy-mas" /></span><{$val.gpname}>
+  </div>
+  </a>
+</li>
+<{/foreach}>

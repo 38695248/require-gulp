@@ -1,0 +1,60 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">
+       <div class="blank10"></div>
+       <{include file="group/popular_icon.html"}>
+       <!--
+    	<{foreach $cats as $key => $val}>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/mostpopular_detail.html?area=<{$val['area']}>" class="bg-ffd600">
+                    <span class="ico-hot-zt"></span>
+                    <p><{$val.title}>>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $val.data as $v}>
+                        <div class="part-li">
+                            <a href="/user_group/home.html?gpid=<{$v['gpid']}>">
+                              <img class="lazy-loading" src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                     </div>
+                 </div>
+            </div>
+            <div class="parttext line30">
+               <{$val.desc}>
+            </div>
+        </div>
+        <{/foreach}>
+        -->
+        <div class="blank10"></div>
+	    <ul id="masonry" class="masonry jsbox grouplist" style="margin-top:0">
+	      <{include file="group/inc_group.html"}>
+	    </ul>
+	    <div class="pager">
+	       <span class="pager-next"><a href="<{$pageurl}>"></a></span>
+	    </div>
+	    <div style="display:none;"><{$pagehtml}></div>
+        
+    </div>
+  <{include file="footer_bar.html"}>
+  
+</div>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

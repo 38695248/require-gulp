@@ -1,0 +1,262 @@
+<{if !$pjax}>
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div style="height:0px; overflow:hidden"><img id="weixin_first_img" src="<{$weixin_first_img}>" />
+</div>
+<div class="mainbox" id="index" data-role="page" data-dom-cache="true">
+  <div id="headerbox" class="headerbox">
+    <div class="top_l">
+    	<a href="javascript:void(0);" class="back-btn rel">
+          <span class="b_ico ico-back-h"></span>
+          <span class="span_bg"></span>
+      	</a>
+    </div>
+    <div class="top_r">
+          <{if $header_m['cart']!==false}>
+              <a href="/myorder/mycart.html" class="rel mr-5">
+                <span class="b_ico ico-cart"></span>
+                <span class="cartItemnum" id="cartItemnum"></span>
+              </a>
+          <{/if}>
+          <span class="top_line"></span>
+          <a href="javascript:void(0);" class="rel infomore_btn">
+            <span class="b_ico ico-moreinfo mr-5"></span>
+            <span class="infomnum" id="infomnum"></span>
+          </a>
+          <ul id="infomore" class="infomore">
+            <li>
+            	<a href="/message/msglist" class="block">
+                <span class="fr mt-15"><em id="infomore_num" class="infomore_num fr">0</em></span>
+                <span class="b_ico ico-xiaoxi"></span>
+                <span>消息</span>
+                </a>
+            </li>
+            <li class="searchtop">
+            	 <span class="b_ico ico-searchtop" style="margin-bottom:-10px; margin-left:-5px"></span>
+                 <span style="margin-left:-5px">搜索</span>
+            </li>
+            <li>
+                <a href="/" class="block"><span class="b_ico ico-infomore-h"></span>首页</a>
+            </li>
+         </ul>
+      </div>
+    <ul id="top_nav" class="top_nav">
+      <li class="one <{if $type == 'hot'}>current<{/if}>"><a data-role="none" rel="external" class="headpjax" href="/index/entry.html?type=hot">热门</a><div class="top_nav_bg"></div></li>
+      <li style="display:none" class="two <{if $type == 'hotest'}>current<{/if}>"><a data-role="none" rel="external" class="headpjax" href="/index/entry.html?type=hotest">最热</a><div class="top_nav_bg"></div></li>
+      <li class="three <{if $type == 'like'}>current<{/if}>"><a data-role="none" rel="external" class="headpjax" href="/index/entry.html?type=like">关注</a><div class="top_nav_bg"></div></li>
+    </ul>
+  </div>
+  <div id="contentbox" class="contentbox">
+    <{include file="inc_ad_topslip.html"}>
+<{/if}>
+	<{if !$pjax}>
+    <ul class="rowbox dzcxbox bg-fff" style="padding-top:10px; border-top:#ddd solid 1px">
+            <li>
+                <a href="/user_group/index.html">
+                <span class="ico-xinqun"></span>
+                <p>明星群</p>
+                </a>
+            </li>
+            <li style="display:none">
+                <a href="/activity/index.html?act=baoyou1">
+                <span class="ico-tx"></span>
+                <p>T恤定制</p>
+                </a>
+            </li>
+            <li>
+                <a href="/m_sns/morenew_designers.html">
+                <span class="ico-shejishi"></span>
+                <p>设计师</p>
+                </a>
+            </li>
+            <li>
+                <a href="/theme/view.html?id=10&ukey=1397">
+                <span class="ico-le"></span>
+                <p>大伯乐</p>
+                </a>
+            </li>
+        </ul>
+    <div id="pjaxbox">
+    <{/if}>
+    	<div class="blank10"></div>
+    	<{if $type == 'hot'}>
+        <div class="part mb-10 bg-fff">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/m_sns/moreusers.html" class="bg-00a0e8">
+                    <span class="ico-xr"></span>
+                    <p>新人报道>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $new_users as $val}>
+                        <div class="part-li">
+                             <{if ($val['gdid']>0) && ($val['good']['status']==1)}>
+                               <a href="/share/sharepage.html?gdid=<{$val['gdid']}>">
+                              <{else}>
+                               <a href="/share/sharepage.html?shid=<{$val['shid']}>">
+                              <{/if}>
+                              <img class="lazy" data-original="<{$val['imgs'][0]['m']}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+               </div>
+            </div>
+            <div class="parttext line30">
+                小鲜肉来袭，鲜到汤手哇
+            </div>
+        </div>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/m_sns/morespecials.html" class="bg-ffd600">
+                    <span class="ico-hot-zt"></span>
+                    <p>最新专题>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $new_specials as $val}>
+                        <div class="part-li">
+                            <a href="/m_sns/special.html?id=<{$val['id']}>">
+                              <img class="lazy" data-original="<{$val['img']}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                     </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+                精选热门话题，等你来喷~！
+            </div>
+        </div>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/index.html" class="bg-fd5d5f">
+                    <span class="ico-hot-group"></span>
+                    <p>明星群>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $hot_groups as $val}>
+                        <div class="part-li">
+                            <a href="/user_group/home.html?gpid=<{$val.gpid}>"><img class="lazy" data-original="<{$val['avatar'][1]}>"></a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+                你的兴趣，你做主~！
+            </div>
+        </div>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/m_sns/morerecommend_designers.html" class="bg-fc9b00">
+                    <span class="ico-hot-des"></span>
+                    <p>推荐设计师>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $recommend_designers as $val}>
+                        <div class="part-li">            	
+                              <a href="/share/myshares.html?fsuid=<{$val['suid']}>">
+                               <img class="lazy" src="<{$val['avatar_b'][2]}>" data-original="<{$val['avatar_b'][1]}>" />
+                              </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+                潮爆设计师集中营，给你最时尚的设计体验！
+            </div>
+        </div>
+        <div class="part mb-10 bg-fff">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/m_sns/morehots.html" class="bg-ff4e00">
+                    <span class="ico-hot-share"></span>
+                    <p>热门分享>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $hot_shares as $val}>
+                        <div class="part-li">            	
+                             <{if ($val['gdid']>0) && ($val['good']['status']==1)}>
+                               <a href="/share/sharepage.html?gdid=<{$val['gdid']}>">
+                              <{else}>
+                               <a href="/share/sharepage.html?shid=<{$val['shid']}>">
+                              <{/if}>
+                             <img class="lazy" data-original="<{$val['imgs'][0]['m']}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+               </div>	
+            </div>
+            <div class="parttext line30">
+                一大波高能照片，热爆全场啦！
+            </div>
+        </div>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/m_sns/newshares.html" class="bg-fc9b00">
+                    <span class="ico-new-share"></span>
+                    <p>最新分享>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $new_shares as $val}>
+                        <div class="part-li">            	
+                             <{if ($val['gdid']>0) && ($val['good']['status']==1)}>
+                               <a href="/share/sharepage.html?gdid=<{$val['gdid']}>">
+                              <{else}>
+                               <a href="/share/sharepage.html?shid=<{$val['shid']}>">
+                              <{/if}>
+                             <img class="lazy" data-original="<{$val['imgs'][0]['m']}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+               </div>
+            </div>
+            <div class="parttext line30">
+                新鲜出炉的照片就在这里，进去尝尝鲜！
+            </div>
+            
+        </div>
+   		<{/if}>
+       <{if $type == 'like'}>
+       	 <div id="masonry_2" class="row masonry larger-view">
+         <{include file="inc_share_item.html"}>
+         </div>
+       <{/if}>
+   <{if !$pjax}>
+   </div>
+   <{/if}>
+   <{if $type == 'like'}>
+   <div class="pager" style="display: none;"> 
+    	<span class="pager-next"><a href="<{$request_url}>"></a></span>
+   </div>
+   <{/if}>
+<{if !$pjax}>
+  </div>
+</div>
+<{include file="footer_bar.html"}> </div>
+<div id="container"></div>
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/entry.js" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+</html>
+<{/if}>

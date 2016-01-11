@@ -1,0 +1,237 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox">
+<div style="height:0px; overflow:hidden">
+	<img src="<{$static_url}>/moblie/images/activity/red/red.png" />
+</div>
+<div class="mainbox_p0">
+	<div class="headerbox showhide headerbox_view">
+     <{include file="header_back.html"}>
+    </div>
+    <!--滑动广告-->
+    <div class="moneybox">
+    	<{include file="inc_ad_topslip.html"}>
+    	<div class="moneybox-t rel">
+        	<span class="reportBtn reportbtn-o" style="display:none"><a class="color-fff hide" href="/theme/show.html?id=5">时尚大伯乐</a><a class="color-fff" href="/mk_market/report.html">举报</a></span>
+            <div id="money_01" class="money_01">
+                <!--
+                <div class="banner_t"><p class="mb-10"><a href="http://www.byshare.com/share/sharepage.html?gdid=2416" target="_self"><img src="http://7xkdow.com2.z0.glb.qiniucdn.com/20151202/25/1528589927.jpg"></a></p>
+                <p class="mb-10"><a href="http://www.byshare.com/share/sharepage.html?gdid=2404"><img src="http://7xkdow.com2.z0.glb.qiniucdn.com/20151202/19/1541402651.jpg" ></a></p></div>
+                -->
+                <div id="avatar_money" class="avatar_money" style="padding-top:10px"> 
+                <a href="/share/myshares.html?fsuid=<{$userinfo['suid']}>">
+                <img src="<{$userinfo['avatar'][2]}>" data-original="<{$userinfo['avatar'][1]}>" class="avatar_lazy userThumb" />
+                </a>
+                </div>
+            </div>
+
+            <div id="money-user" class="money-user">
+            
+                <{if $isme}>
+                <h2 class="line30">我的红包</h2>
+                <{else}>
+                <h2 class="line30"><{$userinfo['uname']}>的红包</h2>
+                <p class="blank5"></p>
+                <{/if}>
+                <div class="money_num money_btn text-center">
+                	
+                	<div class="pay_f_m" style="padding:0px 10px 10px;width:280px; margin:0 auto">
+                    	<{if $isme}>
+                        <p><button class="btn btn-ff5000 want_crowd_btn">0元发起"打赏众筹"</button></p>
+                        <p><a href="/m_raise/goodsraise_my.html"><button class="btn btn-04be01">我的众筹</button></a></p>
+                       <{else}>
+                       	   <p><button class="btn btn-ff5000 want_crowd_btn">0元发起"打赏众筹"</button></p>
+                           <{if $raiseid}>
+                            <a href="/m_raise/goodsraise.html?id=<{$raiseid}>"><button class="btn btn-04be01">帮 <{$userinfo['uname']}> 众筹</button></a>
+                           <{else}>
+                            <button class="btn btn-04be01 btn-share-btn">邀请 <{$userinfo['uname']}> 众筹</button>
+                           <{/if}>
+                          
+                       <{/if}>
+                    </div>
+                	
+                </div>
+                <div class="blank10"></div>
+                <div class="money_btn_box">
+                	<{if $isme}>
+                    <div class="pay_f_m text-left" style="padding:0px 10px 10px;width:280px; margin:0 auto">
+                    	<div style="padding:10px 0 0">
+                            <p><span class="color-333 f16">累计享金:<span class="color-red f26"><{$currency.exrtitle}><{$redpk_total['score']}></span></span>
+                            <a href="/m_buy/public_c_show.html?min_price=0&max_price=300&h_name=为你精选&ad_id=73&catids=15" class="btn fr">享金购物</a></p>
+                            <p class="blank10"></p>
+                            <p>
+                                <span class="color-333 f16">累计现金:
+                                    <span class="color-red f26"><{$currency.exrtitle}><{$redpk_total['money']}></span>
+                                </span>
+                                <{if $isme}><a href="/mybuys/cash.html" class="btn fr">现金提现</a><{/if}>
+                            </p>
+                            <p class="color-red line24 text-center mt-10">(1块钱也能随时提现哦！)<a class="color-blue ml-10 f16" href="/mybuys/cashlist.html">提现记录>></a></p>
+                        </div>
+                        <div class="money_btn text-center" style="padding-top:0">
+                            <p><button class="btn btn-f46e6f money_btn_act" data-url="/mk_market/red_packet_fight.html" data-skey="<{$skey}>">立即抢今天的红包</button></p>
+                            <p class="color-red line24">(天天可以抢，随时无限次提现)</p>
+                            <p><button class="btn btn-04be01 money_btn_act" data-type="Invitation">邀请好友帮抢</button></p>
+                        </div>
+                    </div>
+                    <{else}>
+                    <div class="pay_f_m" style="padding:0px 10px 10px;width:280px; margin:0 auto">
+                    	<div style="padding:10px 0" class="text-left">
+                            <p><span class="color-333 f16">累计享金:<span class="color-red f26"><{$currency.exrtitle}><{$redpk_total['score']}></span></span>
+                            <a href="/m_buy/public_c_show.html?min_price=0&max_price=150&h_name=为你精选&ad_id=73" class="btn fr">享金购物</a></p>
+                            <p class="blank10"></p>
+                            <p>
+                                <span class="color-333 f16">累计现金:
+                                    <span class="color-red f26"><{$currency.exrtitle}><{$redpk_total['money']}></span>
+                                </span>
+                                <{if $isme}><a href="/mybuys/mysharemoney.html" class="btn fr">现金提现</a><{/if}>
+                            </p>
+                            <p class="color-red line24 text-center">(1块钱也能随时提现哦！)</p>
+                        </div>
+                        <div class="money_btn text-center" style="padding-top:0">
+                            <p><button class="btn btn-f46e6f money_btn_act" data-url="/mk_market/red_packet_fight.html" data-fsuid="<{$userinfo.suid}>" data-skey="<{$skey}>">帮 <{$userinfo['uname']}> 抢红包</button></p>
+                            <p class="color-red line24">(天天可以帮抢，随时无限次提现)</p>
+                            <p><a href="/message/msgbox.html?tosuid=<{$userinfo.suid}>">
+                            <button class="btn btn-04be01">私聊Ta</button></a></p>
+                            <p><a href="/mk_market/red_packet.html?fsuid=<{$suid}>"><button class="btn btn-f46e6f">给自己抢红包</button></a></p>
+                        </div>
+                    </div>
+                    <{/if}>
+                    <p class="blank10"></p>
+                    <p class="mt-10 f16"><a href="/theme/view.html?id=7" class="color-blue">活动规则</a> | <span class="lxkefu_btn color-blue">联系客服</span>
+                    </p>
+                </div>
+    		</div>
+        </div>
+        <div class="money_list">
+        	<!--div id="crowlist" data-url="/m_raise/toplist.html?ajax=1&fsuid=<{$suid_now}>&raiseid=<{$raiseid}>"></div-->
+            <div id="redmoneylist" data-url="/mk_market/toplist.html?ajax=1&fsuid=<{$suid_now}>"></div>
+        </div>
+    </div>
+    <div class="blank15"></div>
+    <div class="moneybox" style="padding-bottom:55px">
+        <div id="choose_dh" class="masonry_dh">
+            <ul class="rowbox text-center f16">
+                <li class="dhpjax current" data-url="/m_buy/public_c_show.html?h_name=%E8%B6%85%E7%BA%A7%E7%AD%B9&activity=2&nt_show_attr=1">超级筹</li>
+                <li class="line">|</li>
+                <li class="dhpjax" data-url="/m_buy/public_c_show.html?h_name=&catids=15&tagids=5155&orders=new">享金购物</li>
+                <li class="line">|</li>
+                <li class="dhpjax" data-url="/m_buy/public_c_show.html?h_name=&catids=15&tagids=5155&orders=price_asc">特价优惠</li>
+            </ul>
+        </div>
+        <div id="masonry_2" class="masonry larger-view">
+            
+        </div>
+        <div class="pager" style="display: none;"> 
+            <span class="pager-next"><a href="/index/index_ad.html?page=2&ajax=true"></a></span> 
+        </div>
+    </div>
+    <{include file="footer_bar.html"}>
+</div>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script data-main="<{$static_url}>/moblie/app/js/activity_red.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+<script type="text/javascript">
+wx.config({
+	debug: false,
+	appId: '<{$signPackage["appId"]}>',
+	timestamp: '<{$signPackage["timestamp"]}>',
+	nonceStr: '<{$signPackage["nonceStr"]}>',
+	signature: '<{$signPackage["signature"]}>',
+	jsApiList: [
+		// 所有要调用的 API 都要加到这个列表中
+		'checkJsApi',
+		//'openLocation',
+		//'getLocation',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareQZone'
+	  ]
+});
+wx.ready(function () {
+	// 通过checkJsApi判断当前客户端版本是否支持分享参数自定义
+	wx.checkJsApi({
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareQZone'
+		],
+		success: function (res) {
+			//alert(JSON.stringify(res));
+		}
+	});
+	//微信朋友
+	wx.onMenuShareAppMessage({
+	  title: '<{$jsapi_txt["title"]}>',
+	  desc: '<{$jsapi_txt["desc"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击发送给朋友');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//微信朋友圈
+	wx.onMenuShareTimeline({
+	  title: '<{$jsapi_txt["title"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击分享到朋友圈');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//分享到QQ
+	wx.onMenuShareQQ({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+		   // 用户取消分享后执行的回调函数
+		}
+	});
+	//分享到QQ空间
+	wx.onMenuShareQZone({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+});
+
+</script>
+
+</body>
+
+</html>

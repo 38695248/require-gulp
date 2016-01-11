@@ -1,0 +1,98 @@
+<div id="CustomTwoTipBox" class="tipbox fade" data-index="0">
+	<form id="CustomTwoFrom" method="post">
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['buy_tmp_customTwoTip_title']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+                <div class="tipcontbox sendCont">
+                	<p class="blank10"></p>
+                	<ul class="list-unstyled pick-span" style="width:auto">
+                        <li>
+                            <h3><label><{$lang['buy_goodsname']}></label></h3>
+                            <div class="right-con custom rel">
+                                <input data-role="none" class="byshareInputName ProductName" type="text" name="goodsname" value="" placeholder="Product name" data-validate="ProductName">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><label><{$lang['buy_willprice']}></label></h3>
+                            <div class="right-con custom">
+                                <div class="rel fl mr-10"><input data-role="none" class="byshareInputName w100" type="text" name="askprice" value="" placeholder="price" data-validate="Money"></div>
+                                <span style="padding-top:5px" class="f12 fl">(<{$lang['buy_tmp_customTwoTip_priceminmax']}>：<span class="color-red" id="priceminmax"></span>)</span>
+                            </div>
+                        </li>
+                        <li class="blank0"></li>
+                        <li>
+                        	<h3><label><{$lang['buy_tmp_customTwoTip_isprivate']}></label></h3>
+                        	<div id="privateToggle" class="fl fancyToggle mr-5">
+                                <div class="slider"></div>
+                                <p class="onText status"><{$lang['buy_tmp_customTwoTip_isprivate']}></p>
+                                <p class="offText status"><{$lang['buy_tmp_customTwoTip_isopen']}></p>
+                                <input data-role="none" type="text" class="ui-Checkbox" name="isprivate" value="0">
+                            </div>
+                            <p class="blank0"></p>
+                            <p id="openid" class="f12" style="padding-left:100px;;">（<{$lang['buy_tmp_customTwoTip_privattxt']}>）</p>
+                            <p id="siyouid" class="f12" style="padding-left:100px; white-space:nowrap; display:none">（<{$lang['buy_tmp_customTwoTip_opentxt']}>）</p>
+                        </li>
+                    </ul>
+                    <ul id="privateCustom" class="list-unstyled pick-span" style="display:none">
+                        <li class="rel">
+                            <h3><label><{$lang['buy_tmp_customTwoTip_sizeinfo']}></label> <!--p style="padding:0; margin:0; line-height:20px"><a href="#" class="color-blue f12" style="font-weight:normal">（测量方法？）</a></p--></h3>
+                            <div class="right-con custom f12 color-777" style="padding-top:6px">
+                            	<div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_sg']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="sg" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_yc']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="yc" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_xw']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="xw" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_yw']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="yx" value="">
+                                    </div>
+                                </div>
+                                <div class="blank0"></div>
+                                <div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_gw']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="gw" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_lw']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="lw" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_jk']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="jk" value="">
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px">
+                                    <{$lang['buy_tmp_customTwoTip_xc']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="xc" value="">
+                                    </div>
+                                </div>
+                                <div class="blank0"></div>
+                                <div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px; width:100px">
+                                    <{$lang['buy_tmp_customTwoTip_tz']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="tz" value=""> kg
+                                    </div>
+                                    <div class="fl w80 mr-5" style="margin-bottom:5px; width:100px">
+                                    <{$lang['buy_tmp_customTwoTip_nl']}>：<input data-role="none" class="w40" style="height:23px" type="text" name="nl" value=""> <{$lang['buy_tmp_customTwoTip_age']}>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="blank10"></p>
+                </div>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml closeTipBtn" type="button">
+                    <span class="buttonText"><{$lang['buy_button_cancel']}></span>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                    <span class="buttonText butttonsubmit"><{$lang['buy_button_submit']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

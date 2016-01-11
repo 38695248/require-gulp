@@ -1,0 +1,44 @@
+<{foreach $data as $v}>
+   <div class="item rowitem rowitem-bord">
+   	<div class="rel rowitem-t">
+           <div class="fr rowitem-t-r">
+           <{if (($v.isme==1) and ($from=='mycenter'))}>
+           	<span class="span-gz shareTypeEditButton" data-typeid="<{$v['ucatid']}>">编辑</span>
+           <{else}>
+               <{if $v['isfollow'] eq 1}> 
+               <span class="span-gz current btn-border followBtn" data-type="board" data-follow="<{$v['isfollow']}>"  data-ucatid="<{$v['ucatid']}>"><{$lang['sns_inc_share_item_have_follow']}></span>
+               <{else}>
+                 <span class="span-gz btn-border followBtn" data-type="board" data-follow="<{$v['isfollow']}>"  data-ucatid="<{$v['ucatid']}>"><{$lang['sns_inc_share_item_follow']}></span>  
+               <{/if}>
+           <{/if}>
+           </div>
+           <div class="rowbox rowitem-t-l">
+               
+               <a href="/share/myshares.html?fsuid=<{$v['suid']}>">
+               <div class="avatar w30 mr-5 useravatar_bg">	<img src="<{$v['avatar_s'][2]}>" data-original="<{$v['avatar_s'][1]}>" class="avatar_lazy userThumb" alt="<{$v['uname']|escape:'html'}>" title="More from <{$v['uname']|escape:'html'}>"/></div>
+               </a>
+               
+               <a href="/share/get_pinlist.html?cid=<{$v['ucatid']}>&fsuid=<{$header['fsuid']}>">
+               <div class="row-flex1 avatar-text">
+                   <h2><{$v['bname']}></h2>
+                   <p><{if $v['sharenum'] eq ''}>0<{else}><{$v['sharenum']}><{/if}>个分享</p>
+               </div>
+               </a>
+               
+           </div>
+       </div>
+       <div class="rowitem-c rel">
+       	<ul class="rowbox bordlist">
+               <{foreach $v['imgs_info'] as $img}>
+               <li>
+                   <div class="imgbox">
+                     <{if $img.src != ''}>
+                       <a href="/share/sharepage.html?shid=<{$img.shid}>"><img src="<{$img.src}>"></a>                       
+                     <{/if}>
+                   </div>
+               </li>
+               <{/foreach}>
+           </ul>
+       </div>
+   </div>
+<{/foreach}>

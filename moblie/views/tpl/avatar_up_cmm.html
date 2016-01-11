@@ -1,0 +1,38 @@
+<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/js/jcrop/jquery.Jcrop.css" type="text/css" />
+<style type="text/css?v=<{$v_css_js}>">  
+#preview{width:100px;height:100px;border:1px solid #000;overflow:hidden;}  
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}  
+</style> 
+<body>
+<div class="mainbox">
+    <div class="headerbox">
+    	<{include file="header_back.html"}>
+    </div>
+    <div id="contentbox" class="contentbox  bg-fff">
+    	<div class="edt-avatar">
+    		<div id="jc-pic-box" class="jc-pic-box">
+              <img src="<{$pic_show[2]}>" class="avatar_loading" data-original="<{$pic_show[3]}>" id="target" />
+              <!--img src="<{$pic_show[2]}>" class="avatar_loading" data-original="http://7xkdoy.com2.z0.glb.qiniucdn.com/000/08/07/76.jpg" id="target" /-->
+            </div>
+        </div>
+    </div>
+    <div class="footerbox rowbox" style="border:none;">
+    	<div class="row-flex1 btn-pri-buy btn-fans" style="margin:0">
+        	<div id="avatar_up_cmm" class="rel" style="margin:0; overflow:hidden;"  data-act="<{$act}>" data-title="<{$title}>" data-type="<{$type}>" data-avatar="<{$pic_up[0]}>">
+                <div id="avatar_up_cmm_pickfiles">
+                    选择图片
+                </div>
+                <input id="up_input_avatar" type="file" style="font-size:999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple accept="">
+        	</div>
+        </div>
+        
+    	<div class="row-flex1 btn-pri-buy" data-act="<{$act}>" data-gpid="<{$gpid}>" data-isthird="<{$pic_show[4]}>" data-type="<{$type}>"  id="save-avatar-btn">确定保存</div>
+ 	</div>
+</div>
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/edt_avatar" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+
+</html>

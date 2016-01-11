@@ -1,0 +1,47 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick <{$bgcolor}>">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+  	<{include file="header_back.html"}>  	
+  </div>
+  <div class="contentbox"><!-- $bg_c_de679f -->
+  	<{include file="inc_ad_topslip.html"}>
+    
+    <{include file="buy/inc_catpush.html"}>
+    
+    <div class="typebox-n">
+      <ul class="typebox-s" style="display:block">
+       <{foreach $cats as $key => $val}>
+        <li> 
+            <a href="<{$val.url}>">
+             <span class="fr b_ico ico_cptj"></span><{$val.name}>
+            </a>
+        </li>
+       <{/foreach}>
+      </ul>
+    </div>  	
+    <{include file="buy/inc_attr.html"}>
+    <div class="text-center cp_tj_title mt-10">
+        <span class="b_ico ico_cp_tile"></span>
+        <span>尖叫好货</span>
+        <span class="b_ico ico_cp_tile"></span>
+    </div>
+    <div id="masonry_2" class="masonry larger-view">
+      <{include file="inc_share_item.html"}>
+    </div>
+    
+    <div class="pager"> 
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

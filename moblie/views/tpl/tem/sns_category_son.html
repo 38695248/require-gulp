@@ -1,0 +1,42 @@
+<{if $categorys}>
+<div class="bigcategorylist">
+    <h4 class="fl"><{$catname}></h4>
+    <div class="bigcategory-con scategory">
+        <ul>
+            <input data-role="none" type="hidden"  name="cat_s"  value="" />
+            <{foreach $categorys as $v}>
+            <li data-tagid="<{$v['tagid']}>" data-catid="<{$v['catid']}>" data-name="<{$v['catname']}>"><{$v['catname']}><em class="ico currentico" data-type="1" title="取消选择"></em></li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div class="blank0"></div>
+</div>
+<{/if}>
+<{if $attribute_style}>
+<div class="bigcategorylist">
+    <h4 class="fl"><{$lang['sh_cmm_attribute_type_6']}></h4>
+    <div class="bigcategory-con scategory">
+        <ul>
+            <input data-role="none" type="hidden"  name="att_style"  value="" />
+            <{foreach $attribute_style as $v}>
+            <li data-tagid="<{$v['tagid']}>" data-attid="<{$v['attid']}>" data-name="<{$v['attname']}>"><{$v['attname']}><em class="ico currentico" data-type="1" title="取消选择"></em></li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div class="blank0"></div>
+</div>
+<{/if}>
+<{if $attribute_ele}>
+<div class="bigcategorylist">
+    <h4 class="fl"><{$lang['sh_cmm_attribute_type_14']}></h4>
+    <div class="bigcategory-con scategory">
+        <ul>
+            <input data-role="none" type="hidden"  name="att_ele"  value="" />
+            <{foreach $attribute_ele as $v}>
+            <li data-tagid="<{$v['tagid']}>" data-attid="<{$v['attid']}>" data-name="<{$v['attname']}>"><{$v['attname']}><em class="ico currentico" data-type="1" title="取消选择"></em></li>
+             <{/foreach}>
+        </ul>
+    </div>
+    <div class="blank0"></div>
+</div>
+<{/if}>

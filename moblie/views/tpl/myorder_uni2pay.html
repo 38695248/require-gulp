@@ -1,0 +1,62 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  
+  <div class="contentbox" data-role="content">
+	<ul class="jsbox">
+    	<li class="rowbox">
+        	<{$lang['buy_myorder_payorder_beenorder']}>
+        </li>
+        <li class="rowbox">
+        	<div class="row-flex1">支付单号</div>
+            <div class="text-right color-red"><a href="<{$orderinfo['order_url']}>"><{$orderinfo['orderid']}>【查看】</a></div>
+        </li>
+        <li class="rowbox">
+        	<div class="row-flex1"><{$lang['buy_order_topaytotal']}></div>
+            <div class="text-right color-red"><{$currency['exrtitle']}><{$orderinfo['total']}>&nbsp;<{$currency['exrcode']}></div>
+        </li>
+        <li class="text-center">
+        	<div class="mb-10">
+            	<{$lang['buy_myorder_payorder_loadding']}>
+            	<img style="width:100px; margin:0 auto;" src="<{$static_url}>/default/images/payloading.gif" />
+            </div>
+            <div>
+            	<{$payhtml}>
+            </div>
+            
+            <div class="line24 mb-10">
+            	<{$lang['buy_myorder_payorder_msg']}>
+            </div>
+           <div class="text-center mb-10">
+            <{if $isformsubmit}>
+            	<a href="javascript:void(0);" onClick="document.getElementById('frm_payment_now').submit();">
+                	<img src="<{$payment_inf['btt_img']}>" class="w150" style="margin:0 auto" />
+                </a>
+            <{elseif $payment_inf['paymentid']=='wxh5'}>
+                <a href="javascript:void(0);" onClick="callpay()">
+                    <img src="<{$payment_inf['btt_img']}>" class="w50" style="margin:0 auto">
+                </a>
+            <{/if}>
+           </div>
+            
+        </li>
+    </ul>
+</div>
+   <{include file="footer_bar.html"}> </div>
+  
+</div>  
+<{include file="footer_comm.html"}>
+<script type="text/javascript">
+$(function(){
+	BaseInitClass.baseInit();//整个网站公共初始化
+});
+</script>
+</body>
+
+</html>

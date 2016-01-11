@@ -1,0 +1,39 @@
+<{foreach $boardData as $v}>
+                <div class="fl griditem item" aria-disabled="true" data-typeid="2">
+                    <div class="draggable Board noContext boardCoverImage">
+                        <a href="/user/user_pinlist.html?cid=<{$v['ucatid']}>&fsuid=<{$v['suid']}>" class="boardLinkWrapper" title="<{$v['bname']}>"><!-- myshareTypeView.html -->
+                            <h3 class="boardName">
+                                <div class="BoardIcons Module"></div>
+                                <{$v['bname']}>
+                            </h3>
+                            <div class="boardCoverWrapper">
+                                <span class="hoverMask"></span>
+                                <img src="<{$v['coverimg']}>" class="boardCover" style="" alt="">
+                                <img src="" class="boardCover" alt="">
+                                <span class="boardPinCount">
+                                    <div class="PinCount Module">
+                                        <span class="value"></span> 
+                                        <span class="label"></span>
+                                    </div>
+                                </span>
+                            </div>
+                            <ul class="boardThumbs">
+                               <{foreach $v['imgs'] as $m}>
+                                <li>
+                                  <img src="<{$m}>">
+                                    <span class="hoverMask"></span>
+                                </li>
+                                <{/foreach}>
+                                <{foreach $v['imglavearr'] as $m}>
+                                <li>
+                                    <span class="hoverMask"></span>
+                                </li>
+                                <{/foreach}>
+                            </ul>
+                        </a>
+                        <button data-role="none" type="button" data-type="board" data-follow="<{$v['isfollow']}>"  data-ucatid="<{$v['ucatid']}>"  class="rounded Button followBtn">
+                            <{if $v['isfollow'] eq 1}>Unfollow<{else}>Follow<{/if}>
+                        </button>
+                    </div>
+                </div>
+                <{/foreach}>

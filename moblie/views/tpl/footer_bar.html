@@ -1,0 +1,50 @@
+<div id="footerbox" class="footerbox">
+  <div class="rowbox footerbox-in f12">
+      <div class="row-flex1  <{if $bar['footer']=='index'}> current<{/if}>">
+          <a href="/index/index_ad.html">
+          <span class="ico ico-home"></span>
+          <p>首页</p>
+          </a>
+      </div>
+      <div class="row-flex1 <{if $bar['footer']=='entry'}> current<{/if}>">
+          <a href="/index/entry.html">
+          <span class="ico ico-fx"></span>
+          <p>探索</p>
+          </a>
+      </div>
+      <div id="shareUpload" class="row-flex1 shareUpload">
+      	  <span class="ico ico-up" style="margin:0"></span>
+      </div>
+      <div class="row-flex1 <{if $bar['footer']=='goods'}> current<{/if}>">
+          <a href="/m_buy/index.html">
+          <span class="ico ico-dz"></span>
+          <p>定制</p>
+          </a>
+      </div>
+      <div class="row-flex1 <{if $bar['footer']=='my'}> current<{/if}>">
+          <a href="/user/settinglist.html">
+          <span class="ico ico-my"></span>
+          <p>我的</p>
+          </a>
+      </div>
+  </div>
+</div>
+<div id="addbox" class="addbox" style="display:none">
+	<div id="addbox_bg" class="modalMask addbox_bg" style="display:block; z-index:9999"></div>
+    <div id="addbox_btn" class="addbox_btn">
+    	<div class="add-btn">
+        	<a href="/ask/toask.html">
+        	<span class="ico_list icon_hot_qiu"></span>
+            <p>定制</p>
+            </a>
+        </div>
+        <div id="add-share" class="add-btn add-share">
+        	<span class="ico_list icon_hot_share"></span>
+            <p>分享</p>
+        </div>
+        <div id="add-mjx" class="add-btn add-share" data-ismjx="1">
+        	<span class="ico_list icon_hot_mjx"></span>
+            <p>买家秀</p>
+        </div>
+    </div>
+</div>

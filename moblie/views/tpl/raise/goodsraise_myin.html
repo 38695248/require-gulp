@@ -1,0 +1,58 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox">
+<div class="mainbox">
+    <div id="headerbox" class="headerbox">
+   		<{include file="header_back.html"}>
+        <div class="rowbox fx-nav h3_title">
+            <div class="row-flex1">
+                <a href="/m_raise/goodsraise_my.html">我发起的</a>
+            </div>
+            <div class="row-flex1 current">
+                <a href="/m_raise/goodsraise_myin.html">我支持的</a>
+            </div>
+            <div class="row-flex1">
+                <a href="/m_buy/public_c_show.html?h_name=%E8%B6%85%E7%BA%A7%E7%AD%B9&activity=2&nt_show_attr=1">发起众筹</a>
+            </div>
+        </div>
+  	</div>
+    <div class="contentbox" data-role="content">
+    <div id="masonry" class="masonry">
+    <{foreach $datalist as $key=>$val}>
+    <a class="color-blue item" href="/m_raise/goodsraise.html?id=<{$val.raiseid}>">
+      <ul class="jsbox rowitem">
+        <li class="rowbox h3_title">
+          <div class="row-flex1 w60 color-red"><{$val.raise.status_txt}></div>
+          <div class="row-flex1 text-right"> 查看详情 </div>
+          <!--div class="ico ico-delete ml-10"></div--> 
+        </li>
+        <li class="orderinfo rowbox">
+          <div class=""> 
+            <span class="ico groupavatar"><img src="<{$users_info[$val['raise']['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['raise']['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          <div class="cartinfo row-flex1">
+            <h3 class="color-333">发起者：<{$users_info[$val['raise']['suid']]['uname']}></h3>
+            <div class="color-777">商品：<{$val.raise.gdname}></div>
+            <div class="color-777">支持留言：<{$val.shdesc}></div>
+          </div>
+        </li>
+        <li class="rowbox line50">
+          <div class="row-flex1 f18 color-333">支持： ¥<{if $val.score>0}><{$val.score}><{elseif $val.money>0}><{$val.money}><{/if}> <span class="f12 color-999"><{if $val.score>0}>享金<{elseif $val.money>0}>现金<{/if}></span></div>
+          <!--订单操作-->
+          <div class="color-777 text-right"><{$val.edttime_txt}></div>
+        </li>
+      </ul>
+     </a> 
+    <{/foreach}>
+    </div>
+    <div class="pager"> <span class="pager-next"><a href="/m_raise/goodsraise_myin.html?page=1"></a></span> </div>
+  </div>
+  <{include file="footer_bar.html"}> 
+</div>
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_goodsraise_my.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+</body>
+
+</html>

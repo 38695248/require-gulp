@@ -1,0 +1,48 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick <{if $act == 'img'}>bg-fff<{/if}>" >
+<div class="mainbox" id="page_cont">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">      
+      <{if $show_top}>
+         <{if $top_type == 'img'}>
+              <{include file="inc_img.html"}>
+         <{/if}>
+      <{/if}>
+  	  <{if $act == 'person' || $act == 'img'}>
+      	<div id="masonry" class="masonry">
+      <{else}>
+      	<div id="masonry_2" class="masonry larger-view">
+      <{/if}>
+      <{if $act == 'person' }> 
+          <{include file="inc_person.html"}>
+      <{elseif $act == 'share'}>
+      	  <{include file="inc_share_item.html"}>
+      <{else if $act == 'specials'}>
+      
+      <{else if $act == 'tags'}>
+          <{include file="inc_following_interest.html"}>
+      <{else if $act == 'img'}>
+          <{include file="inc_img_list.html"}>
+      <{/if}>
+    </div>
+    <div class="blank0"></div>
+   <div class="pager">
+    	<span class="pager-next"><a href="<{$request_url}>"></a></span>
+   </div>
+   
+   <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<!--判断分页参数-->
+<input type="hidden" id="pagecol" value="<{$pagecol}>" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="<{$isseacrch}>" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="<{$isfollow}>" /><!-- 1关注，0正常 -->
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+</html>

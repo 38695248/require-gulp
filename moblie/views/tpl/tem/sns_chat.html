@@ -1,0 +1,30 @@
+<div id="chatbox" class="tipbox fade" data-index="0">
+    <div class="tipbox-in" data-index="0">
+        <h1 class="tiptop" id="title_username"></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+            <!--聊天功能-->
+            <div id="msgBox" class="msgBox">
+              <div class="msgUserBox">
+                <div id="msgUserList"></div>
+                <div id="msgListBox" class="massegeBoxOut" data-isopen="1" style="display:block">
+                  <div class="massegeBox">
+                    <span class="ico ico-lightGray"></span>
+                    <div id="massegeBox" class="massegeBox-in"> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="tipbottom">
+            <form id="msgsendForm" class="msgsendForm rowbox" method="post">
+              <div class="row-flex1">
+              	<textarea class="content-input" placeholder="Add a message" name="msgcont"  data-validate="isempty" style="height:35px;border-radius:4px 0 0 4px"></textarea>
+              </div>
+              <button type="button" id="btn-sendmsg" data-uid="1" class="btn btn-border btn-danger w80" style="height:35px; border-radius:0 4px 4px 0">发送</button>
+            </form>
+            <div class="blank0"></div>
+        </div>
+    </div>
+</div>

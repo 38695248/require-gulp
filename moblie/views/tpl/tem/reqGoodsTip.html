@@ -1,0 +1,71 @@
+<!--申请退换货补偿金-->
+<div id="reqGoodsTip" class="tipbox fade" data-index="0">
+	<form id="reqGoodsFrom" method="post" data-action='/mybuys/myordercanceledt.html'>
+    <input type="hidden" name="act" value="<{$data_input.act}>" />
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['buy_mybuys_tmp_reqGoodsTip_title']}><{if $data_input.act=='returns'}><{$lang['buy_mybuys_tmp_reqGoodsTip_retruns']}><{elseif $data_input.act=='change'}><{$lang['buy_mybuys_tmp_reqGoodsTip_change']}><{elseif $data_input.act=='pmoney'}><{$lang['buy_mybuys_tmp_reqGoodsTip_pmoney']}><{/if}>
+        </h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+            <ul class="list-unstyled pick-span">
+            	<li class="blank10"></li>
+                <{if $data_input.act=='pmoney'}>
+                <li class="rowbox">
+                    <h3 style="width:100px" class="line40">金额</h3>
+                    <div class="row-flex1">
+                        <input data-role="none" type="text" name="total_user" value="" data-validate="Money" placeholder="请输入金额">
+                    </div>
+                </li>
+                <{/if}>
+            	<li class="blank10"></li>
+                <li class="rowbox">
+                    <h3 style="width:100px"><label><{if $data_input.act=='returns'}><{$lang['buy_mybuys_tmp_reqGoodsTip_retruns']}><{elseif $data_input.act=='change'}><{$lang['buy_mybuys_tmp_reqGoodsTip_change']}><{/if}><{$lang['buy_mybuys_tmp_reqGoodsTip_reason']}></label></h3>
+                    <div class="row-flex1">
+                        <select class="ui-Select" id="resonid" name="resonid">
+                        </select>
+                    </div>
+                </li>
+                <li class="blank10"></li>
+                <li class="rowbox">
+                    <h3 style="width:100px"><label><{if $data_input.act=='returns'}><{$lang['buy_mybuys_tmp_reqGoodsTip_retruns']}><{elseif $data_input.act=='change'}><{$lang['buy_mybuys_tmp_reqGoodsTip_change']}><{/if}><{$lang['buy_mybuys_tmp_reqGoodsTip_num']}></label></h3>
+                    <div class="row-flex1 buynum">
+                        <button data-role="none" type="button" class="minus">－</button>
+                        <span class="number">
+                        <input data-role="none" type="text" class="number buynum" style="width:30px; height:25px" name="num" value="1">
+                        </span>
+                        <button data-role="none" type="button" class="plus">＋</button>
+                    </div>
+                </li>
+                <li class="blank10"></li>
+                <li class="rowbox">
+                    <h3 style="width:100px"><label><{$lang['buy_mybuys_tmp_reqGoodsTip_desc']}></label></h3>
+                    <div class="row-flex1">
+                        <textarea name="txt" placeholder="<{$lang['buy_mybuys_tmp_reqGoodsTip_desc2']}>" class="text" maxlength="1000" style="height:80px;" data-validate="isempty"></textarea>
+                    </div>
+                </li>
+                <li class="blank10"></li>
+                <li class="rowbox">
+                    <h3 style="width:100px"><label><{$lang['buy_mybuys_tmp_reqGoodsTip_picprove']}></label></h3>
+                    <div id="imgUrlBox" class="row-flex1">
+                       <img id="imgbox" src="" style="max-width:none; width:auto; max-height:100px; display:none" class="mr-10 mb-10" />
+                       <button data-role="none" type="button" class="btn btn-border reqUpPic"><{$lang['buy_button_upload']}></button>
+                       <input data-role="none" type="hidden" name="img" id="imgUrl" value="" />
+                    </div>
+                </li>
+                <li class="blank10"></li>
+            </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['buy_button_cancel']}></span>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                    <span class="buttonText butttonsubmit"><{$lang['buy_button_submit']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

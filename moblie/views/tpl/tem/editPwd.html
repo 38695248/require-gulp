@@ -1,0 +1,41 @@
+<div id="pwdTipBox" class="tipbox fade" data-index="0">
+	<form id="pwdFrom" method="post">
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['sns_temeditpwd_title']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont tipcontbox">
+            <ul>
+                <li class="rowbox">
+                    <h3 class="w70 line30"><{$lang['sns_temeditpwd_oldpwd']}><p style="margin-top:-10px"><a class="color-red f12" href="#"><{$lang['sns_temeditpwd_forgetpwd']}></a></p></h3>
+                    <div class="row-flex1">
+                        <input data-role="none" type="password" name="old" value=""  data-validate="OldPwd">
+                    </div>
+                </li>
+                <li class="rowbox">
+                    <h3 class="w70 line30"><{$lang['sns_temeditpwd_newpwd']}></h3>
+                    <div class="row-flex1">
+                        <input data-role="none" type="password" name="newpassword" value="" placeholder="" data-validate="Pwd">
+                    </div>
+                </li>
+                <li class="rowbox mt-10">
+                    <h3 class="w70 line30"><{$lang['sns_temeditpwd_renewpwd']}></h3>
+                    <div class="row-flex1">
+                        <input data-role="none" name="renewpassword" type="password" data-validate="Pwd1">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['sns_temeditpwd_cancel']}></span>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                    <span class="buttonText butttonsubmit"><{$lang['sns_temeditpwd_submit']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

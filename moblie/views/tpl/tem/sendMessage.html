@@ -1,0 +1,32 @@
+<div id="SendFrinedTipbox" class="tipbox fade" data-index="0">
+  <div class="tipbox-in" data-index="0">
+    <h1 class="tiptop"><{$lang['sns_tplsendmessage_name']}></h1>
+    <span class="ico02 tipclose closeBtnHtml"></span>
+    <form id="SendFrinedForm" class="sendFrinedForm f12" method="post">
+      <div class="tipcont">
+        <div>
+          <textarea id="message" class="message" placeholder="<{$lang['sns_tplsendmessage_messagerequire']}>"></textarea>
+        </div>
+        <div class="rel">
+          <input data-role="none" class="ui-Input sendInput" type="text" name="name" autofocus="" placeholder="Search" autocomplete="off">
+          <div class="blank5"></div>
+          <div class="sendUserBox">
+            <ul id="sendList" class="sendList">
+            <{foreach $data as $v}>
+              <li class="userFlag" data-uid="89">
+                  <a class="userCircleAvatar">
+                    <div class="fl mr-10"><img src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" class="avatar_loading avatar" ></div>
+                    <div class="fl">
+                      <h4 class="title"><{$v['fname']}><{$v['lname']}></h4>
+                      <p class="subtitle"><{$v['followtype']}></p>
+                    </div>
+                    </a>
+              </li>
+              <{/foreach}>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

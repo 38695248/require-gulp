@@ -1,0 +1,64 @@
+        <div id="profileTipbox" class="tipbox fade" data-index="0" style="width:570px;">
+            <div class="tipbox-in">
+                <h1 class="tiptop"><{$lang['sns_temprofile_profile']}></h1>
+                <span class="ico02 tipclose closeBtnHtml"></span>
+                <form id="profileForm" class="commForm standardForm f12" method="post">
+                <div class="tipcont">
+                        <ul>
+                            <li style="border:none">
+                                <h3 style="width:100px"><label for="userFirstName"><{$lang['sns_temprofile_name']}></label></h3>
+                                <div class="rel">
+                                    <input data-role="none" type="text" class="first mr-10" name="first_name" id="userFirstName" value="<{$data['fname']}>">
+                                    <input data-role="none" type="hidden" class="fr myname last" name="last_name" id="userLastName" value="">
+                                </div>
+                            </li>
+                            <li>
+                                <h3 style="width:100px"><label><{$lang['sns_temprofile_avatar']}></label></h3>
+                                <div class="rel">
+                                    <div class="profileImageWrapper w150 text-center">
+                                        <img src="<{$data['avatar'][2]}>" data-original="<{$data['avatar'][1]}>" class="avatar_loading profileImage" />
+                                    </div>
+                                    <a class="rowbox w100e" href="/common/avatar_up_cmm.html?act=user&type=avatar"><button type="button" data-type="avatar" data-act="user" data-title="<{$lang['sns_temprofile_avatar']}> " class="btn " style="padding:7px; margin-left:0" data-avatar="<{$avatar2up[0]}>">修改头像</button></a>                                    
+                                </div>
+                            </li>
+                            <li>
+                                <h3 style="width:100px">
+                                  <label>主页形象图片</label>
+                                </h3>
+                                <div class="rel">
+                                  <div class="profileImageWrapper w150 text-center"> 
+                                    <img src="<{$data['figure'][2]}>" data-original="<{$data['figure'][1]}>" class="avatar_loading profileImage" /> 
+                                  </div>
+                                  <a class="rowbox w100e" href="/common/avatar_up_cmm.html?act=user&type=figure"><button type="button" data-type="figure" data-act="user" data-title="上传个人主页形象图片 " class="btn up_rzpic" style="padding:7px; margin-left:0" data-avatar="<{$figure2up[0]}>">修改图片</button></a>
+                                </div>
+                              </li>
+                            <li>
+                                <h3 style="width:100px"><label for="userAbout"><{$lang['sns_temprofile_aboutme']}></label></h3>
+                                <div class="rel">
+                                    <textarea name="about" id="userAbout" style="height:50px"><{$data['aboutme']}></textarea>
+                                </div>
+                            </li>
+                            <li>
+                                <h3 style="width:100px"><label for="userLocation"><{$lang['sns_temprofile_location']}></label></h3>
+                                <div class="rel">
+                                    <input data-role="none" type="text" name="location" id="userLocation" value="<{$data['location']}>">
+                                </div>
+                            </li>
+                        </ul>
+                </div>
+                <div class="tipbottom">
+                    <p class="fl w280 helpText">
+                       <{$lang['sns_temprofile_visit']}><a href="/user/setting.html"><{$lang['sns_temprofile_account']}></a><{$lang['sns_temprofile_accountdesc']}></p>
+                    <div class="fr formFooterButtons">
+                        <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                            <span class="buttonText"><{$lang['sns_temprofile_cencle']}></span>
+                        </button>
+                        <button data-role="none" type="submit" class="btn btn-danger">
+                            <span><{$lang['sns_temprofile_save']}></span>
+                        </button>
+                    </div>
+                    <div class="blank0"></div>
+                </div>
+                </form>
+            </div>
+        </div>

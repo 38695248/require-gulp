@@ -1,0 +1,34 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+    <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox" data-role="content">
+	<{foreach $paymentlist as $key=>$val}>
+    <ul class="jsbox">
+      <li>
+      	<a href="/myorder/payorder.html?orderid=<{$orderid}>&payment=<{$val['id']}>" class="rowbox">
+      	<div class="w30 mt-5">
+        	<img src="<{$val['icon']}>" alt="<{$val['name']}>">
+        </div>
+        <div class="ml-5"><{$val['name']}></div>
+        <div class="row-flex1 text-right">立即支付</div>
+        <div class="ico ico-jt ml-5"></div>
+        </a>
+      </li>
+    </ul>
+    <{/foreach}>
+  </div>
+  
+</div>
+<{include file="footer_comm.html"}>
+<script type="text/javascript">
+$(function(){
+	BaseInitClass.baseInit();	
+});
+</script>
+</body>
+
+</html>

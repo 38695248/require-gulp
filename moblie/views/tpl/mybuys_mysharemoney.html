@@ -1,0 +1,95 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+    <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings">
+    <!--ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-paypal mr-5"></span><{$lang['buy_mybuys_mysharemoney_account_paypal']}>
+        </div>
+        <div class="row-flex1 text-right setpayacount" data-type="1"><{if $acount_paypal['acount']}><span>（<{$acount_paypal['status_txt']}>）</span><{else}>未绑定<{/if}></div>
+        <div class="ico ico-jt"></div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-alipay mr-5"></span><{$lang['buy_mybuys_mysharemoney_account_alipay']}>
+        </div>
+        <div class="row-flex1 text-right setpayacount" data-type="2"><{if $acount_alipal['acount']}><span>（<{$acount_alipal['status_txt']}>）</span><{else}>未绑定<{/if}></div>
+        <div class="ico ico-jt"></div>
+      </li>
+      <li>
+          <a href="/mybuys/cash.html" class="rowbox">
+          <div class="row-flex1">
+              &nbsp;现金提现
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+      </li>
+    </ul-->
+    <ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_shmoney']}>
+        </div>
+        <div class="row-flex1 text-right color-red">￥<{$sharemoney['shmoney_cny']}>&nbsp;元<span class="hide">&nbsp;+&nbsp;$<{$sharemoney['shmoney_usd']}>&nbsp;USD</span></div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_status']}>
+        </div>
+        <div class="row-flex1 text-right color-red"><{$sharemoney['status_txt']}></div>
+      </li>
+      <li>
+          <a href="/mybuys/cash.html" class="rowbox">
+          <div class="row-flex1">
+              &nbsp;现金提现
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+      </li>
+      <li>
+          <a href="/mybuys/cashlist.html" class="rowbox">
+          <div class="row-flex1">
+              &nbsp;提现记录
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+      </li>
+    </ul>
+    <{if $datalist}>
+    <ul id="masonry" class="jsbox masonry">
+    	<{foreach $datalist as $key=>$val}>
+    	<li class="item">
+        	<div class="row-flex1">
+                <span class="color-red fr">
+                    <{if $val['shmoney_out']>0}>- <{$val['exrtitle']}><{$val['shmoney_out']}><!--&nbsp;<{$val['exrcode']}>--><{/if}>
+                <{if $val['shmoney_in']>0}><{$val['exrtitle']}><{$val['shmoney_in']}><!--&nbsp;<{$val['exrcode']}>--><{/if}>
+                </span><{$val['edttime_txt']}>
+            </div>
+            <div class="line24"><{$val['desc_txt']}></div>
+        </li>
+       <{/foreach}>
+    </ul>
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+     </div>
+    <{/if}>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!--寄回商品-->
+<div id="returnGoodsTip" class="tipbox fade" data-index="0">
+	<form id="returnGoodsFrom" method="post" data-action='/mybuys/myordercanceledt.html'>
+    <input type="hidden" name="act" value="<{$data_input.act}>" />
+    <div class="tipbox-in" data-index="0">
+    	<h1 class="tiptop"><{$lang['buy_mybuys_tmp_returnGoodsTip_title']}></h1>
+    	<span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont tipcontbox">
+        	<div class="sendtext f12">
+            	<h2 style="padding-bottom:5px"><{$lang['buy_mybuys_tmp_returnGoodsTip_addrtitle']}>：</h2>
+                <p><{$lang['buy_mybuys_tmp_returnGoodsTip_address']}></p>
+            </div>
+            <ul>
+            	<li class="blank10"></li>
+                <li style="border:none">
+                    <h2 class="line30"><label><{$lang['buy_mybuys_tmp_returnGoodsTip_shippcp']}></label></h3>
+                    <div class="right-con rel pwd">
+                        <input data-role="none" type="text" name="shipping_cp" value="" placeholder="<{$lang['buy_mybuys_tmp_returnGoodsTip_shippcp']}>" data-validate="isempty">
+                    </div>
+                </li>
+                <li class="blank10"></li>
+                <li>
+                    <h2 class="line30"><label><{$lang['buy_mybuys_tmp_returnGoodsTip_shippingno']}></label></h3>
+                    <div class="right-con rel pwd">
+                        <textarea name="shipping_no" placeholder="<{$lang['buy_mybuys_tmp_returnGoodsTip_shippingno']}>" class="text" maxlength="200" style="height:40px;" data-validate="isempty"></textarea>
+                    </div>
+                </li>
+                <li style="border:none; padding:0"></li>
+            </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn mr-5 closeBtnHtml" type="button">
+                	<{$lang['buy_button_cancel']}>
+                </button>
+                <button data-role="none" type="submit" class="btn btn-danger btn-Save">
+                	<{$lang['buy_button_submit']}>
+                </button>
+            </div>
+            <div class="blank0"></div>
+    	</div>
+    </div>
+    </form>
+</div>

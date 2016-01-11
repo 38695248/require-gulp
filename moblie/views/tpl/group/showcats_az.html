@@ -1,0 +1,97 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox rel" data-role="content">
+    	<div class="blank10"></div>
+    	<!--
+    	<{foreach $cats as $key => $val}>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/showcatdetail_group_list.html?area=<{$val['area']}>&sex=<{$val['sex']}>" class="bg-ffd600">
+                    <span class="ico-hot-zt"></span>
+                    <p><{$val.title}>>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $val.data as $v}>
+                        <div class="part-li">
+                            <a href="/user_group/home.html?gpid=<{$v['gpid']}>">
+                              <img class="lazy" src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+               <{$val.desc}>
+            </div>
+        </div>
+        <{/foreach}>
+        -->
+        <div class="typebox-n" style="border-bottom:#e5e5e5 solid 1px; border-top:#e5e5e5 solid 1px">
+		<ul class="typebox-start typebox-start-user">
+		  <{foreach $cats as $key => $val}>
+		    <li><a href="/user_group/showcatdetail_group_list.html?area=<{$val['area']}>&sex=<{$val['sex']}>" class="bg-ffd600">
+		    <p><img src="<{$val.icon}>"></p>
+		     <p><{$val.title}></p>
+		  </a> </li>
+		  <{/foreach}>
+		</ul>
+		</div>
+        
+	    <ul id="masonry" class="masonry jsbox grouplist" style="line-height:20px;">
+	      <{include file="group/inc_group.html"}>
+	    </ul>
+	    <div class="pager">
+	       <span class="pager-next"><a href="<{$pageurl}>"></a></span> 
+	    </div>
+	    <div style="display:none;"><{$pagehtml}></div>
+    </div>
+  <{include file="footer_bar.html"}>
+</div>
+<!--字母排列-->
+<div id="letterlist" class="letterlist" style="display:none">
+	<a href="#" id="a">A</a>
+    <a href="#" id="b">B</a>
+    <a href="#" id="c">C</a>
+    <a href="#" id="d">D</a>
+    <a href="#" id="e">E</a>
+    <a href="#" id="f">F</a>
+    <a href="#" id="g">G</a>
+    <a href="#" id="h">H</a>
+    <a href="#" id="i">I</a>
+    <a href="#" id="j">J</a>
+    <a href="#" id="k">K</a>
+    <a href="#" id="l">L</a>
+    <a href="#" id="m">M</a>
+    <a href="#" id="n">N</a>
+    <a href="#" id="o">O</a>
+    <a href="#" id="p">P</a>
+    <a href="#" id="q">Q</a>
+    <a href="#" id="r">R</a>
+    <a href="#" id="s">S</a>
+    <a href="#" id="t">T</a>
+    <a href="#" id="u">U</a>
+    <a href="#" id="v">V</a>
+    <a href="#" id="w">W</a>
+    <a href="#" id="x">X</a>
+    <a href="#" id="y">Y</a>
+    <a href="#" id="z">Z</a>
+</div>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

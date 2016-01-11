@@ -1,0 +1,53 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox">
+<div class="mainbox mainbox_p0">
+  <div class="reportbox report_h text-left line40 f16">
+  	请选择举报原因
+  </div>
+  <div id="reportbox_start" class="reportbox report_c">
+  	<form id="reportbox_form">
+    <ul class="jsbox bg-fff" style="margin:0">
+    	<li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="色情" class="w20 fr mt-5" isarray="true" />色情</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="谣言" class="w20 fr mt-5" isarray="true" />谣言</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="网络钓鱼" class="w20 fr mt-5" isarray="true" />网络钓鱼</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="诱导分享" class="w20 fr mt-5" isarray="true" />诱导分享</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="政治" class="w20 fr mt-5" isarray="true" />政治</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="分销/虚假红包" class="w20 fr mt-5" isarray="true" />分销/虚假红包</label>
+        </li>
+        <li class="line36">
+        	<label class="block"><input type="checkbox" name="reason" value="违规声明原则" class="w20 fr mt-5" isarray="true" />违规声明原则</label>
+        </li>
+    </ul>
+    <div class="text-center">
+    	<p class="blank20"></p>
+    	<button type="submit" class="btn btn-04be01 w300 line30 color-fff">发送</button>
+    </div>
+    </form>
+  </div>
+  <div id="reportbox_end" class="reportbox report_c text-center  bg-fff" style="display:none">
+  	<img src="<{$static_url}>/moblie/images/activity/webwxgetmsgimg .jpg" />
+  </div>
+</div>
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/activity.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	ActivityClass.grabredenvelope();	
+})
+</script>
+
+</body>
+
+</html>

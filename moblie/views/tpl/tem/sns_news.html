@@ -1,0 +1,20 @@
+<{foreach $data as $v}>
+<div class="newsBOx">
+  <h2 class="f12 color-999"><span><{$v['time']}></span></h2>
+  <div class="newsItem">
+    <div class="fl mr-10"> <a href="/share/get_pinlist.html?cid=<{$v['ucatid']}>"> <img src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" class="avatar_loading userimg" > </a> </div>
+    <div class="fl newsItem-r color-555">
+      <h3 class="f12 line18"><{$v['description']}></h3>
+      <div class="blank5"></div>
+      <div class="newsImage">
+        <{foreach $v['imgs'] as $m}>
+        <div class="newsactor"> <a href="/share/get_pinlist.html?cid=<{$v['ucatid']}>"> <img src="<{$m['img']}>"> </a> </div>
+        <{/foreach}>
+        <a href="/share/get_pinlist.html?cid=<{$v['ucatid']}>">
+        <div class="ico shareMoreBox"></div>
+        </a> </div>
+    </div>
+  </div>
+  <p class="blank0"></p>
+</div>
+<{/foreach}>

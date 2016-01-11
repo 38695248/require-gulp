@@ -1,0 +1,52 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox">
+    <div id="masonry" class="masonry">
+    <{foreach $datalist as $key=>$val}>
+      <ul class="jsbox item rowitem">
+        <li class="rowbox h3_title">
+          <div class="row-flex1 w60 color-red"><{$val['statusact']['status_txt']}></div>
+          <div class="row-flex1 text-right"><{$val['addtime_txt']}></div>
+        </li>
+        <li class="orderinfo rowbox">
+          <div class="cartimg w70 mr-10"> <a href="/ask/viewask.html?askid=<{$val['askid']}>"><img src="<{$val['img']}>"></a> </div>
+          <div class="cartinfo row-flex1">
+            <h3 class="color-333"><a href="/ask/viewask.html?askid=<{$val['askid']}>"><{$val['title']}></a></h3>
+            <div class="color-777">
+            	<{$val['askinfo_s']}>
+            </div>
+          </div>
+        </li>
+        <li class="rowbox line50">
+          <div class="row-flex1 f18 color-333"> <{$currency['exrtitle']}><{$val['total_ask']}>&nbsp;<span class="f12 color-777"><{$currency['exrcode']}></span> </div>
+          <!--操作-->
+          <div class="row-flex2 text-right"> 
+          <{foreach $val['statusact']['useract'] as $key2=>$val2}>
+          	<span class="spanbtn order-act-btn" data-act="<{$val2['act']}>" data-askid="<{$val['askid']}>" data-url="/ask/edtask.html" data-tip="1"><{$val2['title']}></span>
+          <{/foreach}>
+          </div>
+        </li>
+      </ul>
+    <{/foreach}>
+    </div>
+    <div class="pager">
+       <span class="pager-next"><a href="<{$pageurl}>"></a></span>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+</div>
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/needarea.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	Needarea.needareaInt({page:'myasks'});
+});
+</script>
+</body>
+</html>
+

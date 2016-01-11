@@ -1,0 +1,1 @@
+define(["jquery"],function(e){var t=e("#control"),n=e("#content"),r=function(){n.scrollTop(n[0].scrollHeight+50)};return{scrollToEnd:r}});

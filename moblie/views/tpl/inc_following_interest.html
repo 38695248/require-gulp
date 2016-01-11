@@ -1,0 +1,27 @@
+<{foreach $interestData as $v}>
+<div class="item rowitem">
+   	<div class="rel rowitem-t">
+       	<div class="fr rowitem-t-r">
+           	
+            <{if $v['isfollow'] == 1}> 
+		      <span class="span-gz followBtn current" data-type="interests" data-follow="<{$v['isfollow']}>" data-categoryid="<{$v['tagid']}>"><{$lang['sns_inc_share_item_have_follow']}></span>
+		    <{else}>
+		      <span class="span-gz followBtn" data-type="interests" data-follow="<{$v['isfollow']}>" data-categoryid="<{$v['tagid']}>"><{$lang['sns_inc_share_item_follow']}></span>  
+		    <{/if}>
+           	
+           </div>
+           <div class="rowbox rowitem-t-l">
+              <a href="/m_search/search.html?t=&s=<{$v['title']|escape:'url'}>" title="<{$v['title']|escape:'html'}>">
+           	   <div class="avatar w30 mr-5 useravatar_bg">
+           		<img src="<{$v['img_s']}>" data-original="<{$v['img_s']}>" class="avatar_lazy userThumb" alt="5865 " title="More from 5865 ">               
+               </div>
+               <div class="row-flex1 avatar-text">
+               	<h2><{$v['title']|escape:'html'}></h2>
+                  <p>被关注<{$v['follownum']}>次</p>
+               </div>
+             </a>  
+          </div>
+          
+       </div>
+</div>
+ <{/foreach}>

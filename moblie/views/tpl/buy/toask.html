@@ -1,0 +1,43 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  <form id="needareaFrom" action="/ask/doask.html">
+  <div class="contentbox">
+  	<div class="needarea">
+    	<input type="text" id="title" name="title" maxlength="50" placeholder="标题：简单一句话说说您需要做什么" value="" data-validate="isempty">
+    </div>
+    <div class="needarea">
+    	<textarea id="askinfo" name="askinfo" style="height:100px" value="" placeholder="请告诉设计师您的具体需求..." data-validate="isempty" maxlength="290"></textarea>
+    </div>
+    <div class="needarea">
+    	<h3>按我上传的图片定制(最多上传3张同款不同角度的图片)</h3>
+        <p class="blank10"></p>
+        <div class="rowbox">
+        	 <div id="need-up-btn" class="rel need_up ml-5">
+               <span class="ico-add"></span> 
+        	</div>
+            <ul id="uploadTable" class="uploadTable row-flex1"></ul>
+        </div>
+    </div>
+    <div class="needarea">
+    	<input type="text" id="total_ask" name="total_ask" maxlength="8" class="need-must" value="" placeholder="请输入您的预算" data-validate="Money">
+    </div>
+  </div>
+  <div class="footerbox rowbox">
+  	<div id="needsub_Btn" class="btn-pri-buy">提交</div>
+  </div>
+  </form>
+</div>
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/needarea.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	Needarea.needareaInt({page:'toask'});
+});
+</script>
+</body>
+</html>
+

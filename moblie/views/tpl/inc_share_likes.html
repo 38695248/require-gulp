@@ -1,0 +1,13 @@
+<ul>
+  <{foreach $data['likes'] as $k2=>$v2}>
+  <li class="avatar"><a href="/share/myshares.html?fsuid=<{$v2['suid']}>">
+  <div class="avatar useravatar_bg"><img src="<{$v2['avatar'][2]}>" data-original="<{$v2['avatar'][1]}>" class="avatar_lazy userThumb" /></div></a></li>
+  <{/foreach}>
+  <{if $data['count']['likenum'] > 6 }>
+  <li class="li_more">
+  	<a href="/share/morelikesperson.html?shid=<{$data['shid']}>">
+      	<div class="avatar">...</div>
+      </a>
+  </li>
+  <{/if}>
+</ul>

@@ -1,0 +1,47 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div style="height:0; overflow:hidden"> <img id="weixin_first_img" src="<{$weixin_first_img}>" /> </div>
+<div class="mainbox" id="page_cont">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  <div id="contentbox" class="contentbox">
+    <div class="edt_box"> 
+    	<{$special_info.desc}>
+    	<div class="blank0"></div>
+    </div>
+    <div class="combox">
+      
+      <div id="choose_dh" class="masonry_dh">
+      	<ul class="rowbox text-center f16">
+        	<li class="dhpjax <{if $type=='att1'}>current<{/if}>" data-url="<{$link_att1}>"><{$special_info.att1_name}></li>
+            <li class="line">|</li>
+        	<li class="dhpjax <{if $type=='att2'}>current<{/if}>" data-url="<{$link_att2}>"><{$special_info.att2_name}></li>
+            <li class="line">|</li>
+            <li class="dhpjax <{if $type=='att3'}>current<{/if}>" data-url="<{$link_att3}>"><{$special_info.att3_name}></li>
+            <li class="line">|</li>
+            <li class="dhpjax <{if $type=='att4'}>current<{/if}>" data-url="<{$link_att4}>"><{$special_info.att4_name}></li>
+        </ul>
+      </div>
+      
+      <div id="masonry_2" class="masonry larger-view"> 
+      	<{include file="inc_share_item.html"}> 
+      </div>
+    </div>
+    <div class="pager" style="display: none;"> 
+    	<span class="pager-next"><a href="<{$request_url}>"></a></span> 
+    </div>
+  </div>
+  <{include file="footer_bar.html"}> 
+</div>
+<{include file="footer_comm.html"}>
+
+<script src="<{$static_url}>/moblie/js/index.min.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	Index.indexInit({mod:'index'});	
+});
+</script>
+</body>
+</html>

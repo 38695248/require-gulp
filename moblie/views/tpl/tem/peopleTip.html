@@ -1,0 +1,41 @@
+<div class="cilckItem">
+    <span class="item-tag-label"></span>
+    <span class="ico ico-sPeople"></span>
+    <div class="hide item-tag-form item-tag-show" style="width:auto;">
+        <div class="tip"></div>
+    </div>
+</div>
+<div class="item-tag-form item-tag-box">
+    <h2 class="tiptop"><{$lang['sns_peopletip_people']}></h2>
+    <span class="fr ico02 tipclose ico-tag-close hideClose"></span>
+    <div class="CustomizedFrom" method="post">
+    	<div class="addTagFrom">
+        <div class="tipcont">
+            <div class="modal-body">
+                <ul class="list-unstyled pick-span">
+                    <li class="rel">
+                        <div class="right-con">
+                            <input data-role="none" class="byshareInputName people" type="text" name="People" value="" placeholder="<{$lang['sns_peopletip_peopledesc2']}>" data-validate="isempty" isarray="true" isarray="true">
+                            <input data-role="none" class="tosuid" type="hidden" name="suid" placeholder="Search"  isarray="true">
+                        </div>
+                        <input data-role="none" type="hidden" name="peopleCoordinate" value="0" class="Coordinate" isarray="true">
+                    </li>
+                </ul>
+                <div class="blank0"></div>
+            </div>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 delTipBtn" type="button">
+                    <span class="buttonText"><{$lang['sns_peopletip_del']}></span>
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger addTagTipBtn">
+                    <span class="buttonText"><{$lang['sns_peopletip_done']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </div>
+    </div>
+</div>
+

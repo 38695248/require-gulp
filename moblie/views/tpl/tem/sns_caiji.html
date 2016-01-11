@@ -1,0 +1,81 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<{include file="header.html"}>
+<div id="shareFirstTipbox" class="tipbox fade loaded" data-index="0" style="display: none; ">
+  <div class="tipbox-in">
+      <h1 class="tiptop">
+          <{$lang['sns_temsharetipfirst_startshare']}>
+          <p class="h1-cont f12 f-normal"><{$lang['sns_temsharetipfirst_prompt']}></p>
+      </h1>
+    <span class="ico02 tipclose closeBtnHtml"></span>
+    <div id="CustomizedFrom" method="post">
+      <div id="shareOne" class="tipcont">
+        <div id="showPic_samll" class="showPic_samll"> <span class="ico ico-upbtn ico-upbtn-gray"></span> <span class="ico ico-dowmbtn ico-downbtn-gray"></span>
+          <div class="sliderShare">
+                 <ul>
+                 <{if $share eq 'jietu'}>
+                 	<li data-index="0" data-sh="<{$data['height']}>" data-sw="<{$data['width']}>" data-h="<{$data['height']}>" data-w="<{$data['width']}>" data-simgurl="<{$data['imgurl']}>" data-bimgurl="<{$data['imgurl']}>">
+                         <em class="ico ico-userclose" data-index="0" style="display: none;"></em>
+                         <a class="imghoverMask current" href="javascript:void(0);">
+                         <span class="hoverMask"></span>
+                         <img id="simgBoxUrl" src="<{$data['imgurl']}>">
+                         </a>
+                     </li>
+                   <{else}>
+                    <{foreach $data as $v}>
+                    <li data-index="0" data-sh="<{$v['height']}>" data-sw="<{$v['width']}>" data-h="<{$v['height']}>" data-w="<{$v['width']}>" data-simgurl="<{$v['imgurl']}>" data-bimgurl="<{$v['imgurl']}>">
+                         <em class="ico ico-userclose" data-index="0" style="display: none;"></em>
+                         <a class="imghoverMask current" href="javascript:void(0);">
+                         <span class="hoverMask"></span>
+                         <img src="<{$v['imgurl']}>">
+                         </a>
+                     </li>
+                     <{/foreach}>
+                    <{/if}>
+                </ul>
+             </div>
+        </div>
+        <div id="showPic" class="showPic">
+        <{if $share eq 'jietu'}>
+          <form data-w="<{$data['width']}>" data-h="<{$data['height']}>" data-sw="<{$data['width']}>" data-sh="<{$data['height']}>" data-iswebsite="1" data-bimgurl="" data-simgurl="" class="showPicImg" style="width:<{$data['width']}>; height:<{$data['height']}>;display:block;">
+            <img class="imgloading picImg" src="<{$data['imgurl']}>" data-src="<{$data['imgurl']}>" style="width:<{$data['width']}>; height:<{$data['height']}>;">
+            <input data-role="none" type="hidden" value="" id="file" name="file">
+            <input data-role="none" type="hidden" value="" name="relBoxSize" class="relBoxSize">
+          </form>
+         <{else}>
+          <{foreach $data as $v}>
+           <form data-w="<{$v['width']}>" data-h="<{$v['height']}>" data-sw="<{$v['width']}>" data-sh="<{$v['height']}>" data-iswebsite="1" data-bimgurl="<{$v['imgurl']}>" data-simgurl="<{$v['imgurl']}>" class="showPicImg" style="width: <{$v['width']}>px; height: <{$v['height']}>px;display: none;">
+            <img class="picImg" src="<{$v['imgurl']}>" style="width: <{$v['width']}>px; height: <{$v['height']}>px;">
+            <input data-role="none" type="hidden" value="" name="relBoxSize" class="relBoxSize">
+          </form>
+          <{/foreach}>
+         <{/if}>
+          <div id="addTagFromBox" class="addTagFromBox" style="display: none;">
+            <div class="tagBgShade"></div>
+            <div class="addTagList f12">
+              <button data-role="none" data-type="cus" id="isOri" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Customized"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_customized']}></span> </button>
+              <div class="blank5"></div>
+              <button data-role="none" data-type="tag" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-tag"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_tag']}></span> </button>
+              <button data-role="none" data-type="place" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-Place"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_place']}></span> </button>
+              <button data-role="none" data-type="people" class="addTagBtn" type="button"> <span class="addTagBtnBg"><span class="addTagBtnBg-in"></span></span> <em class="ico ico-People"></em> <span class="addTagBtnText"><{$lang['sns_temsharetipfirst_people']}></span> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tipbottom">
+        <div class="fr formFooterButtons">
+          <button data-role="none" type="button" class="btn btn-one btn-danger btn-danger-gray w100"> <span class="buttonText"><{$lang['sns_temsharetipfirst_next']}></span> </button>
+        </div>
+        <div class="blank0"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<{include file="footer.html"}>
+<script type="text/javascript">
+$(function(){
+	ShareUtils.addShareInit('',{share:"caiji"});
+})
+</script>
+</body>
+</html>

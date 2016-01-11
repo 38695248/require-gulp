@@ -1,0 +1,358 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+<form id="paymentForm2" method="post" action="/myorder/submit_order.html" data-ajax="true">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox" data-role="content">
+    <{foreach $cartinfo['order_son'] as $key=>$val}>
+    <ul class="jsbox jsbox-pd">
+      	<!--li class="rowbox">
+        	<div class="row-flex1">设计师：<span class="color-red"><{$val.shopname}></span></div>
+        </li-->
+        <{if $buy_ask['askid']>0}>
+        <li class="rowbox">
+            <div class="w60 cartimg goodsImg mr-10">
+            <a href="/ask/viewask.html?askid=<{$buy_ask['askid']}>">
+            <img src="<{$buy_ask['img']}>">
+            </a>
+            </div>
+            <div class="cartinfo row-flex1">
+              <div class="rowbox color-333">
+                  <div class="row-flex1 color-blue"><{$buy_ask['title']}></div>
+                  <div class="color-red">
+                  	<p><{$currency['exrtitle']}> <{$buy_ask['total_svr']}></p>
+                  </div>
+              </div>
+              <div class="color-777 goodsotherinfo rowbox">
+              	<div class="row-flex1"><span class="mr-10">定制要求：<{$buy_ask['askinfo_s']}></div>
+              </div>
+            </div>
+         </li>
+        <{else}>
+        <{foreach $val['cart_goods_key'] as $key2=>$val2}>
+      	<li class="rowbox">
+            <div class="w60 cartimg goodsImg mr-10">
+            <a href="/share/sharepage.html?gdid=<{$cartinfo['goods'][$val2]['gdid']}>">
+            <img src="<{$cartinfo['goods'][$val2]['pic']}>">
+            </a>
+            </div>
+            <div class="cartinfo row-flex1">
+              <div class="rowbox color-333">
+                  <div class="row-flex1 color-blue"><{$cartinfo['goods'][$val2]['gdname']}></div>
+                  <div class="color-red">
+                  	<p><{$cartinfo['goods'][$val2]['exrtitle']}> <{$cartinfo['goods'][$val2]['price']}></p>
+                  </div>
+              </div>
+              <div class="color-777 goodsotherinfo rowbox">
+              	<div class="row-flex1"><span class="mr-10">颜色：<{$cartinfo['goods'][$val2]['buycolor'][1]}>&nbsp;<{$cartinfo['goods'][$val2]['buycolor'][2]}></span><span>尺寸：<{$cartinfo['goods'][$val2]['buysize'][1]}>&nbsp;<{$cartinfo['goods'][$val2]['buysize'][2]}><{if $cartinfo['goods'][$val2]['bodyData_name']}>（量身人：<{$cartinfo['goods'][$val2]['bodyData_name']}>）<{/if}></span>
+                <{if $cartinfo['goods'][$val2]['buyattr']}>
+                <span>定制元素：<{foreach $cartinfo['goods'][$val2]['buyattr'] as $key3=>$val3}><{$val3[3]}>、<{/foreach}></span>
+                <{/if}>
+                </div>
+                <div class="w50 text-right">X&nbsp;<{$cartinfo['goods'][$val2]['buynum']}></div>
+              </div>
+              <div class="color-777 goodsotherinfo rowbox">
+                <{if $cartinfo['goods'][$val2]['money_back']>0}>
+                <div class="row-flex1"><span class="mr-10 color-red">返现：￥<{$cartinfo['goods'][$val2]['money_back']}>&nbsp;X&nbsp;<{$cartinfo['goods'][$val2]['buynum']}></span></div>
+                <{/if}>
+              </div>
+            </div>
+         </li>
+         <{/foreach}>
+         <{/if}>
+         <li class="rowbox">
+         	<div class="mr-5">订单备注：</div>
+            <div class="row-flex1">
+         		<input type="text" name="note_<{$key}>" id="userAbout" style="height:30px" class="noborder" placeholder="选填，订单备注">
+            </div>
+         </li>
+         <li class="text-right">
+         	<{if $val['discounttotal']>0}>
+         	<p>折扣：<span class="color-red"><{$cartinfo['currency_exrtitle']}> <{$val['discounttotal']}></span></p>
+            <{/if}>
+         	<p>小计：<span class="color-red"><{$cartinfo['currency_exrtitle']}> <{$val['goodstotal']}></span></p>
+         </li>
+    </ul>
+    <{/foreach}>
+	<ul class="jsbox">
+          <li class="rowbox">
+            <div class="w60">送货到</div>
+            <div class="row-flex1 text-right">
+                        <!--a data-role="none" rel="external" href="javascript:void(0);" class="wxAddressBtn color-blue mr-5" data-address="0">使用微信地址</a> | --> 
+            
+            <a href="javascript:void(0);" class="addAddressBtn color-blue mr-5" data-address="0" data-act="add">增加新地址
+            	<div class="ico ico-jt-d"></div>
+             </a>
+            </div>
+          </li>
+          <div id="addrid">
+          </div>
+        </ul>
+    <ul class="jsbox">
+        <li class="rowbox">
+            <div class="row-flex1">送货方式</div>
+            <div class="ico ico-jt-d"></div>
+        </li>
+        <{foreach $data_more['shippinglist'] as $key=>$val}>
+        <li>
+            <div class="rowbox mt-10" id="shippinglist"> <div class="rowbox"><input data-role="none" name="shippingid" type="radio" value="<{$val['id']}>" id="shippingid_<{$val['id']}>" <{if $key==0}>checked<{/if}>><label for="shippingid_<{$val['id']}>"><{$val['name']}></label></div></div>
+        </li>
+        <{/foreach}>
+    </ul>
+    <ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1 w60">支付方式</div>
+        <div class="ico ico-jt-d"></div>
+      </li>
+      <{$num_paymentlist=count($data_more['paymentlist'])}>
+      <{foreach $data_more['paymentlist'] as $key=>$val}>
+      <li>
+        <div class="mt-10" id="paymentlist"> <div class="rowbox"><input data-role="none" name="paymentid" type="radio" value="<{$val['id']}>" id="paymentid_<{$val['id']}>" <{if $num_paymentlist==1}>checked<{/if}>><label for="paymentid_<{$val['id']}>"><{$val['name']}></label></div></div>
+      </li>
+      <{/foreach}>
+    </ul>
+    <{if $cartinfo['okpayType']['coupon']}>
+    <ul class="jsbox cartCoupons">
+      <li class="rowbox cilckItem" style="border:none" data-type="couponMoney">
+        <div class="row-flex1 w60">优惠券支付</div>
+        <div class="ico ico-jt-d"></div>
+      </li>
+      <li class="cartCouponList text-center margin-t10 hide">
+        <div id="couponList-d" class="endbox color-555 text-left line20 hide mb-10">
+            <span class="js_cart_coupons">本次使用</span>
+            <span class="b">优惠券：</span> 
+            <span class="ccode" id="coupons_code">【】</span>，
+            <span>折合</span>
+            <span class="color-red b money">$0.00</span> 
+            <span class="ml-10">
+                <a href="javascript:void(0);" class="color-blue canceluseBtn" data-type="couponMoney">取消使用</a>
+            </span>
+        </div>
+        <div id="couponList" class="startbox mb-10 line30">
+        	<{foreach $data_more['cashcouponlist'] as $key=>$val}>
+              <div class="checkbox-parent rowbox text-left">
+                  <input data-val="<{$val['cardcode']}>" type="checkbox" value="<{$val['cardcode']}>" id="cashcoupon_<{$val['id']}>" class="inputcheckbox" <{if $key==0}>checked<{/if}>>
+                  <label for="cashcoupon_<{$val['id']}>"><i style="margin:0 10px -6px 0"></i><span class="color-red f18"><{$currency['exrtitle']}><{$val['money']}></span><span class="f12 color-999">现金劵</span></label>
+              </div>
+            <{/foreach}>
+            <p class="blank10"></p>
+            <div class="rowbox">
+            	<div class="row-flex1 cartCoupon-input"><input type="text" id="couponsInput" class="textbox" maxlength="200" placeholder="请输入优惠券号码"></div>
+                <div id="cartCoupon-Btn" class="btn btn-s btn-danger cartCoupon-Btn w80" style="margin-left:5px; margin-right:20px; line-height:30px" data-type="couponMoney">
+                立刻使用
+            </div>
+            </div>
+            
+            <p class="blank10"></p>
+            
+        </div>
+      </li>
+    </ul>
+    <{/if}>
+    <{if $cartinfo['okpayType']['score']}>
+    <ul class="jsbox cartCoupons">
+      <li class="rowbox cilckItem" style="border:none">
+        <div class="row-flex1 w60"><{$lang['buy_order_scoremoney']}></div>
+        <div class="ico ico-jt-d"></div>
+      </li>
+      <li class="cartCouponList text-center margin-t10 hide">
+        <div class="endbox color-555 text-left hide">
+            <span class="js_cart_coupons">本次使用</span>
+            <span><{$lang['buy_score']}></span>
+            <span class="color-red"><{$cartinfo['currency_exrtitle']}></span>
+            <span class="b ccode color-red" id="pay_score"></span> 
+            <span class="exrcode"><{$cartinfo['currency_exrcode']}></span>
+            <span class="ml-10">
+                <a href="javascript:void(0);" class="color-blue canceluseBtn" data-type="scoreMoney">取消使用</a>
+            </span>
+        </div>
+        <div class="startbox">
+            <{if $cartinfo['statusscore']==1}>
+            <div class="rowbox">
+                <div class="mr-5" style="line-height:38px">本次使用</div>
+                <div class="row-flex1 mb-5">
+                    <input fmax="100" class="textbox" type="text" id="scoreInt" value="">
+                </div>
+                <div class="btn btn-s btn-danger cartCoupon-Btn w80" data-type="scoreMoney" style="height:30px; margin-left:5px; margin-right:20px; line-height:20px">立刻使用</div>
+            </div>
+            <{/if}>
+            <p class="margin-t10 text-left">
+                您有
+                <span class="b color-black">
+                    <span class="currency_exrtitle"><{$cartinfo['currency_exrtitle']}></span>
+                    <span id="totalscore"><{$cartinfo['totalscore']}> <span class="f12 color-999"><{$cartinfo['currency_exrcode']}></span></span>
+                </span>
+                <{if $cartinfo['statusscore']==1}>
+                     , 本次可使用 
+                <span class="b color-red">
+                    <span class="currency_exrtitle"><{$cartinfo['currency_exrtitle']}></span>
+                    <span id="availscore" data-availscore="<{$cartinfo['availscore']}>"><{$cartinfo['availscore']}> <span class="f12 color-999"><{$cartinfo['currency_exrcode']}></span></span>
+                </span>
+                <{else}>
+                	, <{$cartinfo['msgscore']}>
+                <{/if}>
+            </p>
+        </div>
+      </li>
+    </ul>
+    <{/if}>
+    <ul class="jsbox cartCoupons">
+      <li class="rowbox cilckItem" style="border:none">
+        <div class="row-flex1 w60"><{$lang['buy_order_shmoney']}></div>
+        <div class="ico ico-jt-d"></div>
+      </li>
+      <li class="cartCouponList text-center margin-t10 hide">
+        <div class="endbox color-555 text-left hide">
+            <span class="js_cart_coupons">本次使用</span>
+            <span><{$lang['buy_shmoney']}></span>
+            <span class="color-red"><{$cartinfo['currency_exrtitle']}></span>
+            <span class="b ccode color-red" id="pay_shmoney"></span> 
+            <span class="exrcode"><{$cartinfo['currency_exrcode']}></span>
+            <span class="ml-10">
+                <a href="javascript:void(0);" class="color-blue canceluseBtn" data-type="shareMoney">取消使用</a>
+            </span>
+        </div>
+        <div class="startbox">
+            <{if $cartinfo['statusshmoney']==1}>
+            <div class="rowbox">
+                <div class="mr-5" style="line-height:38px">本次使用</div>
+                <div class="row-flex1 mb-5">
+                    <input fmax="100" class="textbox" type="text" id="shmoneyInt" value="">
+                </div>
+                <div id="cartpayment-Btn" class="btn btn-s btn-danger cartCoupon-Btn w80" data-type="shareMoney" style="height:30px; margin-left:5px; margin-right:20px; line-height:30px">
+                	立刻使用
+            	</div>
+            </div>
+            <{/if}>
+            <p class="margin-t10 text-left">
+                您有
+                <span class="b color-black">
+                    <span class="currency_exrtitle"><{$cartinfo['currency_exrtitle']}></span>
+                    <span id="totalshmoney"><{$cartinfo['totalshmoney']}> <span class="f12 color-999"><{$cartinfo['currency_exrcode']}></span></span>
+                </span>
+                <{if $cartinfo['statusshmoney']==1}>
+                     , 本次可使用 
+                <span class="b color-red">
+                    <span class="currency_exrtitle"><{$cartinfo['currency_exrtitle']}></span>
+                    <span id="availshmoney" data-availshmoney="<{$cartinfo['availshmoney']}>"><{$cartinfo['availshmoney']}> <span class="f12 color-999"><{$cartinfo['currency_exrcode']}></span></span>
+                </span>
+                <{else}>
+                	, <{$cartinfo['msgshmoney']}>
+                <{/if}>
+            </p>
+        </div>
+      </li>
+    </ul>
+    <ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1 w60"><{$lang['buy_order_subtotal']}></div>
+        <div class="row-flex1 text-right color-red">+ <{$cartinfo['currency_exrtitle']}><{$cartinfo['goodstotal']}>&nbsp;<{$cartinfo['currency_exrcode']}></div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1 w60"><{$lang['buy_order_shippingtotal']}></div>
+        <div class="row-flex1 text-right color-red"><{if $cartinfo['shippingtotal']>0}>+ <{$cartinfo['currency_exrtitle']}><{$cartinfo['shippingtotal']}>&nbsp;<{$cartinfo['currency_exrcode']}><{else}>（包邮）<{/if}></div>
+      </li>
+      <!--li class="rowbox">
+        <div class="row-flex1 w60"><{$lang['buy_order_tax']}></div>
+        <div class="row-flex1 text-right color-red">+ <{$cartinfo['currency_exrtitle']}><{$cartinfo['taxtotal']}>&nbsp;<{$cartinfo['currency_exrcode']}></span></div>
+      </li-->
+      <{if $cartinfo['discounttotal']>0}>
+      <li class="rowbox">
+        <div class="row-flex1 w60">折扣</div>
+        <div class="row-flex1 text-right color-red">- <{$cartinfo['currency_exrtitle']}><{$cartinfo['discounttotal']}>&nbsp;<{$cartinfo['currency_exrcode']}></div>
+      </li>
+      <{/if}>
+      <li class="rowbox" style="display:none">
+        <div class="row-flex1 w60">优惠券支付</div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                -
+                <span class="currency_exrtitle"></span>
+                <span id="couponMoney" data-couponmoney-int=""></span>
+            </span>
+        </div>
+      </li>
+      <li class="rowbox" style="display:none">
+        <div class="row-flex1 w60">享金支付</div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                -
+                <span class="currency_exrtitle"></span>
+                <span id="scoreMoney"></span>
+            </span>
+        </div>
+      </li>
+      <li class="rowbox" style="display:none">
+        <div class="row-flex1 w60">活动优惠</div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                -
+                <span class="currency_exrtitle"></span>
+                <span id="totaldiscount" data-totaldiscount="0.00">¥ 0.00<span class="f12 color-999">CNY</span></span>
+            </span>
+        </div>
+      </li>
+      <li class="rowbox" style="display:none">
+        <div class="row-flex1 w60"><{$lang['buy_order_shmoney']}></div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                -
+                <span id="shareMoney"></span>
+            </span>
+        </div>
+      </li>
+      <!--试穿押金+穿后补差-->
+      <{if $cartinfo['istryon']}>
+      <li class="rowbox" style="display:">
+        <div class="row-flex1 w60"><{$lang['buy_order_tryon_money']}></div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                
+                <span id="shareMoney"><{$cartinfo['currency_exrtitle']}><{$cartinfo['tryon_topaytotal']}>&nbsp;<{$cartinfo['currency_exrcode']}></span>
+            </span>
+        </div>
+      </li>
+      <li class="rowbox" style="display:">
+        <div class="row-flex1 w60"><{$lang['buy_order_tryon_moneyback']}></div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                
+                <span id="shareMoney"><{$cartinfo['currency_exrtitle']}><{$cartinfo['tryon_topaytotal_back']}>&nbsp;<{$cartinfo['currency_exrcode']}></span>
+            </span>
+        </div>
+      </li>
+      <{/if}>
+      <!--砍价赏金-->
+      <{if $cartinfo['othertotal']>0}>
+      <li class="rowbox" style="display:">
+        <div class="row-flex1 w60"><{$lang['buy_order_othertotal_cut']}></div>
+        <div class="row-flex1 text-right color-red">
+            <span class="fr color-555">
+                +
+                <span id="shareMoney"><{$cartinfo['currency_exrtitle']}><{$cartinfo['othertotal']}>&nbsp;<{$cartinfo['currency_exrcode']}></span>
+            </span>
+        </div>
+      </li>
+      <{/if}>
+    </ul>
+  </div>
+  <div class="footerbox border-b-none">
+  <div class="rowbox btn-buy">
+    <div class="row-flex1 text-left">
+      <h3 class="line60 pl-10 color-red"><{$lang['buy_order_topaytotal']}>：<{$cartinfo['currency_exrtitle']}><span id="topaytotal" data-topaytotal="<{$cartinfo['topaytotal_left']}>"><{$cartinfo['topaytotal_left']}></span>&nbsp;<span class="f12 color-999"><{$cartinfo['currency_exrcode']}></span></h3>
+    </div>
+    <div class="btn-pri row-flex1">
+      <button data-role="none" type="submit" class="btn-pri-buy">提交订单</button>
+    </div>
+  </div>
+  </div>
+</form>
+  <div class="blank30"></div>
+</div>
+<script data-main="<{$static_url}>/moblie/app/js/cart_sub.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

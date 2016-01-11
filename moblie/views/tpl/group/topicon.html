@@ -1,0 +1,61 @@
+<!--ul class="rowbox dzcxbox bg-fff" style="padding-top:10px; border-top:#ddd solid 1px">
+    <li>
+        <a href="/user_group/push.html">
+        <span class="ico-mx-tj"></span>
+        <p>推荐</p>
+        </a>
+    </li>
+    <li>
+        <a href="/user_group/indexgroups.html">
+        <span class="ico-mx-ss"></span>
+        <p>查找</p>
+        </a>
+    </li>
+    <li>
+        <a href="/user_group/my.html">
+        <span class="ico-mx-my"></span>
+        <p>我的明星群</p>
+        </a>
+    </li>
+    <li>
+        <a href="/user_group/add.html">
+        <span class="ico-mxqun"></span>
+        <p>创建</p>
+        </a>
+    </li>
+</ul-->
+<div class="typebox-n" style="border-bottom:#e5e5e5 solid 1px; border-top:#e5e5e5 solid 1px">
+   <ul class="typebox-start typebox-start-user">
+      <li><a href="/m_buy/star_samestyle_index.html?m=">
+      <p><img src="<{$topicon.star_samestyle_icon}>"></p>
+      <p>明星同款</p>
+      </a> </li>
+        <li><a href="/user_group/mostpopular.html">
+      <p><img src="<{$topicon.mostpopular_icon}>"></p>
+      <p>人气明星榜</p>
+      </a></li>   
+   
+      <li><a href="/user_group/group_master_group_list.html?type=2">
+      <p><img src="<{$topicon.master_icon}>"></p>
+      <p>街拍达人</p>
+      </a> </li>
+        <li><a href="/user_group/group_master_group_list.html?type=3">
+      <p><img src="<{$topicon.model_icon}>"></p>
+      <p>模特</p>
+      </a></li>
+      
+      <{foreach $topicon.sex_cats as $key => $val}>
+        <li><a href="/user_group/showcats.html?sex=<{$val['sex']}>" class="bg-color2-<{$key}>">
+        <p><img src="<{$val.icon}>"></p>
+         <p><{$val.title}></p>
+      </a> </li>
+      <{/foreach}>
+      <{foreach $topicon.area_cats as $key => $val}>
+      </li>
+            <li><a href="/user_group/showcats.html?area=<{$val['area']}>" class="bg-color2-<{$key}>">
+      <p><img src="<{$val.icon}>"></p>
+      <p><{$val.title}></p>
+      </a> </li>
+      <{/foreach}>
+  </ul>       
+</div>

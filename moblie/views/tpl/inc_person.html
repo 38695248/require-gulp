@@ -1,0 +1,51 @@
+<{foreach $personData as $v}>
+<div class="item rowitem rowitem-bord" data-page="<{$request_url}>">    	
+  	<div class="rel rowitem-t">
+      	<div class="fr rowitem-t-r">
+     	    <{if $v['isfollow'] == 1}> 
+		      <span class="span-gz followBtn current" data-type="person" data-follow="<{$v['isfollow']}>" data-fsuid="<{$v['suid']}>"><{$lang['sns_inc_share_item_have_follow']}></span>
+		    <{else}>
+		      <span class="span-gz followBtn" data-type="person" data-follow="<{$v['isfollow']}>" data-fsuid="<{$v['suid']}>"><{$lang['sns_inc_share_item_follow']}></span>  
+		    <{/if}>
+          </div>
+          <div class="rowbox rowitem-t-l">
+          	            
+	          <a href="/share/myshares.html?fsuid=<{$v['suid']}>">
+	           	<div class="avatar w30 mr-5 useravatar_bg">	<img src="<{$v['avatar_s'][2]}>" data-original="<{$v['avatar_s'][1]}>" class="avatar_lazy userThumb" alt="<{$v['uname']|escape:'html'}>" title="More from <{$v['uname']|escape:'html'}>"/></div>
+              
+                <div class="row-flex1 avatar-text">
+              	<h2><{$v['uname']|escape:'html'}> 
+              	 
+                 <{foreach $v.identify_info as $identify}>
+	               <span class="ico ico-vip" title="<{$identify.name}>"></span>
+	               <span class="f12 color-gray" title="<{$identify.name}>"><{$identify.name}></span>
+                 <{/foreach}>
+              	               	 
+              	</h2>
+                  <p><{$v['aboutme_cut']|escape:'html'}></p>
+                </div>
+              </a> 
+          </div>
+      </div>
+      
+      <div class="rowitem-c rel">
+      	<ul class="rowbox bordlist">
+	      	<{foreach $v['imgs_info'] as $img}>
+	              <li>
+	                  <div class="imgbox">
+	                     <{if $img.src != ''}>
+	                         <{if ($img.gdid > 0) && ($img.status == 1)}>
+		                       <a href="/share/sharepage.html?gdid=<{$img.gdid}>">
+		                     <{else}>
+		                       <a href="/share/sharepage.html?shid=<{$img.shid}>">
+		                     <{/if}>
+		                      <img src="<{$img.src}>" >
+		                     </a>
+	                     <{/if}>
+	                  </div>
+	              </li>
+	        <{/foreach}>
+          </ul>
+      </div>
+  </div>
+ <{/foreach}>

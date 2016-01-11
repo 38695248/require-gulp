@@ -1,0 +1,58 @@
+
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center"><{if $isme}>我<{else}>TA<{/if}>好友的众筹( T10 )</h2>
+    <ul>
+        <{foreach $friends_t10 as $key=>$val}>
+        <li>
+          <a href="/m_raise/goodsraise.html?id=<{$val['id']}>" class="rowbox">
+              <div class="w60" style="padding:10px; height:65px; overflow:hidden">
+                  <img src="<{$val['goodsimg']['s']}>" class="userThumb">
+              </div>
+              <div class="row-flex1 line20">
+                <p class="user_title mb-5" style="line-height:20px; white-space:nowrap; overflow:hidden"><{$val['gdname']}></p>
+                <p class="color-999">发起人：<span class="color-blue"><{$users_info[$val['suid']]['uname']}></span> &nbsp; 时间：<{$val['edttime_txt']}></p>
+                <p>目标:<span class="color-red">¥<{$val['totalaim']}></span> 已筹:<span class="color-red">¥<{$val['totalraise']}></span> 差额:<span class="color-red">¥<{$val['totalleft']}></span> 支持:<span class="color-red"><{$val['numraise']}></span></p>
+              </div>
+          </a>
+        </li>
+       <{/foreach}>
+    </ul>
+</div>
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center">将到期众筹( T10 )</h2>
+    <ul>
+    <{foreach $outday_t10 as $key=>$val}>
+        <li>
+          <a href="/m_raise/goodsraise.html?id=<{$val['id']}>" class="rowbox">
+              <div class="w60" style="padding:10px; height:65px; overflow:hidden">
+                  <img src="<{$val['goodsimg']['s']}>" class="userThumb">
+              </div>
+              <div class="row-flex1 line20">
+                <p class="user_title mb-5" style="line-height:20px; white-space:nowrap; overflow:hidden"><{$val['gdname']}></p>
+                <p class="color-999">发起人：<span class="color-blue"><{$users_info[$val['suid']]['uname']}></span> &nbsp; 时间：<{$val['edttime_txt']}></p>
+                <p>目标:<span class="color-red">¥<{$val['totalaim']}></span> 已筹:<span class="color-red">¥<{$val['totalraise']}></span> 差额:<span class="color-red">¥<{$val['totalleft']}></span> 支持:<span class="color-red"><{$val['numraise']}></span></p>
+              </div>
+          </a>
+        </li>
+       <{/foreach}>
+    </ul>
+</div>
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center">最新众筹( T10 )</h2>
+    <ul>
+    <{foreach $redpk_log as $key=>$val}>
+        <li>
+          <a href="/m_raise/goodsraise.html?id=<{$val['id']}>" class="rowbox">
+              <div class="w60" style="padding:10px; height:65px; overflow:hidden">
+                  <img src="<{$val['goodsimg']['s']}>" class="userThumb">
+              </div>
+              <div class="row-flex1 line20">
+                <p class="user_title mb-5" style="line-height:20px; white-space:nowrap; overflow:hidden"><{$val['gdname']}></p>
+                <p class="color-999">发起人：<span class="color-blue"><{$users_info[$val['suid']]['uname']}></span> &nbsp; 时间：<{$val['edttime_txt']}></p>
+                <p>目标:<span class="color-red">¥<{$val['totalaim']}></span> 已筹:<span class="color-red">¥<{$val['totalraise']}></span> 差额:<span class="color-red">¥<{$val['totalleft']}></span> 支持:<span class="color-red"><{$val['numraise']}></span></p>
+              </div>
+          </a>
+        </li>
+       <{/foreach}>
+    </ul>
+</div>

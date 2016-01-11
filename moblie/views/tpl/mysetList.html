@@ -1,0 +1,197 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+
+<div id="my_setlist" data-role="page" class="mainbox my_setlist">
+    <div id="headerbox" class="headerbox">
+        <{include file="header_back.html"}>
+    </div>
+  
+	<div class="contentbox settings" data-role="content">
+      <ul class="jsbox">
+        <li>
+          <a class="rowbox" href="/user/setting.html">
+          <div class="mr-10" style="padding:8px 0">
+              <div class="useravatar_set">
+                <img src="<{$data['avatar'][2]}>" data-original="<{$data['avatar'][1]}>" class="avatar_lazy">
+              </div>
+          </div>
+          <div class="row-flex1 mt-10">
+          	<h3 class="line20 color-black"><{$data['fname']}><{$data['lname']}></h3>
+            <p class="f12 color-999 line20">登录账号：<{$data['account']}></p>
+          </div>
+          <div class="ico ico-jt mt-10"></div>
+          </a>
+        </li>
+      </ul>
+      <ul class="jsbox">
+        <li>
+          <a href="/message/msglist" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-infocenter mr-5"></span>消息中心
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+      </ul>
+      <ul class="jsbox">
+      	<li>
+          <a href="/share/myshares.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-myhome mr-5"></span>我的主页
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/user_group/my.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico my-xq mr-5"></span>我的明星群
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+       </ul>
+       <ul class="jsbox">
+        <li>
+          <a href="/mybuys/myorders.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-myorder mr-5"></span>我的订单
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mybuys/aftersales.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-myorder mr-5"></span>售后中心
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/ask/myasks.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-myorder mr-5"></span>我求定制
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/m_raise/goodsraise_my.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-myorder mr-5"></span>超级筹
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/m_cut/goodscut_my.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>超级砍
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mk_market/feeback_my.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>超级返
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        </ul>
+        
+        <ul class="jsbox">
+        <li>
+          <a href="/mk_market/index.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-bole mr-5"></span>大伯乐
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mk_market/red_packet.html?fsuid=<{$suid}>" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>抢红包
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mybuys/mysharemoney.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>现金
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mybuys/myscore.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>享金
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="/mybuys/mycoupons.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>卡券
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+      </ul>
+      <ul class="jsbox">
+        <li>
+          <a href="/identify.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-rzcenter mr-5"></span>认证
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+      </ul>
+      <ul class="jsbox">
+        <li>
+        <a href="/user/setting.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mysetting mr-5"></span>设置
+          </div>
+          <div class="ico ico-jt"></div>
+        </a>
+        </li>
+      </ul>
+      <{if getsession('is_third_login') and getsession('account_type')!=2}>
+      <ul class="jsbox">
+        <li>
+        <a href="/user/bang_cellphone.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-out mr-5"></span>绑定登陆手机
+          </div>
+          <div class="ico ico-jt"></div>
+        </a>
+        </li>
+      </ul>
+      <{/if}>
+      <ul class="jsbox">
+        <li>
+        <a href="/user/logout.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-out mr-5"></span>切换登陆账号
+          </div>
+        </a>
+        </li>
+      </ul>
+  </div>
+    <{include file="footer_bar.html"}> </div>
+</div>
+
+<script data-main="<{$static_url}>/moblie/app/js/myShare_mysetlist.js?v=77" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+    <{if $banner_adv}>
+    <div id="type-banner" class="type-banner">
+        <a href="<{$banner_adv.0.link}>">
+    	  <img src="<{$banner_adv.0.src}>" />
+    	</a>
+    </div>
+    <{/if}>
+    <div class="rowbox fx-nav h3_title">
+        <div class="row-flex1 <{if $orders=='new'}>current<{/if}>"><a href="/m_buy/master.html?orders=new">最新</a></div>
+        <div class="row-flex1 <{if $orders=='hot'}>current<{/if}>"><a href="/m_buy/master.html?orders=hot">最热</a></div>
+        <div class="row-flex1 <{if $orders=='mingxin'}>current<{/if}>"><a href="/m_buy/master.html?orders=mingxin">街拍达人</a></div>
+    </div>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    <{if $orders=='mingxin'}>
+        <ul id="masonry" class="masonry jsbox" style="line-height:20px;">
+    	<{include file="group/inc_group.html"}>
+    	</ul>
+    <{else}>
+        <div class="blank10"></div>
+        <div id="masonry_2" class="masonry larger-view">    
+        <{include file="inc_share_item.html"}>
+        </div>
+    <{/if}>
+    
+    <div class="pager">
+        <{if $orders=='mingxin'}>
+    	<span class="pager-next"><a href="<{$pageurl}>"></a></span>
+    	<{else}>
+    	  <span class="pager-next"><a href="<{$request_url}>"></a></span>
+    	<{/if}>
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

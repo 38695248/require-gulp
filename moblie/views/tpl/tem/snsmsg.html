@@ -1,0 +1,111 @@
+<div id="messagesContainer" class="messagesContainer">
+  <div class="messagesContent">
+    <ul class="msg-list">
+    <{foreach $sharedata as $v}>
+      <{if $v['shid'] neq ''}>
+        <!-- 如果是分享 -->
+         <{if $v['rorl'] eq 'r'}>
+         <!-- 右侧展示 -->
+	      <li class="messageWrapper">
+	        <p class="timeSeparator firstItem"><{$v['shid']['time']}></p>
+	        <div class="item rowitem masonry-brick">
+	          <div class="Share summary griditem byshid" data-shid="410">
+	            <div class="pinWrapper">
+	              <div class="rel summary-top">
+	                <div class="repinSendButtonWrapper top-button" style="display: none;">
+	                  <button data-role="none" type="button" data-like="0" class="fr btn-border btn btn-praise"> <em class="ico02 ico-praise"></em> </button>
+	                  <button data-role="none" type="button" class="btn btn-danger btn-share" data-thumbimgurl="/default/files/upload/20141231/6e520f3603ecb0f03faecbc774bbe778_depict.jpg" data-bigimgurl="/default/files/upload/20141231/6e520f3603ecb0f03faecbc774bbe778_depict.jpg" data-w="376" data-h="800"><!-- data-w="20" data-h="200" --> 
+	                  <span><{$lang['sns_snsmsg_share']}></span> </button>
+	                  <button data-role="none" type="button" class="btn-border btn btn-default btn-send"> <em class="ico ico-send"></em> <span><{$lang['sns_snsmsg_send']}></span></button>
+	                </div>
+	                
+	                <div class="pinHolder"> <a href="/share/sharepage.html?shid=<{$v['shid']['shid']}>" class="pinImageWrapper draggable">
+	                  <div class="fadeContainer">
+	                    <div class="hoverMask"></div>
+	                    <img src="<{$v['shid']['imgs']}>" alt="<{$v['shid']['description']}>"> </div>
+	                  </a> 
+	                </div>
+	              </div>
+	              <div class="pinMeta f12">
+	                <p class="shareDescription"><{$v['shid']['description']}></p>
+	                <div class="pinSocialMeta"> 
+	                    <a href="/share/byshare_boards.html?shid=<{$v['shid']['shid']}>" class="mr-5"> <em class="ico02 ico-repin"></em> <span class="color-gray"><{$v['shid']['sharenum']}></span> </a> 
+	                    <a href="/share/sharelike_persons.html?shid=<{$v['shid']['shid']}>" class="mr-5"> <em class="ico02 likeIconSmall"></em> <em class="color-gray"><{$v['shid']['likesnum']}></em> </a> 
+	                    <a href="/share/sharepage.html?shid=<{$v['shid']['shid']}>"> <em class="ico02 commentIconSmall"></em><{$v['shid']['commentnum']}><em class="color-gray"></em> </a> </div>
+	              </div>
+	              <div class="pinCredits f12">
+	                <div class="creditItem"> <a href="/share/myshares.html?fsuid=<{$v['shid']['suid']}>" title="More from king"> <img src="<{$v['shid']['avatar'][2]}>" data-original="<{$v['shid']['avatar'][1]}>" class="avatar_loading creditImg user">
+	                  <div class="creditName"><{$lang['sns_shares_view_addby']}></div>
+	                  <div class="creditTitle"><{$v['shid']['uname']}></div>
+	                  </a> </div>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="msgSentBox">
+	            <div class="blank0"></div>
+	            <div class="msgObjectSent color-999"><{$lang['sns_snsmsg_mesend']}></div>
+	            <em class="ico ico-caret"></em> </div>
+	        </div>
+	      </li>
+	      <{else}>
+	      <!-- 左侧展示 -->
+	      <li class="messageWrapper">
+	        <p class="timeSeparator firstItem"><{$v['shid']['time']}></p>
+	        <div class="item rowitem masonry-brick">
+	          <div class="Share summary griditem byshid" data-shid="410">
+	            <div class="pinWrapper">
+	              <div class="rel summary-top">
+	                <div class="repinSendButtonWrapper top-button" style="display: none;">
+	                  <button data-role="none" type="button" data-like="0" class="fr btn-border btn btn-praise"> <em class="ico02 ico-praise"></em> </button>
+	                  <button data-role="none" type="button" class="btn btn-danger btn-share" data-thumbimgurl="/default/files/upload/20141231/6e520f3603ecb0f03faecbc774bbe778_depict.jpg" data-bigimgurl="/default/files/upload/20141231/6e520f3603ecb0f03faecbc774bbe778_depict.jpg" data-w="376" data-h="800"><!-- data-w="20" data-h="200" --> 
+	                  <span>分享</span> </button>
+	                  <button data-role="none" type="button" class="btn-border btn btn-default btn-send"> <em class="ico ico-send"></em> <span>发送</span></button>
+	                </div>
+	                
+	                <div class="pinHolder"> <a href="/share/sharepage.html?shid=<{$v['shid']['fsuid']}>" class="pinImageWrapper draggable">
+	                  <div class="fadeContainer">
+	                    <div class="hoverMask"></div>
+	                    <img src="<{$v['shid']['imgs']}>" alt="<{$v['shid']['description']}>"> </div>
+	                  </a> 
+	                </div>
+	              </div>
+	              <div class="pinMeta f12">
+	                <p class="shareDescription"><{$v['shid']['description']}></p>
+	                <div class="pinSocialMeta"> <a href="/share/byshare_boards.html?shid=<{$v['shid']['shid']}>" class="mr-5"> <em class="ico02 ico-repin"></em> <span class="color-gray">0</span> </a> <a href="/share/sharelike_persons.html?shid=<{$v['shid']['shid']}>" class="mr-5"> <em class="ico02 likeIconSmall"></em> <em class="color-gray">0</em> </a> <a href="/share/sharepage.html?shid=<{$v['shid']['shid']}>"> <em class="ico02 commentIconSmall"></em> <em class="color-gray"></em> </a> </div>
+	              </div>
+	              <div class="pinCredits f12">
+	                <div class="creditItem"> <a href="/share/myshares.html?fsuid=<{$v['shid']['suid']}>" title="More from king"> <img src="<{$v['shid']['avatar'][2]}>" data-original="<{$v['shid']['avatar'][1]}>" class="avatar_loading creditImg user">
+	                  <div class="creditName"><{$lang['sns_shares_view_addby']}></div>
+	                  <div class="creditTitle"><{$v['shid']['uname']}></div>
+	                  </a> </div>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="msgSentBox">
+	            <div class="blank0"></div>
+	            <div class="msgObjectSent color-999">Share sent</div>
+	            <em class="ico ico-caret"></em> </div>
+	        </div>
+	      </li>
+	      <{/if}>
+      <{else}>
+         <{if $v['rorl'] eq 'r'}>
+         <!-- 右侧展示 -->
+	      <li class="messageWrapper">
+	        <div class="cmmMessage isOwnMessage"> <em class="ico ico-caret"></em>
+	          <p><{$v['msg']}></p>
+	        </div>
+	      </li>
+	      <{else}>
+	      <!-- 左侧展示 -->
+	      <li class="messageWrapper">
+	        <div class="cmmMessage notOwnMessage"> <em class="ico ico-caret"></em>
+	          <p><{$v['msg']}></p>
+	        </div>
+	      </li>
+	      <{/if}>
+      <{/if}>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

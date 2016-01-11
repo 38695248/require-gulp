@@ -1,0 +1,43 @@
+<input type="hidden" name="bdid" value="<{$body_data.bdid}>" id="bodyid">
+<div class="b_private">
+    <h3 class="f12 color-555">填写姓名</h3>
+    <p class="blank10"></p>
+    <div class="rel" style="border-bottom:#CCC dotted 1px; padding-bottom:10px">
+    	<input type="text" name="body_title" maxlength="15" data-validate="isempty" value="<{$body_data.title}>" placeholder="姓名" />
+          <a href="javascript:void(0);" id="delbodydataBtn" class="color-blue f12" data-type="del" data-bdid="<{$body_data['bdid']}>" style="position:absolute; right:5px; top:8px">删除</a>
+    </div>
+    <p class="blank10"></p>
+    <{if $goods_bddata['tsize']}>
+    <h3 class="f12 color-555">填写尺寸 / 体重（ cm / kg ）</h3>
+    <p class="blank10"></p>
+    <ul class="cclist">
+        <{foreach $goods_bddata['tsize'] as $k=>$v}>
+        <li>
+            <label><{$bodydata_item['tsize'][$v]}>：</label>
+            <input type="text" name="bddata_<{$v}>" data-validate="num" value="<{$body_data['alldata'][$v]}>" placeholder="<{$bodydata_item['tsize'][$v]}>" class="w50" />
+        </li>
+        <{/foreach}>
+        </li>
+        <p class="blank10"></p>
+    </ul>
+    <{/if}>
+    <{if $goods_bddata['shape']}>
+    <h3 class="f12 color-555 pri_title">选择体型</h3>
+    <p class="blank10"></p>
+      <ul id="txlist" class="txlist">
+      <{foreach $goods_bddata['shape'] as $k=>$v}>
+          <li class="rowbox">
+              <div class="w50 text-right"><{$bodydata_item['shape'][$v]}>：</div>
+              <dl class="row-flex1">
+                <{foreach $bodydata_item_sel[$v] as $k2=>$v2}>
+                <dd data-val="<{$v2}>" class="current"><{$v2}><em class="ico currentico"></em></dd>
+                <{/foreach}>    
+                <input type="hidden" name="bddata_<{$v}>" value="<{if $body_data['alldata'][$v]}><{$body_data['alldata'][$v]}><{else}><{$bodydata_item_sel[$v][0]}><{/if}>" />
+              </dl>
+          </li>
+      <{/foreach}>    
+      </ul>
+      <{/if}>
+      <p class="blank10"></p>
+  </div>
+

@@ -1,0 +1,53 @@
+<{include file="header_comm.html"}>
+<body class="bodybox" style="max-width:100%;" data-role="none">
+<div id="sns_bindmobile" class="tipbox fade" data-index="0" style="display: block; border-radius:0; width: 100%; left: 0px; top: 0px; position: fixed; z-index: 10000;">
+  <div class="tipbox-in">
+    <div class="tipbottom line30" style="border-radius:0; height:30px; border-bottom:#ddd solid 1px; padding:3px 10px 10px">
+      <div class="fr formFooterButtons">
+        <a href="<{$redirect_uri}>" data-role="none" rel="external">
+        	<button data-role="none" type="button" class="btn btn-one btn-danger w100">跳过</button>
+        </a>
+      </div>
+      <span class="f18">绑定手机</span>
+    </div>
+    <div id="sns_bindmobilehtml" class="tipcont tipcontbox">
+    	<form id="sns_bindmobileform" data-action="/user/bang_cellphone_do.html">
+    	<h3 class="line40">为了方便您在网页浏览器登录，请绑定登录手机哦；</h3>
+        <div class="rowbox bindbox">
+        	<div class="row-flex1">
+            	国家和地区
+            </div>
+            <div class="w80 text-right">
+            	中国<span class="ico ico-jt"></span>
+            </div>
+        </div>
+        <div class="rowbox bindbox">
+        	<div class="w50">
+            	+86
+            </div>
+            <div class="row-flex1">
+            	<input data-role="none" name="cellphone" type="text" placeholder="请输入登录手机号" value="" data-validate="Mobile">
+            </div>
+        </div>
+        <div class="bindbox">
+            <input data-role="none" type="password" name="password" placeholder="请输入登录密码"  data-validate="Pwd">
+        </div>
+        <div class="bindbox">
+            <input data-role="none" type="password" name="password1" placeholder="重复输入登录密码" value="" data-validate="Pwd1">
+        </div>
+        <div class="text-center">
+        	<button data-role="none"  rel="external" type="button" class="btn btn-danger w100e btn-bintmobile line36">立刻绑定</button>
+        </div>
+        </form>
+    </div>
+  </div>
+</div>
+<{include file="footer_comm.html"}>
+<script type="text/javascript">
+$(function(){
+	BaseInitClass.bindmobile();
+})
+</script>
+</body>
+
+</html>

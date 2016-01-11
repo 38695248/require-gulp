@@ -1,0 +1,56 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick <{if $act == 'img'}>bg-fff<{/if}>" >
+<div class="mainbox" id="page_cont">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox">
+    	<ul id="masonry" class="masonry jsbox jsbox_mt0">
+        <{foreach $datalist as $key=>$val}>
+            <li class="line20 item">
+            	<div class="tb-rev-item color-333">
+                    <div class="pl_t mb-5 row-flex1 rowbox">
+                        <div class="avatar w30 mr-5">
+                            <img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="avatar_lazy userThumb" />
+                        </div>
+                        <div class="row-flex1 line30"><{$val.uname}></div>
+                    </div>
+                    <div class="pl_cont mb-10">
+                        <div class="pl_cont_text mb-10"><{$val.comment}></div>
+                        <{if $val.pics}>
+                        <div class="pl_cont_img rowbox">
+                            <{foreach $val.pics as $key2=>$val2}>
+                            <a href="http:<{$val2}>"><img class="up-img" src="http:<{$val2}>_40x40.jpg" /></a>
+                            <{/foreach}>
+                        </div>
+                        <{/if}>
+                    </div>
+                    <div class="pl_b color-999">
+                        <{$val.edttime_txt}> <{$val.color_size}>
+                    </div>
+                </div>
+                <{if $val.comment_append}>
+                <div class="tb-rev-item reviewContent mt-10 color-333">
+                	<div class="pl_cont_text">[追加评论]&nbsp;<{$val.comment_append.comment}></div>
+                    <{if $val.comment_append.pics}>
+                    <div class="pl_cont_img rowbox">
+                        <{foreach $val.comment_append.pics as $key2=>$val2}>
+                        <a href="http:<{$val2}>"><img class="up-img" src="http:<{$val2}>_40x40.jpg" /></a>
+                        <{/foreach}>
+                    </div>
+                    <{/if}>
+                    <div class="pl_b mt-5 color-999"><{$val.comment_append.edttime_txt}></div>
+                </div>
+                <{/if}>
+            </li>
+        <{/foreach}>    
+        </ul>
+        <div class="pager" style="display: none;">
+            <span class="pager-next"><a href="/goods/comment_list.html?gdid=<{$gdid}>&page=1"></a></span>
+        </div>
+    </div>
+    <{include file="footer_bar.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/evaluate.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

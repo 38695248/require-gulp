@@ -1,0 +1,44 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+    <{include file="header_searchgroups_comm.html"}>
+  </div>
+  
+  <div class="contentbox search-top70">
+    
+    <ul class="jsbox">
+      <li class="h3_title">按地区:
+      	<{foreach $area as $key=> $val}>
+          <a class="ml-10 mr-5" href="/user_group/showcatdetail_group_list.html?area=<{$key}>"><{$val}></a>
+      	<{/foreach}>
+      </li>
+      <li class="h3_title">按性别：
+      	<{foreach $sex as $key=> $val}>
+          <a class="ml-10 mr-5" href="/user_group/showcatdetail_group_list.html?sex=<{$key}>"><{$val}></a>
+      	<{/foreach}>
+      </li>
+    </ul>
+    <div class="blank10"></div>
+    <h3 class="h3_title text-center">-- 最新群推荐 --</h3>
+    <ul id="masonry" class="masonry jsbox grouplist" style="line-height:20px">
+      <{include file="group/inc_group.html"}>
+    </ul>
+    
+    <div class="pager">
+       <span class="pager-next"><a href="<{$pageurl}>"></a></span> 
+    </div>
+    
+    <div style="display:none;"><{$pagehtml}></div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/group_home.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

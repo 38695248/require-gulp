@@ -1,0 +1,51 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="rzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <form id="rzform" method="post" data-action="/identify/upinfo.html?type=designer">
+  <div class="contentbox" data-role="content">
+  	<div class="upSampleBox">
+      <div class="mc f12">
+      	<ul class="jsbox">
+        	<li style="margin-bottom:10px">
+            	1. 认证基本信息<span class="color-red">（必填项）</span>
+            </li>
+            <li id="rztypebox" style="border:none">
+            	<div class="fl mr-10">
+              	<input data-role="none" type="radio" name="rztype" data-type="sns_desper" id="rztype_1" value="personal" checked="checked">
+                <label for="rztype_1">个人认证</label>
+                </div>
+                <div class="fl">
+                <input data-role="none" type="radio" name="rztype" data-type="sns_descom" id="rztype_2" value="company">
+                <label for="rztype_2">企业认证</label>
+                </div>
+                <div class="blank0"></div>
+            </li>
+            <li id="rzcont">
+            	
+            </li>
+        </ul>
+      
+      </div>
+    </div>
+  </div>
+  <div class="footerbox btn-buy" data-role="footer" data-position="fixed">
+      <button data-role="none" type="submit" class="btn-pri-buy">提 交</button>
+  </div>
+  </form>
+</div>
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+	MyShare.certCenter({defcont:'sns_desper'});
+})
+</script>
+</body>
+
+</html>
+

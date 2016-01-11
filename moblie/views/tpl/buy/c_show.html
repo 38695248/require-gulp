@@ -1,0 +1,35 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick <{$bgcolor}>">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox">
+  	<{include file="inc_ad_topslip.html"}>
+  	
+  	<{include file="buy/inc_catpush.html"}>
+  	  	
+  	<{if ! $nt_show_attr}>
+  	<{include file="buy/inc_attr.html"}>
+  	<{/if}>
+  	
+    <div id="masonry_2" class="masonry larger-view">
+      <{include file="inc_share_item.html"}>
+    </div>
+    
+    <div class="pager"> 
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

@@ -1,0 +1,1 @@
+(function(e){typeof define=="function"&&define.amd?define(["jquery"],e):e(jQuery)})(function(e){e.fn.checkImgExists=function(t){e(this).each(function(n,r){var i=e(this),s=i.attr("data-original"),o=i.attr("src"),u=new Image;u.src=s,u.onload=function(){i.attr("src",s);if(t){var e={w:u.width,h:u.height};t(i,s,e)}},u.onerror=function(){t&&t(i,o)}})}});

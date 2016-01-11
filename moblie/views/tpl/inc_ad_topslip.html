@@ -1,0 +1,12 @@
+<!--广告之滑动式-->
+<{if $adv.top_pic_adv}>
+<div id="swiper-container-ad" class="swiper-container">
+  <div class="swiper-wrapper">
+  	<{foreach $adv.top_pic_adv as $v}>
+   		<div class="swiper-slide"><a href="<{$v.link}>"><img src="<{$v.src}>"></a></div>
+    <{/foreach}>
+  </div>
+  <div class="swiper-pagination-bg"></div>
+  <div class="swiper-pagination swiper-pagination-ad"></div>
+</div>
+<{/if}>

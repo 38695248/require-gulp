@@ -1,0 +1,62 @@
+<div id="editShareTipbox" class="tipbox fade" data-index="0" style="display:none;">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><{$lang['sns_temeditsharetip_editshare']}></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <form id="editShareFrom" method="post">
+        <div class="tipcont">
+            <div class="modal-body">
+                <ul class="list-unstyled pick-span">
+                    <!--li class="boardWrapper rel">
+                        <h3>
+                            <{$lang['sns_temeditsharetip_board']}>
+                        </h3>
+                        <div class="select_box" id="shareboard">
+                            <div data-value="0" class="select_showbox">
+                                <em class="ico02 ico-downArrow"></em>
+                                <span class="select_box_text"><{$lang['sns_temeditsharetip_cotegory']}></span>
+                                <input data-role="none" type="text" name="MTID" value="0" maxlength="2" id="MTID" class="int_bg select_analog" />
+                                <input data-role="none" type="hidden" name="olducatid" value="<{$ucatid}>"/>
+                            </div>
+                            <div class="createPanels select_option" style="display:none">
+                                <div class="creatboard_wrap rowbox">
+                                    <div class="row-flex1 mr-10 boardnamebox">
+                                    <input data-role="none" id="boardname" class="boardname" type="text" maxlength="128" value="" name="boardname" placeholder="<{$lang['sns_temeditsharetip_createdesc']}>">
+                                    </div>
+                                    <button data-role="none" class="btn creatbtn-gray w50" type="button" style="margin-top:0px"><{$lang['sns_temeditsharetip_createcotegory']}></button>
+                                </div>
+                                <ul class="board_items">
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blank10" style="border:none"></li-->
+                    <li>
+                        <h3><label><{$lang['sns_temeditsharetip_description']}></label></h3>
+                        <div class="right-con">
+                            <textarea id="pinFormDescription" name="description" class="textarea" placeholder="What's this Pin all about"><{$description}></textarea>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="blank0"></div>
+            </div>
+        </div>
+        <div class="tipbottom">
+            <div class="fl formFooterDelete">
+                <button data-role="none" type="button" class="btn-border btn rounded editShareBtn" data-type="del">    
+                    <{$lang['sns_temeditsharetip_delshare']}>
+                </button>
+            </div>
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    <{$lang['sns_temeditsharetip_close']}>
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger editShareBtn" data-type="edit">
+                    <{$lang['sns_temeditsharetip_save']}>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </form>
+    </div>
+</div>

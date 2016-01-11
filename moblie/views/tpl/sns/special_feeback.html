@@ -1,0 +1,37 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick <{if $act == 'img'}>bg-fff<{/if}>" >
+<div class="mainbox" id="page_cont">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">
+  	 <div class="chaojifan">
+		<{foreach $special_list as $v}>
+		  <div class="item rowitem" style="border:none">
+		    <a href="/m_sns/special.html?id=<{$v['id']}>" title="<{$v['title']|escape:'html'}>">
+		 	<img class="lazy" src="<{$v['img']}>" />
+		 	</a>
+		  </div>
+		<{/foreach}>      
+  	 </div>
+  	 
+  	 <{include file="buy/inc_attr.html"}>
+  	 
+  	 <div id="masonry_2" class="masonry larger-view">      
+      <{include file="inc_share_item.html"}>
+     </div>
+    <div class="blank0"></div>
+   <div class="pager">
+    	<span class="pager-next"><a href="<{$request_url}>"></a></span>
+   </div>
+   
+   <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

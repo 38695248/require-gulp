@@ -1,0 +1,95 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage">
+  <div class="headerbox headerbox_auto">
+    <div>
+        <div class="w45">
+           <div class="top_l">
+              <a href="javascript:void(0);" class="back-btn rel">
+                  <span class="b_ico ico-back-h"></span>
+                  <span class="span_bg"></span>
+              </a>
+            </div>
+        </div>
+        <div class="searchTip">
+        	<form id="formsearchTagbox" action="/m_search/search.html" method="GET" name="search" class="rowbox">
+                <div id="s-input-tab-jieguo" class="s-input-tab-txt rel">
+                	<span id="s-input-val-jieguo">
+                    	<{if $t=='goods'}>宝贝<{/if}>
+                        <{if ($t == 'tagplace') || ($t == 'tagperson') || ($t == 'tagsay') || ($t == '') || ($t == 'allshares')}>分享<{/if}>
+                        <{if $t=='group'}>群<{/if}>
+                        <{if $t=='bysharers'}>用户<{/if}>
+                    </span>
+                    <span class="b_ico"></span>
+                    <div class="s-input-tab-nav hide" id="J_TabNav_jieguo">
+                        <ul>
+                            <li data-val="goods" data-url="<{$goods_link}>">宝贝</li>
+                            <li data-val="allshares" data-url="<{$share_link}>">分享</li>
+                            <li data-val="group" data-url="<{$group_link}>">群</li>
+                            <li data-val="bysharers" data-url="<{$bysharers_link}>">用户</li>
+                        </ul>
+                    </div>
+                </div>
+            	<div class="row-flex1 color-333 searchtop f16">
+                	<{$keyword|escape:'html'}>
+                    <input type="hidden" name="s" value="<{$keyword|escape:'html'}>"  placeholder="输入关键字" style="padding-left:0px">
+                    <input type="hidden" name="t" id="searchtylevalpage" class="sui-Input" value="<{$t}>">
+                    <input type="hidden" name="ukey" class="sui-Input" value="149">
+                </div>
+                <div class="searchbtn newsearchbtn">
+                    <button type="submit" class="ico ico-search w30"></button>
+                </div>
+           </form>
+        </div>
+    </div>
+    
+    <{if $t=='goods'}>
+     <{include file="buy/inc_attr.html"}>
+    <{/if}>
+    
+  </div>
+  
+  <div class="contentbox">
+     <{if !($have_data)}>
+         <div class="color-555 text-center" style="padding:20px 10px 0px"><{$search_notes}></div>
+         <{if ($t == 'tagplace') || ($t == 'tagperson') || ($t == 'tagsay') || ($t == '') ||  ($t == 'allshares')}>
+         <div class="recommend-line"><span class="f16"><{$lang['sns_search_maybe_like_sharers']}></span></div>
+         <{/if}>
+     <{/if}>
+    
+   	<{if $t == 'group'}>
+	   <ul id="masonry" class="masonry jsbox" style="line-height:20px;">
+	     <{include file="group/inc_group.html"}>
+	   </ul>
+   	<{elseif $t == 'bysharers'}>
+   	  <div id="masonry" class="masonry">
+   	   <div class="blank10"></div>
+   	  <{include file="inc_person.html"}>
+   	  </ul>
+   	<{else}>
+        <div id="masonry_2" class="masonry larger-view">
+   	     <div class="blank5"></div>
+   	     <{include file="inc_share_item.html"}>
+   	   </div>
+   	<{/if}>
+    
+    <div class="pager">
+       <span class="pager-next"><a  href="<{$request_url}>"></a></span> 
+    </div>
+    
+    <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<{if $t == 'bysharers'}>
+<input type="hidden" id="isfollow" value="1" /><!-- 1关注，0正常 -->
+<{/if}>
+
+<input type="hidden" id="types" id="<{$t}>" />
+<input type="hidden" id="pagecol" value="<{$pagecol}>" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

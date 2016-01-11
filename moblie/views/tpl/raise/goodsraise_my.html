@@ -1,0 +1,90 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox">
+<div class="mainbox">
+    <div id="headerbox" class="headerbox">
+   		<{include file="header_back.html"}>
+        <div class="rowbox fx-nav h3_title">
+            <div class="row-flex1 current">
+                <a href="/m_raise/goodsraise_my.html">我发起的</a>
+            </div>
+            <div class="row-flex1">
+                <a href="/m_raise/goodsraise_myin.html">我支持的</a>
+            </div>
+            <div class="row-flex1">
+                <a href="/m_buy/public_c_show.html?h_name=%E8%B6%85%E7%BA%A7%E7%AD%B9&activity=2&nt_show_attr=1">发起众筹</a>
+            </div>
+        </div>
+  	</div>
+    <div class="contentbox" data-role="content">
+    <div id="masonry" class="masonry">
+    <{if !$datalist}>
+    	<div style="padding:20px; text-align:center">
+        	<p class="line40">亲，您还没有发起众筹</p>
+    		<button class="btn btn-ff5000 want_crowd_btn">我也发起众筹</button>
+        </div>
+    <{else}>
+        <{foreach $datalist as $key=>$val}>
+          <ul class="jsbox item rowitem">
+            <li class="rowbox h3_title">
+              <div class="row-flex1 w60 color-red"><{$val.status_txt}></div>
+              <div class="row-flex1 text-right"><span class="color-777 f12"><{$val.addtime_txt}></span>&nbsp;&nbsp;<a class="color-blue" href="/m_raise/goodsraise.html?id=<{$val.id}>"> 查看详情</a></div>
+              <!--div class="ico ico-delete ml-10"></div--> 
+            </li>
+            <li class="orderinfo">
+            <a href="/m_raise/goodsraise.html?id=<{$val.id}>" class="rowbox">
+              <div class="cartimg w70 mr-10"> 
+              <img src="<{$val['img']['s']}>">
+              </div>
+              <div class="cartinfo row-flex1">
+                <h3 class="color-333"><{$val['gdname']}></h3>
+               
+                <div class="color-777">
+                  <span><{$lang['buy_color']}>：</span><span class="color-333 mr-10"><{$val['color'][1]}><{if $val['color'][2]}>（<{$val['color'][2]}>）<{/if}></span>
+                  <span><{$lang['buy_size']}>：</span><span class="color-333"><{$val['size'][1]}><{if $val['size'][2]}>（<{$val['size'][2]}>）<{/if}></span>
+                  <span>
+                  <{foreach $val.attribute as $key2=>$val2}>
+                  <{$val2[3]}><{if $val2[4]}>（<{$val2[4]}>）<{/if}>&nbsp;&nbsp;
+                  <{/foreach}>
+                  </span>
+                </div>
+                <div class="color-777">
+                  <span class="mr-10">X <{$val['num']}></span>
+                  <span class="mr-10"><{$currency['exrtitle']}><{$val['price']}>&nbsp;<{$currency['exrcode']}></span>
+                </div>
+                <div class="color-777">
+                  <span class="mr-10">截止期： <{$val['endtime_txt']}></span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="rowbox line50">
+              <div class="row-flex1 f18 color-333"> 赏金额: <{$currency['exrtitle']}><{$val['rewardtotal']}>&nbsp;<span class="f12 color-777"><{$currency['exrcode']}></span> </div>
+              <!--订单操作-->
+              <div class="row-flex2 text-right"> 
+              <{if $val['status']==1}>
+              <a href="/m_raise/pay_reward.html?id=<{$val.id}>">
+              <span class="spanbtn order-act-btn">支付赏金</span>
+              </a>
+              <{elseif $val['status']==4}>
+              <a href="/mybuys/myorder.html?orderfid=<{$val.orderfid}>&orderid=<{$val.orderid}>">
+              <span class="spanbtn order-act-btn">众筹订单</span>
+              </a>
+              <{/if}>
+              </div>
+            </li>
+          </ul>
+        <{/foreach}> 
+    <{/if}> 
+    </div>
+    <div class="pager"> <span class="pager-next"><a href="/m_raise/goodsraise_my.html?page=1"></a></span> </div>
+  </div>
+  <{include file="footer_bar.html"}> 
+</div>
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_goodsraise_my.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<div id="editShareTipbox" class="tipbox fade" data-index="0" style="display:none;">
+    <div class="tipbox-in">
+        <h1 class="tiptop">Edit a share</h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <form id="editShareFrom" method="post">
+        <div class="tipcont">
+            <div class="modal-body">
+                <ul class="list-unstyled pick-span">
+                    <li class="boardWrapper rel">
+                        <h3>
+                            <label> Board </label>
+                        </h3>
+                        <div class="right-con">
+                            <div class="fl select_box" id="shareboard">
+                                <div data-value="0" class="select_showbox">
+                                    <em class="ico02 ico-downArrow"></em>
+                                    <span>Category</span>
+                                    <input data-role="none" type="text" name="MTID" value="0" maxlength="2" id="MTID" class="int_bg select_analog" data-validate="MTID" />
+                                </div>
+                                <div class="createPanels select_option" style="display:none">
+                                    <div class="creatboard_wrap">
+                                        <input data-role="none" id="boardname" class="boardname" type="text" maxlength="128" size="60" value="" name="boardname" placeholder="Create a Board">
+                                        <button data-role="none" class="btn creatbtn-gray" type="button">Create</button>
+                                    </div>
+                                    <ul class="board_items">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blank10" style="border:none"></li>
+                    <li>
+                        <h3><label>Description</label></h3>
+                        <div class="right-con">
+                            <textarea id="pinFormDescription" name="description" class="textarea" placeholder="What's this Pin all about"><{$description}></textarea>
+                        </div>
+                    </li>
+                </ul>
+                <div class="fr img-panel">
+                    <div class="cover-img">
+                        <img src="<{$thumb}>"  alt="" title="pin">
+                    </div>
+                </div>
+                <div class="blank0"></div>
+            </div>
+        </div>
+        <div class="tipbottom">
+        <{if $hastagoriginal eq 0}>
+            <div class="fl formFooterDelete">
+                <button data-role="none" type="button" class="btn-border btn rounded editShareBtn" data-type="del">    
+                    Delete Share
+                </button>
+            </div>
+           <{/if}>
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    Close
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger editShareBtn" data-type="edit">
+                    Save Changes
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+  	 <form id="creatGroupForm" method="post" data-action="/user_group/add_do.html">
+      <ul class="jsbox jsbox_none">
+        <li>
+          <input type="text" name="gpname" value="" placeholder="明星群名称" data-validate="isempty" class="mb-10">
+          <div class="fl select_box w100e mb-10" id="group_cat" style="margin-right:35px">
+            <div data-value="0" class="select_showbox validatebox">
+                <em class="ico02 ico-downArrow"></em>
+                <span id="select_cat_text">选择群分类</span>
+                <input type="text" name="type" value="" maxlength="2" id="select_cat_type" class="int_bg select_analog" data-validate="isempty">
+                <input type="text" name="sex" value="" maxlength="2" id="select_cat_sex" class="int_bg select_analog" data-validate="isempty">
+                <input type="text" name="area" value="" maxlength="2" id="select_cat_area" class="int_bg select_analog" data-validate="isempty">
+            </div>
+             <ul id="user_group_area" style="display:none;">
+             	<li class="li_noborder">按地区：</li>
+                <{foreach $area as $key=>$val}>
+                    <li class="li_click" value="<{$key}>"><{$val}></li>
+                <{/foreach}>
+             </ul>
+        </div>
+          <textarea cols="3" rows="15" style="height:150px" name="gpdesc" placeholder="明星群介绍" data-validate="isempty"></textarea>
+          <button id="creatbtn" type="submit" class="btn btn-border btn-danger w100e">立刻创建</button>
+          <p class="blank10"></p>
+        </li>
+      </ul>
+     </form>
+     <form id="creatGroupImgForm" method="post" data-action="" style="display:none">
+      <ul class="jsbox jsbox_none">
+        <li>
+          <div class="groupBox uppro_pic mb-10" style="border-radius:4px">
+            <div class="uppro_pic_btn">
+              <div class="uppro_pic_btn_c">
+                <button type="button" data-type="avatar" data-act="group" data-title="上传明星群头像" data-name="quntouxiang" class="btn btn-danger up_rzpic">上传明星群头像</button>
+                <div class="uppro_pic_list" style="display:none">
+                  <ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="groupBox uppro_pic mb-10" style="border-radius:4px">
+            <div class="uppro_pic_btn">
+              <div class="uppro_pic_btn_c">
+                <button type="button" data-type="figure" data-act="group" data-title="上传明星群形象图片" data-name="figure" class="btn btn-danger up_rzpic">上传明星群形象图片</button>
+                <p style="line-height:20px; padding:0 10px 10px">提示：上传明星群形象图片最佳图片大小(800X600)。</p>
+                <div class="uppro_pic_list" style="display:none">
+                  <ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--div class="groupBox uppro_pic mb-10" style="border-radius:4px">
+            <div class="uppro_pic_btn">
+              <div class="uppro_pic_btn_c">
+                <button type="button" data-type="qrcode" data-title="上传明星群二维码" data-name="code" class="btn btn-danger up_rzpic">上传明星群二维码</button>
+                <p style="line-height:20px; padding:0 10px 10px">提示：如果没有群二维码，可直接点击完成按钮，以后可以在群主页管理中心再次绑定。</p>
+                <div class="uppro_pic_list" style="display:none">
+                  <ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div-->
+          
+          <button type="button" id="creatbtn_wc" class="btn btn-border btn-danger w100e">完成</button>
+          <p class="blank10"></p>
+        </li>
+      </ul>
+      </form>
+      
+     
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/group.min.js?151216121539"></script> 
+<script type="text/javascript">
+$(function(){
+	groupUtils.groupInit({mod:'add'});	
+})
+</script>
+</body>
+
+</html>

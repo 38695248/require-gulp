@@ -1,0 +1,40 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="msgpage_user" data-role="page">
+<div id="headerbox" class="headerbox"> 
+<{include file="header_back.html"}>
+</div>
+
+<div class="contentbox" data-role="content">
+  <ul id="masonry" class="masonry jsbox jsbox_mt0">
+   <{foreach $datalist as $v}>
+   	<li class="f16 line30">
+    	<a class="rowbox" href="/message/msgbox.html?tosuid=<{$v['suidf']}>&setnum=1">
+    	<div class="avatar_50 mr-10 mt-5">
+            <img src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" class="lazy userThumb" alt="<{$v['name']|escape:'html'}>" title="More from <{$v['name']|escape:'html'}>">
+       </div>
+       <div class="row-flex1 line30">
+       	<div><span class="fr f12 color-777"><{$v['edttime']}></span><{$v['name']}></div>
+        <div class="rowbox">
+        	<div class="row-flex1 color-999 message_img"><{$v['msg']}></div>
+            <div><span class="num_msg"><{$v['num']}></span></div>
+        </div>
+       </div>
+       </a>
+    </li>
+    <{/foreach}>
+  </ul>
+  <div class="pager">
+	<span class="pager-next"><a href="<{$request_url}>"></a></span>
+  </div>
+  
+<{include file="footer_bar.html"}> </div>
+<{include file="footer_comm.html"}> 
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0,msg:1,blocks:0});
+})
+</script>
+</body>
+</html>

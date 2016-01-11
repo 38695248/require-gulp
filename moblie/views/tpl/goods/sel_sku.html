@@ -1,0 +1,189 @@
+<!--定制选项-->
+<div id="custom-list-modalMask" class="modalMask" style="display:none; z-index: 9998;"></div>
+<div id="custom-list" class="custom-list" style="display:none;"> 
+    <span class="ico custom-close"></span>
+    <input id="price_stock" type="hidden" value="<{foreach $goods_infor['price_stock'] as $k=>$v}><{$v['color']}>_<{$v['size']}>_<{$v['price']}>_<{$v['numleft']}>|<{/foreach}>" />
+    <form id="privateForm" method="post" data-action="/myorder/addtocart.html" data-gdid="<{$goods_infor.gdid}>">
+      <div id="custom-cont" class="custom-cont">
+        <div class="custom-cont-in">
+          <div class="rowbox pri-buy">
+            <div class="w90 buyimg mr-10"> <img src="<{$goods_infor['imgs'][0]['m']}>" > </div>
+            <div class="row-flex1" style="padding-right:30px">
+              <p class="color-333"><{$goods_infor.gdname}></p>
+              <p class="blank5"></p>
+              <p class="f21 color-red"><span id="thisprice" data-defprice="<{$goods_infor.priv_price}>" data-price="<{$goods_infor.priv_price}>"><{$currency.exrtitle}><{$goods_infor.priv_price}></span></p>
+              <{if $goods_infor['activity_bsh']==4}>
+              <p><span class="f12 ml-5 bg-fc9b00 market-zhe">返 <{$currency.exrtitle}><{$goods_infor['money_act']}></span></p>
+              <{/if}> 
+              <{if $goods_infor.status==1 and $goods_infor.activity_bsh==5}>
+              <p> <span class="f12 ml-5 bg-00a0e8 market-zhe">试穿押金:¥ <{$goods_infor.money_act}></span> </p>
+              <{/if}> </div>
+          </div>
+          <input data-role="none" class="color" name="gdid" type="hidden" value="<{$goods_infor.gdid}>">
+          <input data-role="none" type="hidden" name="img_print" value="<{$img_print}>" />
+          <input data-role="none" type="hidden" name="img_pview" value="<{$img_pview}>" />
+          <input data-role="none" type="hidden" name="activity" value="<{$activity}>" />
+          <div class="color-list rowbox">
+            <h2 class="w40 f16 line40">颜色</h2>
+            <ul class="row-flex1 viewSub" id="viewColor-list">
+              <{foreach $goods_infor['colors'] as $k=>$v}>
+              <li class="" data-type="color" data-tagid="<{$v[0]}>" data-sub="<{$v[0]}>|<{$v[1]}>|<{$v[2]}>"><{$v[1]}>&nbsp;<{$v[2]}><em class="ico currentico"></em></li>
+              <{/foreach}>
+              <input class="thisval" name="buycolor" type="hidden" value="">
+            </ul>
+          </div>
+          <div class="color-list rowbox">
+            <h2 class="w40 f16 line40">尺码</h2>
+            <ul class="row-flex1 viewSub" id="viewSize-list">
+              <{foreach $goods_infor['sizes'] as $k=>$v}>
+              <li class="" data-type="size" data-tagid="<{$v[0]}>" data-sub="<{$v[0]}>|<{$v[1]}>|<{$v[2]}>"><{$v[1]}>&nbsp;<{$v[2]}><em class="ico currentico"></em></li>
+              <{/foreach}>
+              <{if $goods_infor['bddata']}>
+              <li data-type="size" data-sub="bodydata" data-tagid="bodydata">量身定制</li>
+              <{/if}>
+              <input class="thisval" name="buysize" type="hidden">
+            </ul>
+          </div>
+          
+          <!--定制元素-->
+          <div id="other_attributes"> 
+            <{foreach $goods_infor['attributes'] as $k0=>$v0}>
+            <div class="color-list rowbox">
+              <h2 class="w40 f16 line40"><{$attributesType[$k0]}></h2>
+              <ul class="row-flex1 viewSub">
+                <{foreach $v0 as $k=>$v}>
+                <li class="" data-addprice="<{$goods_infor['attr_addprice'][$v[0]][$v[2]][3]}>" data-type="<{$v[0]}>" data-tagidf="<{$v[1]}>" data-tagid="<{$v[2]}>"  data-sub="<{$v[0]}>|<{$v[1]}>|<{$v[2]}>|<{$v[3]}>|<{$v[4]}>"><{$v[3]}>&nbsp;<{$v[4]}><{if $goods_infor['attr_addprice'][$v[0]][$v[2]][3]>0}>&nbsp;
+                  <spad class="color-red">
+                  +<{$currency.exrtitle}><{$goods_infor['attr_addprice'][$v[0]][$v[2]][3]}></span><{/if}><em class="ico currentico"></em></li>
+                <{/foreach}>
+                <input class="thisval" name="buyattr" type="hidden" isarray="true">
+    
+              </ul>
+            </div>
+            <{/foreach}> 
+          </div>
+          <div id="buy-box">
+            <div class="num-list rowbox">
+              <h2 class="w40 f16">数量</h2>
+              <ul class="row-flex1 buynum" style="padding-left:6px">
+                <li class="l-rad minus">-</li>
+                <li class="num-input number">
+                  <input data-role="none" type="text" name="buynum" value="1" class="w50" readonly>
+                  <input type="hidden" id="maxNum" data-max="<{$goods_infor.num}>">
+                </li>
+                <li class="r-rad plus">+</li>
+                <li style="border:none; padding:0 0 0 5px"><span id="goods_infor_text" style="display:none">（专属定制）</span><span id="goods_infor_numbox">(库存<span id="goods_infor_num"><{$goods_infor.num}></span>件)</span></li>
+              </ul>
+            </div>
+          </div>
+          <div id="crowd-box" class="hide" style="margin-top:10px">
+            <div class="crowd-box color-list rowbox">
+              <h2 class="w40 f16">赏金</h2>
+              <div class="row-flex1">
+                <p class="line20 color-red">*众筹成功后,为支持百享您将打赏给百享的赏金</p>
+                <ul class="viewSub" id="crowd-list">
+                </ul>
+              </div>
+            </div>
+            <div class="blank10"></div>
+            <div id="crowd-textarea" class="crowd-box rowbox">
+              <h2 class="w40 f16 ml-10">心愿</h2>
+              <div data-type="crowd" style="padding:0px 10px 0 8px" id="crowd-textarea" class="row-flex1">
+                <textarea id="crow-des" maxlength="50" class="line20" style="height:50px" placeholder="请和您的朋友说说您的众筹心愿,最多50个字" readonly ></textarea>
+              </div>
+            </div>
+          </div>
+          <div id="bargain-box" class="hide" style="margin-top:10px">
+            <div class="crowd-box rowbox">
+              <h2 class="w40 f16 ml-10">心愿</h2>
+              <div style="padding:0px 10px 0 8px" id="bargain-textarea" class="row-flex1">
+                <textarea id="bargain-des" maxlength="50" class="line20" style="height:50px" placeholder="请和您的朋友说说您的砍价心愿,最多50个字" readonly ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-pri-op w100e">
+        <input id="sub-des" type="hidden" name="shortdesc" >
+        <input id="sub-mobile" type="hidden" value="" name="cellphone" />
+        <input id="isbuy" type="hidden" value="1" />
+        <div id="bargain-box-btn" class="hide">
+          <button type="button" id="add-kj-btn" class="btn-pri-buy text-center add-submit-btn">马上砍价</button>
+        </div>
+        <div id="crowd-box-btn" class="hide">
+          <button type="button" id="add-zc-btn" class="btn-pri-buy text-center add-submit-btn">立即众筹</button>
+        </div>
+        <div id="tryon-box-btn" class="hide">
+          <button type="button" id="add-zc-btn" class="btn-pri-buy text-center add-submit-btn">马上试穿</button>
+        </div>
+        <div id="buy-box-btn">
+          <{if $goods_infor.status==1}>
+          <button type="button" id="add-dz-btn" class="btn-pri-buy text-center add-submit-btn">确 定</button>
+          <{else}>
+          <button type="button"class="btn-pri-buy btn-pri-gray text-center">已经下架</button>
+          <{/if}> </div>
+      </div>
+    </form>
+</div>
+<div id="des_crowdtip" class="tipbox tipbox_fixed fade" data-index="1">
+    <form id="des_crowdform" class="addCommentForm" method="post" action="">
+      <div class="tipbox-in" data-index="0">
+        <h1 class="tiptop">说说您心愿</h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont tipcontbox">
+          <div class="rowbox">
+            <div class="line30 mr-10 f16">手 机：</div>
+            <div class="row-flex1">
+              <input id="crow-des-mobile" type="text" value="" placeholder="众筹成功，方便客服联系您" data-validate="Mobile" />
+            </div>
+          </div>
+          <div class="blank10"></div>
+          <div class="rowbox">
+            <div class="line30 mr-10 f16">说 说：</div>
+            <div class="row-flex1">
+              <textarea id="crow-des-tip" name="shortdesc" maxlength="50" class="line24" style="height:50px" placeholder="说出您的众筹心愿" data-validate="isempty"></textarea>
+            </div>
+          </div>
+          <div class="pay_f_m_btn">
+            <button type="button" id="des-tip-btn" class="btn btn-red w100e">确定</button>
+          </div>
+          <div class="pay_f_m_text pay_f_m_text_borer line30">
+            <h2 class="line30">心愿说明：</h2>
+            <p class="f16">1. 您的手机我们不会泄露给其他人；</p>
+            <p class="f16">2. 众筹成功百享客服将可能和您联系确认；</p>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+<div id="des_bargaintip" class="tipbox tipbox_fixed fade" data-index="1">
+    <form id="des_bargainform" class="addCommentForm" method="post" action="">
+      <div class="tipbox-in" data-index="0">
+        <h1 class="tiptop">说说您心愿</h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont tipcontbox">
+          <div class="rowbox">
+            <div class="line30 mr-10 f16">手 机：</div>
+            <div class="row-flex1">
+              <input id="bargain-des-mobile" type="text" value="" placeholder="方便客服联系您" data-validate="Mobile" />
+            </div>
+          </div>
+          <div class="blank10"></div>
+          <div class="rowbox">
+            <div class="line30 mr-10 f16">说 说：</div>
+            <div class="row-flex1">
+              <textarea id="bargain-des-tip" name="shortdesc" maxlength="50" class="line24" style="height:50px" placeholder="说出您的砍价心愿" data-validate="isempty"></textarea>
+            </div>
+          </div>
+          <div class="pay_f_m_btn">
+            <button type="button" id="des-bargain-btn" class="btn btn-red w100e">确定</button>
+          </div>
+          <div class="pay_f_m_text pay_f_m_text_borer line30">
+            <h2 class="line30">心愿说明：</h2>
+            <p class="f16">1. 您的手机我们不会泄露给其他人；</p>
+            <p class="f16">2. 以便百享客服将可能和您联系确认；</p>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>

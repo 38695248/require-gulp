@@ -1,0 +1,101 @@
+<div id="editShareTypeTipbox" class="tipbox fade" data-index="0" style="display:none; width:570px; position:absolute">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><strong>Edit share type</strong></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <form id="editShareTypeForm" class="commForm standardForm f12" method="post">
+        <div class="tipcont">
+            <ul>
+                <li>
+                    <h3><label for="boardEditName">Name</label></h3>
+                    <div class="rel">
+                        <input data-role="none" id="boardEditName" name="name" type="text" placeholder="Like “Places to Go” or “Recipes to Make.”" value="<{$data['bname']}>" data-validate="isempty">
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="boardEditDescription">Description</label></h3>
+                    <div class="rel">
+                    <textarea id="boardEditDescription" class="boardEditDescription" placeholder="What's your board about" name="description" style="height:60px" maxlength="300"><{$data['description']}></textarea>
+                    <p class="f12 color-777 line20">还可以输入：<span id="boardNum" class="color-red">300</span>个字符。</p>
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="boardEditCategory">Category</label></h3>
+                    <div class="rel">
+                        <select class="ajax CategoriesSelect ui-Select" name="categoryname">
+                           <{foreach $option as $v}>
+                            <option value="<{$v['catname']}>" <{if $v['catname'] eq $data['categorysys']}> selected='selected' <{/if}> ><{$v['catname']}></option>
+                           <{/foreach}>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="secret">Keep it secret?</label></h3>
+                    <div>
+                    	<a href="#" class="fr margin-t5">Learn more</a>
+                        <div class="fancyToggle  <{if $data['type'] eq 2}>on<{/if}>">
+                            <div class="slider"></div>
+                            <p class="onText status">Yes</p>
+                            <p class="offText status">No</p>
+                            <input data-role="none" type="text" class="ui-Checkbox" name="issecret" value="<{$data['type']}>">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h3>
+                        <label>Who can add Pins?</label>
+                        <a href="#" class="learnMore learnAboutBoardInvites">
+                            Learn more
+                        </a>
+                    </h3>
+                    <div class="rel">
+                        <div class="ajax BoardInviteForm Module">
+                            <button data-role="none" type="button" class="fr inviteButton btn-border btn rounded ajax">    
+                                <span class="buttonText">Invite</span>
+                            </button>
+                            <div class="w300 fillWidth">
+                                <div class="ajax userSelect ui-SocialTypeaheadField ui-TypeaheadField">
+                                    <input data-role="none" autocomplete="off" name="invite" type="text" placeholder="Type a name or email" class="ajax" value="<{$data['canaddsuids']}>">
+                                    <input data-role="none" autocomplete="off" name="catid" type="hidden" value="<{$data['ucatid']}>">
+                                    <div class="ajax userSelect ui-Typeahead Module">
+                                        <ul class="results" data-component-type="35"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="boardEditCollaborators">
+                            <div class="UserBase thumb hasText Module ajax User small">
+                                <a href="myshare.html" data-element-type="64" title="">
+                                    <div class="fl mr-10 thumbImageWrapper">
+                                        <img src="<{$userinfo['avatar'][2]}>" data-original="<{$userinfo['avatar'][1]}>" class="avatar_loading" />
+                                    </div>
+                                    <h4 class="fullname"><{$userinfo['fname']}></h4>
+                                   <div class="subtitle">you created this board</div>
+                               </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+        </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fl formFooterDelete">
+                 <button data-role="none" type="button" class="btn btn-border shareTypeEditButton" data-act="del">    
+                    <span class="buttonText">Delete Board</span>
+                 </button>
+                 <p class="helpText">
+                    You won't be able to undo this!
+                </p>
+            </div>
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText">Cancel</span>
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger shareTypeEditButton" data-act="save">
+                    <span>Save Changes</span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </form>
+    </div>
+</div>

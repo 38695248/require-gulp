@@ -1,0 +1,66 @@
+<div id="editShareTypeTipbox" class="tipbox fade" data-index="0" style="display:none; width:570px; position:absolute">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><strong><{$lang['create_share_type_editboard']}></strong></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <form id="editShareTypeForm" class="commForm standardForm f12" method="post">
+        <div class="tipcont">
+            <ul>
+                <li>
+                    <h3><label for="boardEditName"><{$lang['sns_create_share_type_name']}></label></h3>
+                    <div class="rel">
+                        <input data-role="none" id="boardEditName" name="name" type="text" placeholder="" value="<{$data['bname']}>" data-validate="isempty">
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="boardEditDescription"><{$lang['sns_create_share_type_description']}></label></h3>
+                    <div class="rel">
+                    <textarea id="boardEditDescription" class="boardEditDescription" placeholder="<{$lang['sns_temeditsharetype_boarddesc']}>" name="description" maxlength="300" style="height:60px"><{$data['description']}></textarea>
+                    <p class="f12 color-777 line20" style="margin-top:-10px"><{$lang['sns_create_share_type_canenternum']}>：<span id="boardNum" class="color-red">300</span><{$lang['sns_create_share_type_words']}></p>
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="boardEditCategory"><{$lang['sns_create_share_type_cotegory']}></label></h3>
+                    <div class="rel">
+                        <select class="ajax CategoriesSelect ui-Select" name="categoryname">
+                           <{foreach $option as $v}>
+                            <option value="<{$v['catid']}>" <{if $v['catid'] eq $data['categoryid']}> selected='selected' <{/if}> ><{$v['catname']}></option>
+                           <{/foreach}>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <h3><label for="secret"><{$lang['sns_create_share_type_issecret']}></label></h3>
+                    <div>
+                    	<a href="#" class="fr margin-t5" style="display:none"><{$lang['sns_create_share_type_learnmore']}></a>
+                        <div class="fancyToggle  <{if $data['type'] eq 1}>on<{/if}>">
+                            <div class="slider"></div>
+                            <p class="onText status"><{$lang['sns_create_share_type_yes']}></p>
+                            <p class="offText status"><{$lang['sns_create_share_type_no']}></p>
+                            <input data-role="none" type="text" class="ui-Checkbox" name="issecret" value="<{$data['type']}>">
+                            <input data-role="none" type="hidden" name="catid" value="<{$data['ucatid']}>">
+                        </div>
+                    </div>
+                </li>
+        </ul>
+        </div>
+        <div class="tipbottom">
+            <div class="fl formFooterDelete">
+                <{if $data['isdel'] eq 1}>
+                 <button data-role="none" type="button" class="btn btn-border shareTypeEditButton" data-act="del">    
+                    <span class="buttonText"><{$lang['sns_temeditsharetype_delboard']}></span>
+                 </button>
+                <{/if}>
+            </div>
+            <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['sns_create_share_type_cencel']}></span>
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger shareTypeEditButton" data-act="save">
+                    <span><{$lang['sns_create_share_type_save']}></span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+        </form>
+    </div>
+</div>

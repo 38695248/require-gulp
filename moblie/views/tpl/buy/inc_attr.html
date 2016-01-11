@@ -1,0 +1,19 @@
+    <div id="choose_dh" class="masonry_dh">
+    	<ul class="rowbox text-center f16">
+        <li class="row-flex1 dhpjax current" data-durl="<{$link.new}>" data-url="<{$link.new}>">最新</li>
+        <li class="line">|</li>
+        <li class="row-flex1 dhpjax" data-durl="<{$link.hot}>" data-url="<{$link.hot}>">销量</li>
+        <{if ! $choose}>
+        <li class="line">|</li>
+        <li class="row-flex1 dhpjax" data-durl="<{$link.pv}>" data-url="<{$link.pv}>">热门</li>
+        <{/if}>
+        <li class="line">|</li>
+        <li class="row-flex1 dhpjax" data-type="price" data-durl="<{$link.price}>" data-url="<{$link.price}>" data-orders="price_asc">价格 <span class="b_ico def_icon"></span></li>
+        <{if $choose}>
+        <li class="line">|</li>
+        <li class="row-flex1" id="choose_btn" catids="<{$ch_catids}>" price="<{$ch_price}>">
+        	筛选<span class="b_ico choose_icon"></span>
+        </li>
+        <{/if}>
+        </ul>
+    </div>

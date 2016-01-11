@@ -1,0 +1,68 @@
+<{if $fast_t10}>
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center">快刀琅琊榜(T10)</h2>
+    <ul>
+        <{foreach $fast_t10 as $key=>$val}>
+        <li class="rowbox">
+          <a href="/share/myshares.html?fsuid=<{$val['suid']}>" class="row-flex1 rowbox">
+          <div>
+              <span class="ico groupavatar"><img src="<{$users_info[$val['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          
+          <div class="row-flex1">
+            <p class="user_title"><{$users_info[$val['suid']]['uname']}> <span class="color-999 f12"><{$val['addtime_txt']}></span></p>
+            <p>已砍 <span class="color-red"><{$val['total_cut']}>元</span>，还差 <span class="color-red"><{$val['totalleft']}>元</span></p>
+          </div>
+          </a>
+          <a href="/message/msgbox.html?tosuid=<{$val['suid']}>" class="block" style="margin-top:25px"><button class="btn">私聊Ta</button></a>
+        </li>
+       <{/foreach}>
+    </ul>
+</div>
+<{/if}>
+
+<{if $done_t10}>
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center">最新成功提货(T10)</h2>
+    <ul>
+        <{foreach $done_t10 as $key=>$val}>
+        <li class="rowbox">
+          <a href="/share/myshares.html?fsuid=<{$val['suid']}>" class="row-flex1 rowbox">
+          <div>
+              <span class="ico groupavatar"><img src="<{$users_info[$val['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          
+          <div class="row-flex1">
+            <p class="user_title"><{$users_info[$val['suid']]['uname']}> <span class="color-999 f12"><{$val['edttime_txt']}></span></p>
+            <p>花费 <span class="color-red"><{$val['topaytotal']}></span>元，成功领取！</p>
+          </div>
+          </a>
+          <a href="/message/msgbox.html?tosuid=<{$val['suid']}>" class="block" style="margin-top:25px"><button class="btn">私聊Ta</button></a>
+        </li>
+       <{/foreach}>
+    </ul>
+</div>
+<{/if}>
+
+<div class="money_list_1" style="padding-bottom:10px">
+    <h2 class="text-center">最近帮砍朋友(T10)</h2>
+    <ul>
+    <{foreach $cut_log as $key=>$val}>
+        <li>
+          <a href="/share/myshares.html?fsuid=<{$val['suid']}>" class="rowbox">
+          <div>
+              <span class="ico groupavatar"><img src="<{$users_info[$val['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          
+          <div class="row-flex1">
+            <p class="user_title"><{$users_info[$val['suid']]['uname']}> <span class="color-999 f12"><{$val['edttime_txt']}></span></p>
+            <p>帮<{if $isme}>我<{else}>TA<{/if}> 砍了<span class="color-red">一刀<!--<{$val['money']}></span>元--></p>
+          </div>
+          </a>
+        </li>
+    <{/foreach}>
+    <{if !$cut_log}>
+    	<li><div class="">&nbsp;&nbsp;亲，还没有帮你出刀呀，赶快分享给朋友帮忙呀，0元领回家正等你来呢</div></li>
+    <{/if}>
+    </ul>
+</div>

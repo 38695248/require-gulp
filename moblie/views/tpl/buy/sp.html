@@ -1,0 +1,55 @@
+<{if !$top_pjax}>
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick <{$bgcolor}>">
+<div class="mainbox">
+  <div class="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+    <ul id="zq_dh" class="zq_dh">
+       <{foreach $cats as $v}>
+    	<li class="dhpjax <{if $v.catid==$catid}>current<{/if}>" data-title="<{$v.name}>" data-url="<{$v.url}>">
+        	<span class="ico_zq ico_zq_j"><img class="zq_img" src="<{$v.icon_small}>" /></span>
+            <p><{$v.name}></p>
+        </li>
+       <{/foreach}>
+    </ul>
+  </div>
+  
+  <div id="contentbox" class="contentbox">
+  <{/if}>
+  
+  	<{if $catpush}>
+    <div class="blank10"></div>
+    <ul class="top_pic_big">
+    	<{foreach $catpush as $v}>
+            <li><a href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>"><img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v['imgs'][0]['m']}>"/></a></li>
+        <{/foreach}>
+    </ul>
+    <{/if}> 
+  	<h2 class="type_title" style="text-align:center;margin:10px 0;"><{$catname}></h3>
+  	  	
+  	<{if ! $nt_show_attr}>
+  	<{include file="buy/inc_attr.html"}>
+  	<{/if}>
+  	
+    <div id="masonry_2" class="masonry larger-view">
+      <{include file="inc_share_item.html"}>
+    </div>
+    
+    <div class="pager"> 
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+    
+   <{if !$top_pjax}>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="isseacrch" value="1" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>
+<{/if}>

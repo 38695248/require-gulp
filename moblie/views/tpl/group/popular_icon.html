@@ -1,0 +1,10 @@
+<div class="typebox-n" style="border-bottom:#e5e5e5 solid 1px; border-top:#e5e5e5 solid 1px">
+<ul class="typebox-start typebox-start-user">
+  <{foreach $popular_icon as $key => $val}>
+    <li><a href="/user_group/mostpopular_detail.html?area=<{$val['area']}>" class="bg-color2-<{$key}>">
+    <p><img src="<{$val.icon}>"></p>
+     <p><{$val.title}></p>
+  </a> </li>
+  <{/foreach}>
+</ul>
+</div>

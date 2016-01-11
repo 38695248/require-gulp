@@ -1,0 +1,34 @@
+<div id="searchinput" class="headerbox fade" style="height:auto; border-bottom:none; z-index:9997">
+    <div class="rowbox searchbox">
+      <div class="top_l"><div class="mylist"><span class="ico ico-list"></span></div></div>
+      <div class="top_r"><div class="text-right mr-10 line36" id="closeSearch">取消</div></div>
+      <div class="row-flex1 text-center h2_title">查找</div>
+    </div>
+    <div class="searchTip">
+    	<form id="formsearchTagbox" data-ajax="false" action="/m_search/findgroups.html" method="GET" name="search" onsubmit = "return BaseInitClass.checksearchTagbox();">
+            <input data-role="none" type="hidden" autocomplete="off" name="t" class="sui-Input" value="<{$t}>">
+            <div class="rowbox">
+                <div class="row-flex1">
+                <input id="newsearchInt" type="text" name="s" value="" placeholder="输入明星群/关键字">
+                <input type="hidden" autocomplete="off" name="ukey" class="sui-Input" value="<{ukey2tmp()}>">
+                </div>
+                <div class="searchbtn newsearchbtn">
+                    <button data-role="none" type="submit" class="ico ico-search w30"></button>
+                </div>
+            </div>
+            <div style="position:relative; line-height:1px; height:1px">
+                <div id="searchTagbox" class="searchTagbox">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="searchTagbox" class="searchList" style="display:none; position:relative">
+        <ul>
+        	<li>sdfsdfsf</li>
+            <li>sdfsdfsf</li>
+            <li>sdfsdfsf</li>
+        </ul>
+    </div>
+</div>

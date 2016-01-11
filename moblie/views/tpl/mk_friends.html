@@ -1,0 +1,43 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox ui-content" data-role="content" role="main">
+    <ul id="masonry" class="masonry jsbox jsbox_mt0">
+      <{foreach $datalist as $key=>$val}>
+      <li class="item line30">
+        <a class="rowbox mt-10" href="/share/myshares.html?fsuid=<{$val['suid']}>">
+            <div class="avatar_50 mr-5"> 
+                <img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="avatar_lazy userThumb" />
+            </div>
+            <div class="row-flex1 avatar-text f16  line50">
+                <span class="b color-blue " data-username="<{$val['username']}>" data-uid="<{$val['suid']}>"><{$val['username']}></span>
+            </div>
+            <div class="w90 text-right f14 line50"><{$val['edttime_txt']}></div>
+        </a>
+      </li>
+      <{/foreach}>
+    </ul>
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+     </div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<input type="hidden" id="pagecol" value="1" />
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+
+</html>

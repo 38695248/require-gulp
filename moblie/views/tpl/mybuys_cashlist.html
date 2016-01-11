@@ -1,0 +1,78 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+     <div class="rowbox fx-nav h3_title">
+        <div class="row-flex1">
+        	<a href="/mybuys/cash.html">我要提现</a>
+        </div>
+        <div class="row-flex1 current">
+        	<a href="/mybuys/cashlist.html">提现记录</a>
+        </div>
+     </div>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">
+    <!--ul class="jsbox">
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_shmoney']}>
+        </div>
+        <div class="row-flex1 text-right color-red">￥<{$sharemoney['shmoney_cny']}>&nbsp;CNY&nbsp;+&nbsp;$<{$sharemoney['shmoney_usd']}>&nbsp;USD</div>
+      </li>
+      <li class="rowbox">
+        <div class="row-flex1">
+        	<span class="ico ico-sharemoney mr-5"></span><{$lang['buy_status']}>
+        </div>
+        <div class="row-flex1 text-right color-red"><{$sharemoney['status_txt']}></div>
+      </li>
+          
+      <li>
+      	<a class="rowbox" href="/mybuys/cash.html">
+        <div class="row-flex1 color-red"><{$lang['buy_mybuys_cashlist_apply_cash']}></div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+    </ul-->
+    <{if $datalist}>
+    <div id="masonry" class="masonry">
+	   	<{foreach $datalist as $key=>$val}>
+        <ul class="jsbox item">
+            <li>
+                <div><{$val['applytime_txt']}><span class="fr"><{$val['status_txt']}></span></div>
+                <div>
+                	<div class="text-center f28 color-333 line40"><p>长按复制提现码:</p><p class="b f28 color-333 line40"><{$val['check_id']}></p><p class="f21 b color-red line30">请长按下图</br>识别图中二维码加客服</br>粘贴发送提现码给客服</br>否则无法提现<p class="text-center"><img class="w200 dataurl" style="margin:0 auto" src="<{$val['svr_weixin_pic']}>" /></p></div>
+                </div>
+            </li>
+            <li class="rowbox">
+            	<div class="color-red row-flex1">提现金额：<{$val['exrtitle']}><{$val['shmoney']}></div>
+            </li>
+        </ul>
+	    <{/foreach}>
+    </div>
+    <div class="pager">
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+    </div>
+    <ul class="jsbox hide">
+      <li class="rowbox">
+        <div class="row-flex1"><{$pagehtml}></div>
+      </li>
+    </ul>
+    <{/if}>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

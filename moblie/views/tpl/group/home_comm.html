@@ -1,0 +1,64 @@
+<div class="userbox-head xin-head">
+  <div class="figure_bg useravatar_bg">
+  	<img src="<{$static_url}>/moblie/images/def.jpg"  data-original="<{$user_group['figure'][1]}>" class="avatar_lazy" />
+  </div>
+  <div class="rowbox rel">
+    <div class="row-flex1 text-right gn-ico" style="width:50%">&nbsp;</div>
+    <div class="useravatar useravatar_bg" > <img src="<{$user_group['avatar'][2]}>" data-original="<{$user_group['avatar'][1]}>" class="avatar_lazy"> </div>
+    <div class="row-flex1 text-left gn-ico" style="width:50%"> 
+    	<{if $user_group['ismy']}>
+        <span class="gn-btn" id="groupEdit" data-gpid="<{$user_group['gpid']}>" data-ref="<{$ref}>">
+            <span class="ico ico-edit"></span>
+        </span>
+        <{else}>
+            <{if $user_group['isjoin']==1}>
+            <span class="gn-btn addGroupBtn current" data-gpid="<{$user_group['gpid']}>" data-act="del" data-follow="1" data-ishome="1" >
+                <span class="ico ico-gz"></span>
+            </span>
+            <{else}>
+            <span class="gn-btn addGroupBtn" data-gpid="<{$user_group['gpid']}>" data-act="add" data-follow="0"  data-ishome="1" >
+                <span class="ico ico-gz"></span>
+            </span>
+            <{/if}>
+        <{/if}>
+    </div>
+  </div>
+  <div class="x-info">
+      <p class="text-center line40 color-fff f21"><{$user_group.gpname}></p>
+      <p class="text-center line20 color-fff"></p>
+      <p class="blank10"></p>
+      <p class="text-center line20 color-fff">群主：
+        <a href="/share/myshares.html?fsuid=<{$user_group['suid']}>" style="color:#fff">
+            <span style="width:20px; height:20px; border-radius:20px" class="my_avatar"><img src="<{$user_group['user_avatar'][2]}>" data-original="<{$user_group['user_avatar'][1]}>" class="avatar_lazy">
+            </span>
+            <{$user_group['username']}>
+        </a>
+      </p>
+  </div>
+  <div class="user-dh-bg"></div>
+  <ul class="rowbox user-dh">
+    <li class="<{if ($ch=='')||($ch=='share')}>current<{/if}>"> <a href="/user_group/home.html?gpid=<{$gpid}>&ch=share">
+      <p class="b f21"><{$user_group.sharenum}></p>
+      <p>星闻</p>
+      </a> </li>
+    <li class="li-line-l <{if $ch=='samestyle'}>current<{/if}>"> <a href="/user_group/home.html?gpid=<{$gpid}>&ch=samestyle">
+      <p class="b f21"><{$user_group.samestyle_num}></p>
+      <p>同款</p>
+      </a> </li>
+    <li class="li-line-l <{if $ch=='user'}>current<{/if}>"> <a href="/user_group/home.html?gpid=<{$gpid}>&ch=user">
+      <p class="b f21"><{$user_group.usernum}></p>
+      <p>粉丝</p>
+      </a> </li>
+    <!--
+    <li class="li-line-l"> <a href="/user_group/home.html?gpid=<{$gpid}>&ch=follower">
+      <p class="b f21"><{$user_group.followernum}></p>
+      <p>粉丝</p>
+      </a> </li>
+    -->
+    <li class="li-line-l <{if $ch=='intro'}>current<{/if}>"> <a href="/user_group/home.html?gpid=<{$gpid}>&ch=intro">
+      <p class="b f21">1</p>
+      <p>星简介</p>
+      </a> </li>
+  </ul>
+  <div class="blank15"></div>
+</div>

@@ -1,0 +1,79 @@
+<{include file="header_comm.html"}>
+<body>
+<div class="NuxProgress">
+    <div class="headerMain h135 text-center">
+        <h2 class="headerTitle1 f28"><{$lang['sns_user_regfollow_what']}></h2>
+        <h3 class="f18 f-normal"><{$lang['sns_user_regfollow_desc']}></h3>
+    </div>
+</div>
+<div class="draggablebox warp">
+	<div class="blank30"></div>
+    
+    <form id="regsucessFrom" method="post">
+	<div id="regsucessBox" class="ui-draggable regsucessBox">
+    	<ul>
+    	    <{foreach $data as $v}>
+        	<li data-flag="0"  data-categoryid="<{$v['tagid']}>">
+            	<div class="ico02 selectCheck"></div>
+            	<div class="interestImage" style="background-image: url(<{$v['img']}>)"></div>
+                <div class="interestTitle_bg"></div>
+                <div class="interestTitle"><{$v['catname']}></div>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div class="regfollow">
+        <div class="bar">
+            <li class="interest first">
+                1<div class="dot"></div>
+            </li>
+            <li class="interest">
+                2<div class="dot"></div>
+            </li>
+            <li class="interest">
+                3<div class="dot"></div>
+            </li>
+            <li class="interest">
+                4<div class="dot"></div>
+            </li>
+            <li class="interest">
+                5<div class="dot"></div>
+            </li>
+            <li class="interest">
+                6<div class="dot"></div>
+            </li>
+            <li class="interest">
+                7<div class="dot"></div>
+            </li>
+            <li class="interest">
+                8<div class="dot"></div>
+            </li>
+            <li class="interest">
+                9<div class="dot"></div>
+            </li>
+            <li class="interest">
+                10<div class="dot"></div>
+            </li>
+        </div>
+        <div class="blank10"></div>
+        <div class="rowbox">
+        	<div class="row-flex1 pl-10 line40 text-left">
+            	<{$lang['sns_user_regfollow_start']}>
+            </div>
+            <div class="w100 mr-10">
+            	<button data-role="none" type="button" id="regsucessBtn" class="btn-border btn btn-danger btn-danger-gray w100"> <{$lang['sns_user_regfollow_submit']}>
+            </button>
+            </div>
+        </div>
+        <div class="blank10"></div>
+    </div>
+    </form>
+</div>
+<{include file="footer_login_reg.html"}>
+<script type="text/javascript">
+$(function(){
+	RegUtils.regThree({minNum:6});
+})
+</script>
+</body>
+</html>

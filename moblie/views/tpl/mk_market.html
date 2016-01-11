@@ -1,0 +1,100 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings">
+  	<ul class="jsbox hide">
+    	<li id="generateQRcode" class="rowbox" data-url="http://www.byshare.com">
+        	<div class="row-flex1"><span class="ico ico-mypurse mr-5"></span>我的推广二维码</div>
+            <div class="ico ico-jt"></div>
+        </li>
+    </ul>
+    <ul class="jsbox">
+      <li>
+      	<a href="/mybuys/myscore.html" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+        	<span class="color-red f14 fr"><{$currency.exrtitle}><{$score.score}></span><span class="ico ico-mypurse mr-5"></span>助推享金 
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+      <li>
+      	<a href="/mk_market/feelist.html" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+            <span class="color-red f14 fr"><{$currency.exrtitle}><{$market_user.total}> + <{$currency.exrtitle}><{$market_user.total_ing}></span><span class="ico ico-mypurse mr-5"></span>助推现金
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+      <li>
+          <a href="/mybuys/cash.html" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico ico-mypurse mr-5"></span>提现
+          </div>
+          <div class="ico ico-jt"></div>
+          </a>
+        </li>
+    </ul>
+    <ul class="jsbox">
+      <{if $market_user['suidf1']>0}>
+      <li class="rowbox">
+            <div class="row-flex1"><span class="ico ico-myfriend mr-5"></span>我的领导</div>
+            <div>
+                <a href="/share/myshares.html?fsuid=<{$market_user['suidf1']}>">
+                <div class="drimg useravatar_bg" style="background: url()  no-repeat; margin-bottom:-8px"><img src="<{$market_user['suidf1_avatar'][2]}>" data-original="<{$market_user['suidf1_avatar'][1]}>" class="avatar_lazy userThumb" /></div>
+                <{$market_user.suidf1_uname}>
+                </a>
+            </div>
+       </li>
+      <{/if}>
+      <li class="rowbox">
+        <div class="row-flex1"><span class="ico ico-bole mr-5"></span>队伍总人数(<span class="color-red"><{$market_user.nums}></span>)</div>
+      </li>
+      <li>
+      	<a href="friends.html?ch=f1" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+        	<span class="ico ico-myfriend mr-5"></span>我的朋友(<span class="color-red f14"><{$market_user.nums1}></span>)
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+      <li>
+        <a href="friends.html?ch=f2" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+        	<span class="ico ico-myfriend mr-5"></span>我的伙伴(<span class="color-red f14"><{$market_user.nums2}></span>)
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+      <li>
+        <a href="friends.html?ch=f3" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+        	<span class="ico ico-myfriend mr-5"></span>我的童鞋(<span class="color-red f14"><{$market_user.nums3}></span>)
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+    </ul>
+    <ul class="jsbox">
+      <li>
+      	<a href="/theme/show.html?id=5" class="rowbox" data-role="none" rel="external">
+        <div class="row-flex1">
+        	<span class="ico ico-bole mr-5"></span>大伯乐玩法！！！
+        </div>
+        <div class="ico ico-jt"></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <{include file="footer_bar.html"}>
+  
+</div>
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

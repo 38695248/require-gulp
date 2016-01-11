@@ -1,0 +1,37 @@
+<div id="searchinput" class="headerbox fade" style="border-bottom:none; height:100%; z-index:9997;-webkit-overflow-scrolling: touch;overflow-y: scroll;">
+	<div class="top_l">
+    	<a href="javascript:void(0);" class="back-btn rel" id="closeSearch">
+          <span class="b_ico ico-back-h"></span>
+      	</a>
+    </div>
+    <div class="searchTip">
+    	<form id="formsearchTagbox" data-ajax="false" action="/m_search/search.html" method="GET" name="search" onsubmit = "return BaseInitClass.checksearchTagbox();">
+            <input data-role="none" type="hidden" autocomplete="off" name="t" id="searchtyleval" class="sui-Input" value="goods">
+            <div class="rowbox">
+            	<div id="s-input-tab-txt" class="s-input-tab-txt rel">
+                	<span id="s-input-val" data-type="goods">宝贝</span>
+                    <span class="b_ico"></span>
+                    <div class="s-input-tab-nav hide" id="J_TabNav">
+                        <ul>
+                            <li data-val="goods">宝贝</li>
+                            <li data-val="allshares">分享</li>
+                            <li data-val="group">群</li>
+                            <li data-val="bysharers">用户</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row-flex1">
+                <input id="newsearchInt" type="text" name="s" value="" placeholder="输入关键字" >
+                <input type="hidden" autocomplete="off" name="ukey" class="sui-Input" value="<{ukey2tmp()}>">
+                </div>
+                <div class="searchbtn newsearchbtn">
+                    <button data-role="none" type="submit" class="ico ico-search w30"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <ul id="searchTagbox" class="searchList"></ul>
+    <div class="text-center" style="padding:10px">
+    	<button type="button" id="qingkong_btn" class="btn" style="display:none">清空搜索历史</button>
+    </div>
+</div>

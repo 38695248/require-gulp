@@ -1,0 +1,93 @@
+<!-- 设计师认证页面 -->
+
+<div>
+  <input data-role="none" type="text" name="email" value="" placeholder="<{$lang['user_identify_email']}>" data-validate="Email" />
+</div>
+<div>
+  <input data-role="none" type="text" name="mobile" value="" placeholder="<{$lang['user_identify_mobile']}>" maxlength="11" data-validate="Mobile" />
+</div>
+<div>
+  <input data-role="none" type="text" name="truename" value="" placeholder="<{$lang['user_identify_truename']}>" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="address" value="" placeholder="<{$lang['user_identify_address']}>" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="idcard" value="" placeholder="<{$lang['user_identify_idcard']}>" data-validate="num" />
+  </div>
+<div><{$lang['user_identify_idcardpic1']}>：
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="<{$lang['user_identify_idcardpic1']}>" data-name="idcardpic1" class="btn btn-danger w100 up_rzpic"> <{$lang['user_identify_uplocal']}> </button>
+        <{$lang['user_identify_uplocalmsg']}>
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div><{$lang['user_identify_idcardpic2']}>
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="<{$lang['user_identify_idcardpic2']}>" data-name="idcardpic2" class="btn btn-danger w100 up_rzpic"> <{$lang['user_identify_uplocal']}> </button>
+        <{$lang['user_identify_uplocalmsg']}>
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <{$lang['user_identify_upshougao']}>
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-type="3" data-title="<{$lang['user_identify_upshougao']}>" data-name="shougao" class="btn btn-danger w100 up_rzpic"> <{$lang['user_identify_uplocal']}> </button>
+        <{$lang['user_identify_uplocalmsg2']}>
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>2. <{$lang['user_identify_otherinfo']}><span class="color-red"><{$lang['user_identify_xtx']}></span></div>
+<div>
+  <input data-role="none" type="text" name="qq" value="" placeholder="<{$lang['user_identify_qq']}>" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weixin" value="" placeholder="<{$lang['user_identify_weixin']}>" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weixin2" value="" placeholder="<{$lang['user_identify_weixin2']}>" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weibourl" value="" placeholder="<{$lang['user_identify_weibourl']}>" />
+</div>
+<div>
+  <input data-role="none" type="text" name="website" value="" placeholder="<{$lang['user_identify_website']}>" />
+</div>
+<div style="display:none">
+  <div class="select_box w150" id="cat_b" style="margin-right:35px">
+    <div data-value="0" class="select_showbox w150"> <em class="ico02 ico-downArrow"></em> <span><{$lang['user_identify_checkcatetory']}></span>
+      <input data-role="none" type="text" name="cat_b" value="" maxlength="2" class="int_bg select_analog">
+    </div>
+    <div class="createPanels select_option" style="display:none; width:163px;top:35px">
+      <ul class="board_items CategoryList">
+        <li data-tagid="15" value="15">女装</li>
+        <li data-tagid="16" value="16">男装</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="blank10"></div>
+<div>
+  <textarea cols="3" rows="5" style="height:50px" name="desc" placeholder="个人介绍"></textarea>
+  <input data-role="none" type="hidden" name="type" value="designer">
+  <input data-role="none" type="hidden" name="iscompany" value="0">
+</div>

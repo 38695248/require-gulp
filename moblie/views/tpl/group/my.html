@@ -1,0 +1,53 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox settings" data-role="content">
+      <{include file="group/topicon.html"}>
+      <{if $my_groups}>
+      <h3 class="ml-10 line30 f14">我创建的群</h3>
+      <ul id="mygroup" class="jsbox grouplist" style="margin-top:0">
+        <{foreach $my_groups as $key=>$val}>
+        <li>
+          <a href="/user_group/home.html?gpid=<{$val.gpid}>" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico groupavatar"><img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="lazy" /></span><{$val.gpname}>
+          </div>
+          </a>
+        </li>
+        <{/foreach}>
+      </ul>
+      <{/if}>
+      <h3 class="ml-10 line30 f14">我加入的群</h3>
+      <ul id="masonry" class="jsbox grouplist" style="margin-top:0">
+        <{if $join_groups}>
+        <{foreach $join_groups as $key=>$val}>
+        <li class="item">
+          <a href="/user_group/home.html?gpid=<{$val.gpid}>" class="rowbox">
+          <div class="row-flex1">
+              <span class="ico groupavatar"><img src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" class="lazy-mas" /></span><{$val.gpname}>
+          </div>
+          </a>
+        </li>
+        <{/foreach}>
+        <{else}>
+        <li>加入明星群，找到知己好友。</li>
+        <{/if}>
+      </ul>
+      <div class="pager">
+         <span class="pager-next"><a href="<{$pageurl}>"></a></span>
+      </div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+</html>

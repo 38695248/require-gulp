@@ -1,0 +1,33 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    <div class="userbox">
+       <div id="masonry_2" class="masonry larger-view">
+        <{include file="inc_share_item.html"}> 
+       </div>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+
+<{include file="footer_comm.html"}>
+
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});	
+	MyShare.myshareBase({mod:"myshares"});
+})
+</script>
+</body>
+
+</html>

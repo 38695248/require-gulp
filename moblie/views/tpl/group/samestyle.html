@@ -1,0 +1,40 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_cont" data-role="page">
+  <div id="headerbox" class="headerbox"> <{include file="header_back.html"}> </div>
+  <div class="contentbox settings" data-role="content">
+    <ul class="jsbox" style="margin:0">
+      <li class="h3_title">按地区:       
+      <{foreach $area as $key=> $val}>
+         <a class="ml-10 mr-5" href="/user_group/samestyle.html?area=<{$key}>"><{$val}></a>
+      <{/foreach}>
+      </li>
+      <li class="h3_title">按性别：        
+      	<{foreach $sex as $key=> $val}>
+          <a class="ml-10 mr-5" href="/user_group/samestyle.html?sex=<{$key}>"><{$val}></a>
+      	<{/foreach}>
+      </li>
+      <li class="h3_title rowbox">
+      	<span>热门明星：</span>
+       	<div class="row-flex1 line24 mt-10 mb-10">
+       	   <{foreach $hotstarts as $v}>
+             <a class="mr-10" href="/user_group/home.html?gpid=<{$v['gpid']}>&ch=samestyle"><{$v['gpname']}></a>
+           <{/foreach}>
+        </div>
+        </li>
+    </ul>
+    <div class="blank15"></div>
+    
+    <div id="masonry_2" class="masonry larger-view">
+      <{include file="inc_share_item.html"}>
+    </div>
+    <div class="pager"> <span class="pager-next"><a href="<{$request_url}>"></a></span> </div>
+    <div style="display:none;"><{$pagehtml}></div>
+  </div>
+  <{include file="footer_bar.html"}> </div>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

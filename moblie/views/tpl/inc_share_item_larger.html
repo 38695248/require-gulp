@@ -1,0 +1,198 @@
+<{foreach $datalist as $v}>
+<div class="item rowitem byshid" data-shid="<{$v['shid']}>" data-ishid="<{$v['ishid']}>" data-page="<{$request_url}>">
+  <div class="item-in">
+      <div class="rel rowitem-t">
+        <div class="fr rowitem-t-r"> 
+        <{if $v.isme==1}> 
+             <span class="span-gz btn-edit" data-shid="<{$v['shid']}>"  data-boradid="<{$v['ucatid']}>">编辑</span>
+        <{else}> 
+            <{if $v['user']['isfollow'] == 1}> 
+              <span class="span-gz followBtn current" data-type="person" data-follow="<{$v['user']['isfollow']}>" data-fsuid="<{$v['user']['suid']}>"><{$lang['sns_inc_share_item_have_follow']}></span>
+            <{else}>
+              <span class="span-gz followBtn" data-type="person" data-follow="<{$v['user']['isfollow']}>" data-fsuid="<{$v['user']['suid']}>"><{$lang['sns_inc_share_item_follow']}></span>  
+            <{/if}>
+        <{/if}>
+        
+        <{if $v['user']['iswant'] == 1}>
+           <span class="span-gz followBtn current" data-type="want" data-follow="<{$v['user']['iswant']}>"><{$lang['sns_inc_share_item_not_want']}></span>
+        <{else}>          
+           <span class="span-gz followBtn" data-type="want" data-follow="<{$v['user']['iswant']}>"><{$lang['sns_inc_share_item_want']}></span> 
+        <{/if}>
+        
+        </div>
+        <div class="rowitem-t-l">
+          <a data-role="none" class="rowbox" rel="external" href="/share/myshares.html?fsuid=<{$v['user']['suid']}>">
+          <div class="avatar w30 mr-5 useravatar_bg"> 
+          <img src="<{$v['user']['avatar'][2]}>" data-original="<{$v['user']['avatar'][1]}>" class="avatar_lazy userThumb" alt="<{$v['user']['uname']|escape:'html'}>" title="More from <{$v['user']['uname']|escape:'html'}>"/>
+          </div>
+          <div class="row-flex1 avatar-text">
+            <h2><{$v['user']['uname']|escape:'html'}>
+             <{foreach $v['user']['identify_info'] as $identify}>
+               <span class="ico ico-vip" title="<{$identify.name}>"></span>
+               <span class="f12 color-gray" title="<{$identify.name}>"><{$identify.name}></span>
+             <{/foreach}> 
+            </h2>
+            <p>
+             <{$v['count']['pv']}>人浏览
+            </p>
+                    
+          </div>
+          </a>
+        </div>
+      </div>
+      <div class="rowitem-c rel rowitemTag" data-width="<{$v['imgs'][0]['width']}>"> 
+        <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+          <a class="pjax" data-role="none" rel="external" href="/share/sharepage.html?gdid=<{$v['gdid']}>">
+        <{else}>
+          <a class="pjax" data-role="none" rel="external" href="/share/sharepage.html?shid=<{$v['shid']}>">
+        <{/if}>
+        <img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v['imgs'][0]['b']}>" alt="<{$v['description']}>"/>
+        </a>
+        <{foreach $v.imgs.0.tagsay as $ov}>
+          <div class="fade item-tag" data-val="1" data-left="<{$ov['imgx']}>" data-top="<{$ov['imgy']}>" style="left: <{$ov['imgx']}>px; top: <{$ov['imgy']}>px;"> <span class="item-tag-label"></span> <span class="ico ico-stag"></span>
+            <div class="item-tag-form" style="width:auto;">
+              <a href="/m_search/search.html?t=tagsay&s=<{$ov['tagtxt']|escape:'url'}>" title="<{$ov['tagtxt']|escape:'html'}>">
+              <div class="tip"><span><{$ov['tagtxt']|escape:'html'}></span></div>
+              </a>
+             </div>
+          </div>
+        <{/foreach}>
+        <{foreach $v.imgs.0.tagplace as $ov}>
+          <div class="fade item-tag" data-val="1" data-left="<{$ov['imgx']}>" data-top="<{$ov['imgy']}>"  style="left: <{$ov['imgx']}>px; top: <{$ov['imgy']}>px;"> <span class="item-tag-label"></span> <span class="ico ico-sPlace"></span>
+            <div class="item-tag-form" style="width:auto;"> <a href="/m_search/search.html?t=tagplace&s=<{$ov['tagtxt']|escape:'url'}>" title="<{$ov['tagtxt']|escape:'html'}>"> 
+            <div class="tip"><span><{$ov['tagtxt']|escape:'html'}></span></div>
+              </a> 
+              </div>
+          </div>
+          <{/foreach}>
+          <{foreach $v.imgs.0.tagperson as $ov}>
+          <div class="fade item-tag" data-val="1" data-left="<{$ov['imgx']}>" data-top="<{$ov['imgy']}>"  style="left: <{$ov['imgx']}>px; top: <{$ov['imgy']}>px; "> <span class="item-tag-label"></span> <span class="ico ico-sPeople"></span>
+            <div class="item-tag-form" style="width:auto;"> <{if $ov['link_suid'] neq 0}> <a href="/share/myshares.html?fsuid=<{$ov['link_suid']}>"> <{else}> <a href="/m_search/search.html?t=tagperson&s=<{$ov['tagtxt']|escape:'url'}>" title="<{$ov['tagtxt']|escape:'html'}>"> <{/if}> 
+            <div class="tip"><span><{$ov['tagtxt']|escape:'html'}></span></div>
+              </a> </div>
+          </div>
+          <{/foreach}>
+        
+        <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+          <a class="pjax" data-role="none" rel="external" href="/share/sharepage.html?gdid=<{$v['gdid']}>">
+        <{else}>
+          <a class="pjax" data-role="none" rel="external" href="/share/sharepage.html?shid=<{$v['shid']}>">
+        <{/if}>
+        
+        <div class="picNum">
+          <div class="picNum_bg"></div>
+          <div class="picNum_text"> <span class="ico ico-picnnum"></span><{$v['brohternum']}></div>
+        </div>
+      </a>
+      </div>
+      <{if ($v['gdid']>0) && ($v['good']['status']==1)}>
+      <div class="dz_btn loaded"><a href="/share/sharepage.html?gdid=<{$v['gdid']}>&#pripage"> <span class="ico ico-dzbtn"> <em class="f12"><{$v['good']['exrtitle']}> <{$v['good']['priv_price']}> <{$v['good']['exrcode']}></em><br />
+          立即定制 </span> </a>
+       </div>
+      <{/if}>
+      <div class="rowitem-b">
+        <div class="item-in-m">
+            <p class="pt-5 color-333 mb-5 p-title"><{$v['description_cut']|escape:'html'}></p>
+        </div>
+        <ul class="rowbox">
+          <{if $v['islike'] eq 0}>
+          <li class="row-flex1 btn-praise" data-like="0"><span class="ico ico-zhan"></span><span class="btn-praise-text">赞TA</span></li>
+          <{else}>
+          <li class="row-flex1 btn-praise current" data-like="1"><span class="ico ico-zhan"></span><span class="btn-praise-text">已赞TA</span></li>
+          <{/if}>
+          <li class="row-flex1 li-line-l btn-repeat" data-typeid="1" data-bigimgUrl="<{$v['imgs'][0]['b']}>" data-title="<{$v['description']|escape:'html'}>" ><span class="ico ico-share"></span>分享</li>
+          <li class="row-flex1  li-line-l btn-addpl"><span class="ico ico-pl"></span>评论</li>
+          <{if $v['gpid']>0}>
+          <li class="row-flex1 li-line-l">
+              <a class="pjax" data-role="none" rel="external" href="/user_group/home.html?gpid=<{$v['gpid']}>">
+                <span class="ico ico-more"></span><span>进群</span>
+              </a>
+          </li>
+          <{/if}>
+        </ul>
+      </div>
+      <div class="rowbox rowitem-zhan" <{if !$v['likes']}> style="display:none" <{/if}>>
+        <div class="w50"> 
+            <span class="ico ico-zhannum"></span> 
+            <span class="zhannum" data-zhannum='<{$v['count']['likenum']}>'><{$v['count']['likenum']}></span> 
+        </div>
+        <div class="row-flex1 avatar-list">
+          <ul>
+            <{foreach $v['likes'] as $k2=>$v2}>
+            <li class="avatar"><a href="/share/myshares.html?fsuid=<{$v2['suid']}>">
+            <div class="avatar useravatar_bg"><img src="<{$v2['avatar'][2]}>" data-original="<{$v2['avatar'][1]}>" class="avatar_lazy userThumb" /></div></a></li>
+            <{/foreach}>
+            <{if $v['count']['likenum'] > 6 }>
+            <li class="li_more">
+                <a href="/share/morelikesperson.html?shid=<{$v['shid']}>">
+                    <div class="avatar">...</div>
+                </a>
+            </li>
+            <{/if}>
+          </ul>
+        </div>
+      </div>
+      <div class="rowbox rowitem-pl pl-listbox">
+        <div class="w50 line40"> 
+            <span class="ico ico-plnum"></span> 
+            <span class="plnum" data-plnum="<{$v['count']['commentnum']}>"><{$v['count']['commentnum']}></span> 
+        </div>
+        <div class="row-flex1">
+          <ul>
+            <li class="rowbox mb-3" style="border-bottom:#ddd solid 1px; padding-bottom:5px;">
+                <div class="rowbox avatar w30 mr-5 mt-5">
+                <a href="/share/myshares.html?fsuid=<{$v['user']['suid']}>"><div class="avatar useravatar_bg"><img src="<{$v['user']['avatar'][2]}>" data-original="<{$v['user']['avatar'][1]}>" class="avatar_lazy"/></div></a>
+                </div>
+                <div class="row-flex1 avatar-text">
+                    <div class="commenterWrapper">
+                    <a data-role="none" rel="external" class="color-blue btn-addpl" href="javascript:void(0);" data-fsuid="<{$v['user']['suid']}>" data-fuid_uname="<{$v['user']['uname']|escape:'html'}>"><{$v['user']['uname']|escape:'html'}></a><span class="color-gray"> • <{$v['edttime_txt']}></span></div>
+                    <div class="shareDesc color-555"><{$v['description_cut']|escape:'html'}>
+                    
+                    <{if $v['init_user']}>
+                   <{$lang['sns_inc_share_item_share_from']}><a href="/share/myshares.html?fsuid=<{$v['init_user']['suid']}>"><{$v['init_user']['uname']|escape:'html'}>
+                    </a>
+                    <{/if}>
+                    
+                    </div>
+                </div>
+                
+            </li>
+          </ul>
+          <ul class="pl-list">
+            <{foreach $v['comment'] as $k2=>$v2}>
+            <li class="rowbox">
+                <div class="rowbox avatar w30 mr-5 mt-5">
+                <a href="/share/myshares.html?fsuid=<{$v2['suid']}>"><div class="avatar useravatar_bg"><img src="<{$v2['avatar'][2]}>" data-original="<{$v2['avatar'][1]}>" class="avatar_lazy"/></div></a>
+                </div>
+                <div class="row-flex1 avatar-text">
+                    <div class="commenterWrapper">
+                    
+                     <a data-role="none" rel="external" class="color-blue btn-addpl" href="javascript:void(0);" data-fsuid="<{$v2['suid']}>" data-fuid_uname="<{$v2['uname']|escape:'html'}>"><{$v2['uname']|escape:'html'}></a> 
+                     <{if $v2.fsuid > 0}><{$lang['sns_inc_share_item_share_comment_reply']}><a data-role="none" rel="external" class="color-blue btn-addpl" href="javascript:void(0);" data-fsuid="<{$v2['fsuid']}>" data-fuid_uname="<{$v2.fuid_uname|escape:'html'}>"><{$v2.fuid_uname|escape:'html'}></a>
+                     <{/if}>
+                    
+                    <span class="color-gray"> • <{$v2['edttime_txt']}></span>
+                    <{if $v2.isme==1}> 
+                    <span class="fr shareBtn reportComment delCommentBtn" data-cmmid="<{$v2['cmmid']}>" data-shid="<{$v2['shid']}>">
+                        <em class="ico ico-delComment"></em>
+                    </span>
+                    <{/if}>
+                    </div>
+                    <div class="shareDesc color-555">
+                    <{$v2['comment']}>
+                    </div>
+                </div>
+            </li>
+            <{/foreach}>
+            <li class="text-right"> 
+                <p class="blank5"></p>
+                <a href="/share/sharepage.html?shid=<{$v['shid']}>" class="color-blue">查看所有更多评论</a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+<{/foreach}>
+
+<div class="hide"><{$pagehtml}></div>

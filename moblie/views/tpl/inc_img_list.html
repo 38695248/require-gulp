@@ -1,0 +1,7 @@
+<{foreach $datalist as $v}>
+  <div class="item rowitem mb-10" style="border:none">
+    <a href="/m_sns/special.html?id=<{$v['id']}>" title="<{$v['title']|escape:'html'}>">
+ 	<img class="lazy-mas" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v['img']}>" />
+ 	</a>
+  </div>
+<{/foreach}>        

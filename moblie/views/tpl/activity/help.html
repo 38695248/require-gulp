@@ -1,0 +1,38 @@
+<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/jquery-ui.css?v=<{$v_css_js}>">
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/dz.css?v=<{$v_css_js}>">
+<body>
+<div id="bodywidth"></div>
+<div id="fxpage_user" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <div class="rowbox searchbox">
+      <a href="javascript:void(0);" class="back-btn">
+        <span class="b_ico ico-back-h"></span>
+      </a>
+      <div class="row-flex1 text-center line30" style="white-space:nowrap;  overflow:hidden"><span style="margin-left:-20px">帮助中心</span></div>
+    </div>
+  </div>
+  <div class="contentbox" style="padding:42px 0 40px 0; height:100%">
+	 帮助中心
+  </div>
+</div>
+<!--分享提示-->
+
+<!--分享提示-->
+<{include file="footer_comm.html"}>
+<script src="<{$static_url}>/moblie/js/qiniu/plupload.full.min.js?151216121539"></script>
+<script src="<{$static_url}>/moblie/js/qiniu/qiniu.js?151216121539"></script>
+<script src="<{$static_url}>/moblie/js/jqui/jquery-ui.min.js?151216121539"></script>
+<script src="<{$static_url}>/moblie/js/jqui/hammer.js?151216121539"></script>
+<script src="<{$static_url}>/moblie/js/jqui/jquery.ui.touch-punch.min.js?151216121539"></script>
+<script src="<{$static_url}>/moblie/js/activity/data.js?151216121539"></script> 
+<script src="<{$static_url}>/moblie/js/dz.js?151216121539"></script> 
+
+<script type="text/javascript">
+$(function(){
+	dzClass.basedz();
+	dzClass.dzInit();	 
+})
+</script>
+</body>
+</html>

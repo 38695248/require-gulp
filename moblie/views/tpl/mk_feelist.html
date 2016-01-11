@@ -1,0 +1,63 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+   <div class="rowbox fx-nav h3_title">
+        <div class="row-flex1 <{if !$ising}>current<{/if}>">
+        	<a href="/mk_market/feelist.html">已获得(¥ <{$market_user.total}>)</a>
+        </div>
+        <div class="row-flex1 <{if $ising}>current<{/if}>">
+        	<a href="/mk_market/feelist.html?ising=1">交易中(¥ <{$market_user.total_ing}>)</a>
+        </div>
+     </div>
+  </div>
+  
+  <div class="contentbox ui-content" data-role="content" role="main">
+    <div id="masonry" class="row row-gz masonry msglist">
+      
+      <{foreach $datalist as $key=>$val}>
+      <ul class="jsbox item rowitem">
+          <li class="rowbox">
+            <div class="row-flex1 w60"><{$val.edttime_txt}></div>
+            <div class="row-flex1 w60">状态：<span class="color-red"><{$val.status_txt}></span></div>
+            <div class="row-flex1 text-right">现金：<span class="color-red"><{$val.exrtitle}><{$val.fee}></span></div>
+          </li>
+          <li class="orderinfo">
+          <a href="/share/sharepage.html?gdid=<{$val.gdid}>" class="rowbox color-blue">
+            <div class="cartimg w70 mr-10">
+                <img src="<{$val.img}>">
+            </div>
+            <div class="cartinfo row-flex1">
+                <h3 class="color-blue">
+                     <{$val.gdname}>
+                </h3>
+            </div>
+          </a>
+          </li>
+          <li>队友：<a href="/share/myshares.html?fsuid=<{$val['suidfrom']}>" class="color-blue"><{if $users_info[$val['suidfrom']]['uname']}><{$users_info[$val['suidfrom']]['uname']}><{else}>无名英雄<{/if}></a></li>
+      </ul>
+      <{/foreach}>
+            
+    </div>
+    
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+     </div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<input type="hidden" id="pagecol" value="1" />
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+
+</html>

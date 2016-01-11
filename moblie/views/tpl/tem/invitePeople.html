@@ -1,0 +1,156 @@
+<div id="invitePeopleTipbox" class="tipbox fade" data-index="0" style="display:none;">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><{$lang['sns_invitepeople_title']}></h1>
+        <span class="ico02 tipclose closeBtnHtml"></span>
+        <div class="tipcont">
+            <div class="panelBody ShareInviter">
+                <div class="leftPanel">
+                    <div class="ajax BoardInviteForm rel">
+                    	<form id="sendEmailForm" method="post">
+                        <button data-role="none" type="button" class="inviteButton rounded btn" style="width:75px; text-align:center">    
+                            <span class="buttonText"><{$lang['sns_invitepeople_sendinvite']}></span>
+                        </button>
+                        <div class="fillWidth">
+                            <div class="userCircleSelect rel">
+                                <div class="rel">
+                                <input data-role="none" autocomplete="off" name="invite" id="inviteInput" type="text" placeholder="Type a name or email" class="Inviter-class" maxlength="50" style="width: 245px; height:47px" data-validate="Email">
+                                </div>
+                                <div id="userCircleSelect" class="userCircleSelect ui-Typeahead">
+                                    <ul class="results">
+                                        <li tabindex="false" class="">
+                                            <div class="sendToEmail unclickable">
+                                                <a>
+                                                    <div class="fl typingEmail mr-5">
+                                                        <em class="ico ico-typingEmail"></em>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h4 id="typingEmailTitle" class="title"></h4>
+                                                        <p class="subtitle"><{$lang['sns_invitepeople_typeemailorname']}></p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                      </ul>
+                                      <ul id="searchUser" class="searchUser">
+                                      </ul>
+                                      <!--ul class="results">
+                                        <li tabindex="false" class="">
+                                            <div class="socialConnect">
+                                                <a>
+                                                    <div class="fl socialConnect-facebook mr-5">
+                                                        <em class="ico ico-facebook"></em>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h4 class="title"><{$lang['sns_invitepeople_invite']}>Facebook<{$lang['sns_invitepeople_friend']}></h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li tabindex="false" class="">
+                                            <div class="socialConnect">
+                                                <a>
+                                                    <div class="fl socialConnect-Google mr-5">
+                                                        <em class="ico ico-google"></em>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h4 class="title"><{$lang['sns_invitepeople_invite']}>Google<{$lang['sns_invitepeople_friend']}></h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li tabindex="false" class="">
+                                            <div class="socialConnect">
+                                                <a>
+                                                    <div class="fl socialConnect-Twitter mr-5">
+                                                        <em class="ico ico-twitter"></em>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h4 class="title"><{$lang['sns_invitepeople_invite']}>Twitter<{$lang['sns_invitepeople_friend']}></h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul-->
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        <!--div id="ContactsList" class="ajax ContactsList">
+                            <ul class="ajax List">
+                                <li data-index="0">
+                                    <div class="socialConnect-facebook">
+                                        <div>
+                                            <div class="fl mr-5">
+                                                <em class="ico ico-facebook"></em>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="f12">Find friends from Facebook</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-index="1">
+                                    <div class="socialConnect-google">
+                                        <div>
+                                            <div class="fl mr-5">
+                                                <em class="ico ico-google"></em>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="f12">Find friends from Google+</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-index="1">
+                                    <div class="socialConnect-twitter">
+                                        <div>
+                                            <div class="fl mr-5">
+                                                <em class="ico ico-twitter"></em>
+                                            </div>
+                                            <div class="right">
+                                                <h4 class="f12">Find friends from Twitter</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div-->
+                    </div>
+                </div>
+                <div class="rightPanel f12">
+                    <h3 class="subheading">Who can add Shares?</h3>
+                    <div class="blank10"></div>
+                    <!--div class="myboardInvites">
+                        <a href="/king6074/" >
+                            <div class="thumbImageWrapper fl mr-5">
+                                <img src="<{$static_url}>/default/images/user/default_75.png" alt="king" title="More from king">
+                            </div>
+                            <h4 class="fullname">king</h4>
+                            <div class="subtitle">you created this board</div>
+                        </a>
+                    </div-->
+                    <div class="boardInvites">
+                    	<form id="InvitelistForm">
+                    	<ul id="Invitelist">
+                        	
+                        </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <div class="fr formFooterButtons">
+                <button data-role="none" class="btn-border btn rounded mr-5 closeBtnHtml" type="button">
+                    <span class="buttonText"><{$lang['sns_invitepeople_close']}></span>
+                </button>
+                <button data-role="none" type="button" class="btn btn-danger btn-invitepeople">
+                    <span class="buttonText"><{$lang['sns_invitepeople_send']}></span>
+                </button>
+            </div>
+            </div>
+            <div class="blank0"></div>
+        </div>
+    </div>
+</div>

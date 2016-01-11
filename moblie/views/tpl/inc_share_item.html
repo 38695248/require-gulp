@@ -1,0 +1,15 @@
+<div class="leftbox" style="float:left; width:50%">
+<{foreach $datalist as $v}>
+  <{if $v@index % 2 == 0}>
+		<{include file="inc_share_item_son.html"}>
+   <{/if}>
+<{/foreach}>
+</div>
+<div class="rightbox" style="float:left; width:50%">
+<{foreach $datalist as $v}>
+  <{if $v@index % 2 == 1}>
+		<{include file="inc_share_item_son.html"}>
+   <{/if}>
+<{/foreach}>
+</div>
+<div class="hide"><{$pagehtml}></div>

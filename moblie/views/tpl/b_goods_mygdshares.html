@@ -1,0 +1,31 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+    <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+    <div class="userbox">
+       <{include file="header_my.html"}>
+       
+       <div id="masonry_2" class="masonry larger-view">
+        <{include file="inc_share_item.html"}> 
+       </div>
+       
+       <div class="pager"> 
+          <span class="pager-next">
+            <a href="<{$pageurl}>"></a>
+          </span> 
+       </div>
+       
+    </div>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/myShare_myshares.js" src="<{$static_url}>/moblie/app/require.js"></script>
+
+</body>
+</html>

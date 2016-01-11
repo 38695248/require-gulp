@@ -1,0 +1,74 @@
+<div id="shareTipbox" class="tipbox fade" data-index="0" style="border-radius:0">
+	<form id="shareFrom" method="post">
+    <div class="tipbox-in">
+    	<div class="tipbottom" style="border-radius:0;height:25px; overflow:hidden;border-bottom: #ddd solid 1px;">
+        	<div class="top_l closeBtnHtml" style=" padding:0"> <span class="b_ico ico-back-h"></span> </div>
+            <div class="top_r" style="right:0; top:0">
+            	<button data-role="none" type="submit" class="btn btn-one btn-danger w100" style="line-height:25px;margin-top:-1px; margin-right:-5px"><{$lang['sns_temsharetip_share']}>
+                </button>
+            </div>
+        </div>
+        <div class="tipcont" style="background:#f0f0f0; padding:0">
+            <ul class="list-unstyled">
+                    <!--li class="boardWrapper rel" style="display:none">
+                        <h3>
+                            <{$lang['sns_temsharetip_board']}>
+                        </h3>
+                        <div class="select_box" id="shareboard">
+                            <div data-value="0" class="select_showbox">
+                                <em class="ico02 ico-downArrow"></em>
+                                <span class="select_box_text"><{$lang['sns_temsharetip_create']}></span>
+                                <input data-role="none" type="text"  name="Category"  value="" maxlength="2" class="int_bg select_analog" data-validate="isempty" />
+                            </div>
+                            <div class="addShareTip createPanels select_option" style="display:none">
+                                <div class="creatboard_wrap rowbox">
+                                	<div class="row-flex1 mr-10 boardnamebox">
+                                    <input data-role="none" id="boardname" class="boardname" type="text" maxlength="128" size="60" value="" name="boardname" placeholder="Create a Board">
+                                    </div>
+                                    <button data-role="none" class="btn creatbtn-gray" type="button"><{$lang['sns_temsharetip_create']}></button>
+                                </div>
+                                <ul class="board_items">
+                                    <{foreach $data as $v}>
+                                      <li class="boardprintitem" data-value="<{$v['ucatid']}>"><{$v['bname']}></li>
+                                    <{/foreach}>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="blank10" style="border:none"></li>
+                    <li class="boardWrapper">
+                        <h3>
+                            <label><{$lang['sns_temsharetip_checkcotegory']}></label>
+                        </h3>
+                        <div class="select_box" style="z-index:7">
+                            <div class="select_showbox" id="bigcategoryBtn">
+                                <em class="ico02 ico-downArrow"></em>
+                                <span class="select_box_text" id="categoryText"><{$lang['sns_temsharetip_checkcotegory']}></span>
+                                <input data-role="none" type="hidden"  name="bigcategory"  value="" maxlength="2" class="int_bg" />
+                            </div>
+                        </div>
+                        <div id="fenleibox"></div>
+                    </li>
+                    <li class="blank10" style="border:none"></li-->
+                    <li class="bg-fff" style="padding:0 10px">
+                        <h3 class="line30"><label><{$lang['sns_temsharetip_description']}></label></h3>
+                        <div class="row-flex1">
+                        	<textarea name="description" id="description" class="textarea" style="width:100%" maxlength="300" placeholder="<{$lang['sns_temsharetip_desc']}>" data-validate="isempty"></textarea>
+                            <p class="f12 color-777" style="padding-top:3px"><{$lang['sns_temsharetip_canenternum']}>：<span id="descNum" class="color-red">300</span><{$lang['sns_temsharetip_words']}></p>
+                            <p class="blank10"></p>
+                        </div>
+                        <p class="blank10"></p>
+                    </li>
+                    
+                    <!--li id="groupList" class="bg-fff" style="padding:0 10px">
+                        <h3 class="line40" style="border-bottom:#ddd solid 1px">选择明星群</h3>
+                        <div class="row-flex1 group_cat_share" id="group_cat_share">
+                        	<ul class="jsbox group_categoryList" style="padding:0"></ul>
+                        	<div class="line40 color-blue creatGroupBtn ml-10" style="display:none">+绑定新明星群</div>
+                         </div>
+                    </li-->
+                </ul>
+        </div>
+    </div>
+    </form>
+</div>

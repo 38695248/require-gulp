@@ -1,0 +1,36 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox">
+     <div class="text-center line24 f28 jsbox" style="padding:20px 0">
+         <p class="color-333">长按复制提现码:</p>
+         <p class="b f28 color-333 line40"><{$checkid}></p>
+         <p class="f21 b color-red line30">请长按下图</br>识别图中二维码加客服<br/>粘贴发送提现码给客服</p>
+         <p class="text-center"><img class="w200" style="margin:0 auto" src="<{$svr_weixin_pic}>" /></p>
+     </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});	
+	MyShare.myshareBase({mod:'cash'});
+})
+</script>
+</body>
+
+</html>
+
+
+
+

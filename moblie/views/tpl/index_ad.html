@@ -1,0 +1,71 @@
+<{include file="header_comm.html"}>
+<body id="index_ad" class="bodybox bodyclick">
+<div style="height:0; overflow:hidden"> <img id="weixin_first_img" src="<{$weixin_first_img}>" /> </div>
+<div id="homepage" class="mainbox">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <div id="contentbox" class="contentbox">
+    <{include file="inc_ad_topslip.html"}>
+    <!--
+    <div class="custom_box">
+    	<ul class="rowbox">
+        	<li>
+            	<a href="/ask/toask.html"><img src="<{$static_url}>/moblie/images/q_custom_btn.png" /></a>
+            </li>
+            <li class="w10 h_line"></li>
+            <li>
+            	<a href="javascript:void(0);" class="add-share"><img src="<{$static_url}>/moblie/images/f_share_btn.png" /></a>
+            </li>
+        </ul>
+    </div>
+    -->
+    <{if $adv.top_pic_big}>
+    <div class="blank10"></div>
+    <ul class="top_pic_big">
+    	<{foreach $adv.top_pic_big as $v}>
+            <li><a href="<{$v.link}>"><img src="<{$v.src}>" /></a></li>
+        <{/foreach}>
+    </ul>
+    <{/if}>
+    <{if $adv.top_pic_small}>
+    <ul class="top_pic_small">
+    	<{foreach $adv.top_pic_small as $v}>
+            <li><a href="<{$v.link}>"><img class="lazy" src="<{$v.src}>" /></a></li>
+        <{/foreach}>
+    </ul>
+    <{/if}>
+    <div class="banner_box_m">
+    	<{$adv.middle_txt_adv.0.text_val}>
+    </div>   
+    <{if $adv.bottom_pic}>
+    <div class="bottom_pic">
+    	<{foreach $adv.bottom_pic as $v}>
+   			<a href="<{$v.link}>" class="mt-10 block"><img class="lazy" src="<{$static_url}>/moblie/images/pixel.gif" data-original="<{$v.src}>"/></a>
+    	<{/foreach}>
+    </div>
+    <{/if}>
+    <div class="combox">
+      <div id="choose_dh" class="masonry_dh">
+      	<ul class="rowbox text-center f16">
+        	<li class="dhpjax current" data-url="/index/index_ad.html?type=new&orders=new">每日新品</li>
+            <li class="line">|</li>
+            <li class="dhpjax" data-url="/index/index_ad.html?type=hot&orders=hot">人气热销</li>
+            <li class="line">|</li>
+            <li class="dhpjax" data-url="/index/index_ad.html?type=low_price&orders=price_asc">特价优惠</li>
+        </ul>
+      </div>
+      <div id="masonry_2" class="masonry larger-view">
+      	<{include file="inc_share_item.html"}>
+      </div>
+    </div>
+    <div class="pager" style="display: none;"> 
+    	<span class="pager-next"><a href="<{$request_url}>"></a></span> 
+    </div>
+  </div>
+  <{include file="footer_bar.html"}> 
+</div>
+<{include file="footer_comm_new.html"}>
+<script data-main="<{$static_url}>/moblie/app/js/index" src="<{$static_url}>/moblie/app/require.js"></script>
+</body>
+</html>

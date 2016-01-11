@@ -1,0 +1,45 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox ui-content" data-role="content" role="main">
+    <div id="masonry" class="masonry">
+      <{foreach $cashcoupon_list as $key=>$val}>
+      <div class="item rowitem pepper-w">
+        <div class="pepper pepper-blue">
+          <div class="pepper-l">
+            <p class="pepper-l-num"> <i><{$currency['exrtitle']}><{$val['money']}></i><{$currency['exrcode']}></p>
+            <p class="pepper-l-con">券码：<span class="color-red"><{$val['cardcode']}></span></p>
+            <p class="pepper-l-con">(可长按券码复制送朋友支付订单使用！)</p>
+            <p class="pepper-l-con">使用范围：本平台全部商品(一次性使用)</p>
+          </div>
+          <div class="pepper-r"> <span>有效期</span>
+            <div> <{$val['edttime_txt']}>
+              <p class="pepper-line">~</p>
+              <{$val['endtime_txt']}> </div>
+          </div>
+        </div>
+        <div class="pepper-b pepper-blue">
+          <div class="pb-con"></div>
+          <div class="pb-border"></div>
+        </div>
+        <div class="p-address"> </div>
+      </div>
+      <{/foreach}>
+    </div>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+
+<input type="hidden" id="pagecol" value="1" />
+<script data-main="<{$static_url}>/moblie/app/js/myShare_comm.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

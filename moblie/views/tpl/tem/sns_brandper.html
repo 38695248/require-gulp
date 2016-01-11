@@ -1,0 +1,95 @@
+<!-- 品牌认证页面 -->
+
+<div>
+  <input data-role="none" type="text" name="email" value="" placeholder="邮箱" data-validate="email" />
+</div>
+<div>
+  <input data-role="none" type="text" name="mobile" value="" placeholder="手机号码" maxlength="11" data-validate="mobile" />
+</div>
+<div>
+  <input data-role="none" type="text" name="truename" value="" placeholder="真实姓名" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="address" value="" placeholder="通讯地址" data-validate="isempty" />
+</div>
+<div>
+  <input data-role="none" type="text" name="iccard" value="" placeholder="身份证号码" data-validate="num" />
+</div>
+<div>上传身份证正面
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="idcardpic1" data-name="idcardpic1"  class="btn btn-danger w100 up_rzpic"> 本地上传 </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>上传手持身份证
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" type="button" data-title="idcardpic2" data-name="idcardpic2" class="btn btn-danger w100 up_rzpic"> 本地上传 </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>品牌注册证书
+  <div class="groupBox uppro_pic">
+    <div class="uppro_pic_btn">
+      <div class="uppro_pic_btn_c">
+        <button data-role="none" id="pro_btn" type="button" class="btn btn-danger w100 up_rzpic" data-name="brandpic" data-type="1" data-title="品牌注册证书" class="btn btn-danger w100 up_rzpic">
+        本地上传
+        </button>
+        (提示：图片大小不能超过2M。)
+        <div class="uppro_pic_list" style="display:none">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>2. 其他信息<span class="color-red">（选填项）</span></div>
+<div>
+  <input data-role="none" type="text" name="qq" value="" placeholder="QQ" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weixin" value="" placeholder="微信" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weixin2" value="" placeholder="微信公众号" />
+</div>
+<div>
+  <input data-role="none" type="text" name="weibourl" value="" placeholder="微博地址" />
+</div>
+<div>
+  <input data-role="none" type="text" name="website" value="" placeholder="个人主页" />
+</div>
+<div style="display:none">
+  <div class="fl select_box w150" id="cat_b" style="margin-right:35px">
+    <div data-value="0" class="select_showbox w150"> <em class="ico02 ico-downArrow"></em> <span>选择分类</span>
+      <input data-role="none" type="text" name="cat_b" value="" maxlength="2" class="int_bg select_analog">
+    </div>
+    <div class="createPanels select_option" style="display:none; width:163px;top:35px">
+      <ul class="board_items CategoryList">
+        <li data-tagid="15" value="15">女装</li>
+        <li data-tagid="16" value="16">男装</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div>
+  <textarea cols="3" rows="5" style="height:50px" name="desc" placeholder="个人介绍"></textarea>
+  <input data-role="none" type="hidden" name="type" value="brand">
+  <input data-role="none" type="hidden" name="iscompany" value="0">
+</div>

@@ -1,0 +1,51 @@
+<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/bole.css?v=<{$v_css_js}>">
+<style type="text/css?v=<{$v_css_js}>">
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: arial;
+	text-align: center;
+}
+* {
+	margin:0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+
+</style>
+<body class="bodybox bodyclick">
+<div class="maibox" style="margin:0; padding:0">
+    <div class="contentbox">
+    	<{$theme_info['html']}>
+    </div>
+</div>
+<script src="<{$static_url}>/moblie/js/plugin/zepto.min.js?151216121539"></script>
+<script type="text/javascript" src="<{$static_url}>/moblie/js/plugin/H5FullscreenPage.js?151216121539"></script>
+<script type="text/javascript">
+$(function(){
+	if($("#H5FullscreenPage").length > 0){
+		var body_h = $("body").height();
+		$("body").css({"background":"#000"});
+		$("#H5FullscreenPage").css({"height":body_h});
+		$("#H5FullscreenPage-wrap").find("img").css({"height":body_h-10});
+		H5FullscreenPage.init({
+			'type':5,
+			'pageShow' : function(dom){
+			
+			},
+			'pageHide' : function(dom){
+			//console.log(dom);
+			}
+		});
+	}
+});
+	
+
+</script>
+</body>
+
+</html>

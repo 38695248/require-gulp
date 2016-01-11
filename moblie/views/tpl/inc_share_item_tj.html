@@ -1,0 +1,11 @@
+<{foreach $datalist as $v}>
+<dd>
+    <p class="img_box">
+        <a data-img="<{$v['imgs'][0]['s_0']}>" title="<{$v['description_cut']|escape:'html'}>" href="/share/sharepage.html?gdid=<{$v['gdid']}>&ukey=<{ukey(1)}>">
+    		<img src="<{$v['imgs'][0]['m']}>" alt="<{$v['description']}>" />
+        </a>
+    </p>
+    <p class="color-333 p-title"><{$v['description_cut']|escape:'html'}></p>
+    <p class="p-price"><{$v['good']['exrtitle']}> <{$v['good']['priv_price']}></p>
+</dd>
+<{/foreach}>

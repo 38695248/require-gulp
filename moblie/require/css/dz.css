@@ -1,0 +1,48 @@
+.dz-product{position:relative; margin:0 auto}
+.dyimgbox_in{width:100%; overflow:visible;}
+.printableArea{ position:absolute;width:350px;height:437px;left:200px;top:150px;}
+.printableArea-over{border:#000 solid 1px}
+.ui-icon-gripsmall-diagonal-se{background-position:0 0; width:21px; height:21px; bottom:-21px; right:-21px}
+.dzfilePicker2 .btn-danger.webuploader-pick {border-radius: 4px;font-size: 13px;line-height: 28px;padding: 0 10px;margin: 0px 10px 0 0;}
+#container{overflow:hidden;width:100%; margin:0}
+#container a{background:#000; display:block; line-height:40px}
+.pdefaultMenu{position:absolute; bottom:0; left:0; width:100%; background:#fff; z-index:99999; padding-top:0}
+.ColorPickerControls{background:#ddd; margin-bottom:5px;line-height:50px; font-size:16px;}
+.selectColorbox{line-height: 100%;overflow-x: scroll;overflow-y: hidden;text-align: left;white-space: nowrap;-webkit-overflow-scrolling: touch;}
+.selectStyleControls{line-height:50px; font-size:18px; background:#ddd; margin-bottom:5px}
+.ColorCircle{border-radius: 50%;display: inline-block;margin: 0 0 0 .5rem;padding: 2px;border: 2px solid transparent;}
+.selectStyle{padding-bottom:8px}
+.selectStyle span{display:inline-block;font-size:18px;}
+
+.aroundselect{position:absolute; right:10px; bottom:50px}
+.aroundselect span{display:block; width:40px; height:40px; text-align:center; margin-bottom:10px;color:#fff; line-height:40px; background:#ccc; color:#333;}
+.aroundselect .current{ background:#F60; color:#fff }
+
+.bordercolor,.bg-color{border-radius: 50%;box-sizing: border-box;display:inline-block;height:35px;width:35px;margin:0;padding: 0; line-height:60px;}
+.bordercolor{line-height:40px}
+.selectStyle .bg-color{height:20px;width:20px; background:#fff;}
+.selectStyle .is-selected .bg-color{display:inline-block; line-height:30px; background:#000}
+.color{border-radius: 50%;box-sizing: border-box;display: block;height:35px;width:35px;margin:0;padding: 0;}
+.is-white{border: 1px solid #836858;}
+.selectColorbox .is-selected {border-color: #f37321;}
+
+.ico-help,.ico-selectStyle,.ico-selectColor,.ico-next-btn{background:url(../../images/activity/help.png) center no-repeat;display: inline-block;width:30px;height:30px; background-size:30px 30px}
+.ico-selectStyle{background:url(../../images/activity/style.png) center no-repeat; background-size:30px 30px}
+.ico-selectColor{background:url(../../images/activity/color.png) center no-repeat; background-size:30px 30px}
+.ico-next-btn{background:url(../../images/activity/next.png) center no-repeat; background-size:30px 30px}
+.ico-uppic{background:url(../../images/activity/uppic.png) center no-repeat;display: inline-block;width:33px;height:33px;background-size:33px 33px;}
+
+.dz-border{border:#666 solid 1px; padding:10px 10px 15px; border-radius:30px; margin-bottom:0px}
+.dz-border h2{margin-top:-25px}
+.dz-border h2 span{display:inline-block; background:#fff; padding:0 10px}
+.qiangText{padding:15px}
+
+/*选择尺码*/
+.selectColorSizesbox{padding:0 5px 0 5px}
+.selectSizes{padding:5px 0; text-align:left}
+.sizeClass{border:#ddd solid 1px; line-height:30px; margin:0 2px 8px; width:60px; text-align:center;display:inline-block}
+.is-selected.sizeClass{border:#ab171e solid 1px; color:#ab171e}
+.buynum-input{border-right:none; border-left:none}
+
+.toggle-switch{display:block}
+

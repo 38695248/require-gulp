@@ -1,0 +1,145 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+  	<img src="<{$static_url}>/moblie/images/activity/goodscut.jpg?v=111" />
+
+  	<div class="rowbox goodscut_dh bg-fff text-center line50 f16">
+    	<div class="row-flex1 <{if $type=="started"}>current<{/if}>">
+        	<a href="/m_buy/cut.html?type=started">开砍中</a>
+        </div>
+        <div class="row-flex1 li-line-l <{if $type=="willstart"}>current<{/if}>">
+        	<a href="/m_buy/cut.html?type=willstart">明日10点开砍</a>
+        </div>
+    </div>
+    <div class="blank15"></div>
+    <ul id="masonry" class="masonry goodscutlist">
+        <{include file="inc_share_item_cut.html"}>
+    </ul>
+    
+    <div class="pager">
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+    <div style="display:none;"><{$pagehtml}></div>
+    
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+<!--判断分页参数-->
+<input type="hidden" id="pagecol" value="1" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<input type="hidden" id="act_comm" value="cut" />
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+<script type="text/javascript">
+var iswxshare = 0;
+wx.config({
+	debug: false,
+	appId: '<{$signPackage["appId"]}>',
+	timestamp: '<{$signPackage["timestamp"]}>',
+	nonceStr: '<{$signPackage["nonceStr"]}>',
+	signature: '<{$signPackage["signature"]}>',
+	jsApiList: [
+		// 所有要调用的 API 都要加到这个列表中
+		'checkJsApi',
+		//'openLocation',
+		//'getLocation',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareQZone'
+	  ]
+});
+wx.ready(function () {
+	// 通过checkJsApi判断当前客户端版本是否支持分享参数自定义
+	wx.checkJsApi({
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareQZone'
+		],
+		success: function (res) {
+			//alert(JSON.stringify(res));
+		}
+	});
+	//微信朋友
+	wx.onMenuShareAppMessage({
+	  title: '<{$jsapi_txt["title"]}>',
+	  desc: '<{$jsapi_txt["desc"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击发送给朋友');
+	  },
+	  success: function (res) {
+		 
+		//alert('已分享');
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//微信朋友圈
+	wx.onMenuShareTimeline({
+	  title: '<{$jsapi_txt["title"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击分享到朋友圈');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//分享到QQ
+	wx.onMenuShareQQ({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+		   // 用户取消分享后执行的回调函数
+		}
+	});
+	//分享到QQ空间
+	wx.onMenuShareQZone({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+});
+</script>
+</body>
+</html>

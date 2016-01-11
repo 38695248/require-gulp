@@ -1,0 +1,32 @@
+<div id="bigcategorybox" class="bigcategorybox tipbox fade" data-index="0" style="display:none;">
+    <div class="tipbox-in">
+        <h1 class="tiptop"><strong>选择分类</strong></h1>
+        <div class="tipcont f12 color-555" style="overflow:hidden; overflow-y:auto">
+        	<form id="categoryFrom">
+            <div class="bigcategorylist">
+                <h4 class="fl">分类</h4>
+                <div class="bigcategory-con">
+                    <ul id="bigcategory">
+                        <input data-role="none" type="hidden" name="cat_b"  value="" />
+                        <{foreach $categorys_top as $v}>
+                        <li data-tagid="<{$v['tagid']}>" data-catid="<{$v['catid']}>" data-name="<{$v['catname']}>" data-isload='0'><{$v['catname']}><em class="ico currentico" data-type="0" title="取消选择"></em></li>
+                        <{/foreach}>
+                    </ul>
+                </div>
+                <div class="blank0"></div>
+            </div>
+            <div class="blank0"></div>
+            <div id="sns_small_category" class="sns_small_category" style="position:relative">
+            </div>
+            </form>
+        </div>
+        <div class="tipbottom">
+            <div class="fr formFooterButtons">
+                <button data-role="none" type="button" id="categorySub" class="btn btn-danger">
+                    <span>确认</span>
+                </button>
+            </div>
+            <div class="blank0"></div>
+        </div>
+    </div>
+</div>

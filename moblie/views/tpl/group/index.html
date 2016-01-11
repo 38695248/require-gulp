@@ -1,0 +1,141 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div style="height:0px; overflow:hidden"> <img id="weixin_first_img" src="<{$weixin_first_img}>" />
+</div>
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+   <{include file="header_back.html"}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+	    <{include file="inc_ad_topslip.html"}>
+        <{include file="group/topicon.html"}>
+    	<div class="blank10"></div>
+    	<!--
+        <div class="part mb-10 bg-fff">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/samestyle.html" class="bg-00a0e8">
+                    <span class="ico-xr"></span>
+                    <p>明星同款>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $samestyle as $val}>
+                        <div class="part-li">
+                            <{if $val.link}>
+                            <a href="<{$val.link}>">
+                            <{else}>
+                            <a href="/share/sharepage.html?gdid=<{$val['id_val']}>">
+                            <{/if}>
+                            <img src="<{$val['share']['imgs'][0]['m']}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                     </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+                                          明星同款
+            </div>
+        </div>
+        <div class="part mb-10 bg-fff">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/mostpopular.html" class="bg-fc9b00">
+                    <span class="ico-xr"></span>
+                    <p>人气明星榜>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $mostpopular as $val}>
+                        <div class="part-li">
+                            <a href="/user_group/home.html?gpid=<{$val['gpid']}>">
+                             <img class="lazy" src="<{$val['avatar'][2]}>" data-original="<{$val['avatar'][1]}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+                                   人气明星榜
+            </div>
+        </div>
+        
+    	<{foreach $sex_cats as $key => $val}>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/showcats.html?sex=<{$val['sex']}>" class="bg-color2-<{$key}>">
+                    <span class="ico-hot-zt"></span>
+                    <p><{$val.title}>>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $val.data as $v}>
+                        <div class="part-li">
+                            <a href="/user_group/home.html?gpid=<{$v['gpid']}>">
+                              <img class="lazy" src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+             <{$val.desc}>
+            </div>
+        </div>
+        <{/foreach}>
+        
+    	<{foreach $area_cats as $key => $val}>
+        <div class="part mb-10">
+            <div class="text-center rowbox">
+                <div class="part-title">
+                    <a href="/user_group/showcats.html?area=<{$val['area']}>" class="bg-color2-<{$key}>">
+                    <span class="ico-hot-zt"></span>
+                    <p><{$val.title}>>></p>
+                    </a>
+                </div>
+                <div class="row-flex1 ml-5">
+                	<div class="rowbox-r">
+                        <{foreach $val.data as $v}>
+                        <div class="row-flex1 part-li">
+                            <a href="/user_group/home.html?gpid=<{$v['gpid']}>">
+                              <img class="lazy" src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" />
+                            </a>
+                        </div>
+                        <{/foreach}>
+                    </div>
+                </div>
+            </div>
+            <div class="parttext line30">
+             <{$val.desc}>
+            </div>
+        </div>
+        <{/foreach}>
+        -->
+        <h3 class="text-center mb-10">-- 热门群推荐 --</h3>
+	    <ul id="masonry" class="masonry jsbox grouplist" style="margin-top:0">
+	      <{include file="group/inc_group.html"}>
+	    </ul>
+	    <div class="pager">
+	       <span class="pager-next"><a href="<{$pageurl}>"></a></span>
+	    </div>
+	    <div style="display:none;"><{$pagehtml}></div>
+    </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<script data-main="<{$static_url}>/moblie/app/js/group_index.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+     <{if $isme==1}>
+     <div class="rowbox fx-nav h3_title">
+        <div class="row-flex1 <{if $bar['header']=='open'}> current<{/if}>"><a href="/user/mycenter.html?fsuid=<{$header['fsuid']}>">公开</a></div>
+        <div class="row-flex1 <{if $bar['header']=='priv'}> current<{/if}>"><a href="/user/mycenter.html?ch=priv">私密</a></div>
+     </div>
+     <{/if}>
+  </div>
+  
+  <div class="contentbox" data-role="content">
+  	<div id="masonry_2" class="masonry larger-view">
+     <{include file="inc_following_board.html"}>
+    </div>
+    
+    <div class="pager"> 
+        <span class="pager-next">
+          <a href="<{$pageurl}>"></a>
+        </span> 
+     </div>
+    
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+})
+</script>
+</body>
+
+</html>

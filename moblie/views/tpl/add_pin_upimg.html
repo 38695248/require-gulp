@@ -1,0 +1,25 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<{include file="footer_comm.html"}>
+<script type="text/javascript">
+$(function(){
+	UploadUtils.uploadInit({
+		uploadUrl:"/upload/index.html",
+		yzlogin:true,
+		ismult:true,
+		callback:function(arrData){
+			UploadUtils.successFun(arrData,{fileNumLimit:10});
+		},
+		bcallback:function(){
+			$(".closeBtnHtml").unbind("click").bind("click",function(){
+				window.location.href = '/';	
+			});	
+		}
+	});
+})
+</script>
+</body>
+
+</html>
+

@@ -1,0 +1,79 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<!--鐧诲綍-->
+<div id="loginbox" class="tipbox" data-index="0" style="width:380px">
+	<div class="tipbox-in">
+    	<h1 class="tiptop"><{$lang['sns_user_login_logintop']}></h1>
+        <span class="ico02 tipclose closeBtnHtml" id="closeBtn" onClick="javascript:history.back(-1);"></span>
+        <div class="tipcont login-in">
+        	<p><{$lang['sns_user_login_useother']}></p>
+            <div class="sns-box">
+                <div style="display:none">
+                    <button data-role="none" class="regfacebook" data-backend="Facebook" next="/">
+                        <em class="snsico ico-reg-facebook"></em>
+                    </button>
+                    <button data-role="none" class="reggoogle" data-backend="Google" next="/">
+                        <em class="snsico ico-reg-google"></em>
+                    </button>
+                    <button data-role="none" class="regtwitter" data-backend="Twitter" next="/">
+                        <em class="snsico ico-reg-twitter"></em>
+                    </button>
+                </div>
+                <div>
+                    <a href="https://api.weibo.com/oauth2/authorize?client_id=3171756207&redirect_uri=http%3A%2F%2Fwww.byshare.com%2Foauth%2Fweibo%2Fcallback.php&response_type=code">
+                    <button data-role="none" class="regsina" data-backend="Facebook" next="/">
+                        <em class="snsico ico-reg-sina"></em>
+                    </button>
+                   </a>
+                   <a href="/qq/login.html">
+                    <button data-role="none" class="regqq" data-backend="Google" next="/">
+                        <em class="snsico ico-reg-qq"></em>
+                    </button>
+                    </a>
+                    <button data-role="none" class="regdouban" data-backend="Twitter" next="/">
+                        <em class="snsico ico-reg-douban"></em>
+                    </button>
+                    <button data-role="none" class="regrenren" data-backend="Facebook" next="/">
+                        <em class="snsico ico-reg-renren"></em>
+                    </button>
+                </div>
+			</div>
+            <p class="blank20"></p>
+            <!-- <p class="stit"><{$lang['sns_user_login_useemail']}></p> -->
+            <p class="blank0"></p>
+            <form action="" method="post" id="ajaxLoginFrom" class="clearfix">
+                <fieldset class="frmLogin">
+                   <ul>
+                   		<li>
+                            <label class="label"><{$lang['sns_user_login_email']}></label>
+                            <input data-role="none" type="text" id="Email" name="email" placeholder="<{$lang['sns_user_login_enteremail']}>" class="inputClass margin-t5"  data-validate="Email">
+                        </li>
+                        <li class="blank5"></li>
+                        <li>
+                            <label class="label"><{$lang['sns_user_login_password']}><span class="error-label"></span></label>
+                            <input data-role="none" type="password" id="Pwd" name="password" placeholder="<{$lang['sns_user_login_enterpassword']}>" class="inputClass margin-t5">
+                        </li>
+                        <li class="blank20"></li>
+                        <li class="btn-area">
+                            <button data-role="none" type="submit" class="btn btn-danger w150 mr-10 fl" style="height:40px"><{$lang['sns_user_reg_login']}></button>
+                            <span>
+                            	<p style="line-height:22px; padding:0"><a href="javascript:void(0);" id="forgotPwd"><{$lang['sns_user_login_forget']}></a></p>
+                            	<p style="line-height:16px; padding:0"><a href="/"><{$lang['sns_user_login_regnow']}></a></p>
+                            </span>
+                            
+                        </li>
+                   </ul>
+                </fieldset>
+            </form>
+            <div class="blank10"></div>
+        </div>
+    </div>
+</div>
+<{include file="footer_login_reg.html"}>
+<script type="text/javascript">
+$(function(){
+	RegUtils.loginInit();
+})
+</script>
+</body>
+</html>

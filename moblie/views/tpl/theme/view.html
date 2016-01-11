@@ -1,0 +1,31 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="fxpage_user" data-role="page">
+
+    <div id="headerbox" class="headerbox">
+       <{include file="header_back.html"}>
+    </div>
+  
+    <div class="contentbox">
+    
+    <{$theme_info['html']}>
+    
+    </div>
+  
+</div>
+<{include file="footer_bar.html"}>
+<{include file="footer_comm.html"}>
+
+
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	var b_h = getHeightBody();
+	$("#iframepage").css({"height":b_h,"width":"100%"});
+	BaseInitClass.baseInit();
+});
+</script>
+</body>
+
+</html>

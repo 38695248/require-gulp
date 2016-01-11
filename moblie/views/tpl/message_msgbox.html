@@ -1,0 +1,55 @@
+<{if !$pjax}>
+<{include file="header_comm.html"}>
+<body class="bodymoney">
+<{/if}>
+<div style="display:none">
+<img class="avatar_lazy" src="<{$avatar[2]}>" data-original="<{$avatar[1]}>" id="useravatar" />
+</div>
+<div class="mainbox">
+	<div class="headerbox showhide">
+      <{include file="header_back.html"}>
+    </div>
+    <div class="container_kf">
+        <div class="content_kf" id="content">
+            <ul id="masonry" class="masonry msg-wrapper baguetteBoxOne">
+              <{foreach $datalist as $k => $v}>
+              <li class="<{$v['rorl']}> animated fadeInUp item">
+                <i class="avatar <{$v['rorl']}>">
+                    <img src="<{$v['avatar'][2]}>" data-original="<{$v['avatar'][1]}>" class="avatar_lazy userThumb" alt="<{$v['uname']}>" title="More from <{$v['uname']}>">
+                </i>
+                <div class="msg-content"><{$v['msg']}></div>
+              </li>
+              <{/foreach}>
+            </ul>
+        </div>
+        <div id="footer_kf" class="footer">
+        	<div class="send-wrapper"> 
+              <span>
+                <button id="expression-toggle" class="btn-kf btn-exp"></button>
+              </span> 
+              <span>
+                <button id="tool-toggle" class="btn-kf btn-tool"></button>
+              </span> 
+              <span class="cell-full">
+                <input type="text" id="text-in" class="input input-send" maxlength="150" autocomplete="off">
+              </span>
+              <span>
+                <button id="send" class="btn btn-send" data-gdid="<{$gdid}>" data-suid="<{$suid}>" data-tosuid="<{$tosuid}>" data-admin="<{$admin}>">发送</button>
+              </span>
+            </div>
+        	<div id="control" class="question-control" style="display:none">
+          		<div id="expression" class="ui-slider swiper-container">
+            		<div id="swiper-wrapper" class="ui-slider-group swiper-wrapper">
+                    	<div class="imgloading" style="height:100px; width:100%"></div>
+                    </div>
+                    <div class="swiper-pagination-kf text-center"></div>
+            	</div>
+        	</div>
+        </div>
+    </div>
+</div>
+<script data-main="<{$static_url}>/moblie/app/js/kefu.js?v=7" src="<{$static_url}>/moblie/app/require.js"></script>
+<{if !$pjax}>
+</body>
+</html>
+<{/if}>

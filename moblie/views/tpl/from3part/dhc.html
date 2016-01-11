@@ -1,0 +1,184 @@
+﻿<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/dz.css?v=435435435">
+<body>
+<div>
+  <div class="contentbox bg-fff" style="padding:0px">
+    <div class="activitybox">
+      <div>
+      	<img src="<{$static_url}>/moblie/images/activity/zcxj/zcxj_t.jpg?v=2" />
+      </div>
+      <div>
+      	<img src="<{$static_url}>/moblie/images/activity/zcxj/zcxj_01.jpg?v=2" />
+        <p class="blank20"></p>
+        <div class="dz-border">
+          <h2 class="text-center"><span>第一步：发起众筹</span></h2>
+          <p class="blank20"></p>
+          <{if $num_raise_ing > 0}>
+          <button data-role="none" type="button" id="btn-gzbysharewx-gray" class="btn w100e line36 mb-10 btn-ccc btn-danger-ra10"><span class="b f26">已发起众筹</span> </button>
+          <{else}>
+          <button data-role="none" type="button" id="btn-fqzc" class="btn w100e line36 mb-10 btn-191782 btn-danger-ra10 b f26"><span class="b f26">发起众筹</span></button>
+          <{/if}>
+        </div>
+         <p class="blank40"></p>
+      </div>
+      <div>
+      	<img src="<{$static_url}>/moblie/images/activity/zcxj/zcxj_02.jpg?v=2" />
+        <p class="blank20"></p>
+        <div class="dz-border">
+          <h2 class="text-center"><span>第二步：邀请朋友拿现金</span></h2>
+          <p class="blank20"></p>
+          <button data-role="none" type="button" id="btn-bysshare-wx" class="btn btn-191782 w100e line36 mb-10 btn-bysshare-wx btn-danger-ra10 b" style="font-size:28px">邀请朋友拿现金</button>
+        </div>
+        <p class="blank40"></p>
+      </div>
+      <div>
+      	<img src="<{$static_url}>/moblie/images/activity/zcxj/zcxj_03.jpg?v=2" />
+        <p class="blank20"></p>
+        <div class="dz-border">
+           <h2 class="text-center"><span>第三步：马上领取</span></h2>
+           <p class="blank20"></p>
+            <button data-role="none" type="button" id="btn-lingqu" class="btn w100e line40 btn-191782 btn-danger-ra10" data-iszc="<{$num_raise_ing}>"> <span class="b f26">马上领取</span> </button>
+        </div>
+        <p class="blank40"></p>
+      </div>
+      <div class="rel act-banner" style="padding:0">
+        <img src="<{$static_url}>/moblie/images/activity/dhc/01.jpg?v=2" />
+      </div>
+      
+      <img src="<{$static_url}>/moblie/images/activity/dhc/02.jpg?v=2" />
+      
+      <p class="blank40"></p>
+    </div>
+  </div>
+  <{include file="footer_bar.html"}> </div>
+<{include file="footer_comm.html"}> 
+<script src="<{$static_url}>/moblie/js/activity.js?151216121539"></script> 
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript">
+var isfenxiang = 0;
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?85b72988e441a673ee0700057e7bd2bb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+wx.config({
+	debug: false,
+	appId: '<{$signPackage["appId"]}>',
+	timestamp: '<{$signPackage["timestamp"]}>',
+	nonceStr: '<{$signPackage["nonceStr"]}>',
+	signature: '<{$signPackage["signature"]}>',
+	jsApiList: [
+		// 所有要调用的 API 都要加到这个列表中
+		'checkJsApi',
+		//'openLocation',
+		//'getLocation',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareQZone'
+	  ]
+});
+wx.ready(function () {
+	// 通过checkJsApi判断当前客户端版本是否支持分享参数自定义
+	wx.checkJsApi({
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareQZone'
+		],
+		success: function (res) {
+			//alert(JSON.stringify(res));
+		}
+	});
+	//微信朋友
+	wx.onMenuShareAppMessage({
+	  title: '<{$jsapi_txt["title"]}>',
+	  desc: '<{$jsapi_txt["desc"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击发送给朋友');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		isfenxiang = 1;
+		$("#share_bg").hide();
+		$("#share_tip").hide();
+		$("#btn-bysshare-wx").addClass("btn-ccc").text("已分享");
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		//alert(JSON.stringify(res));
+	  }
+	});
+	//微信朋友圈
+	wx.onMenuShareTimeline({
+	  title: '<{$jsapi_txt["title"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击分享到朋友圈');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		isfenxiang = 1;
+		$("#share_bg").hide();
+		$("#share_tip").hide();
+		$("#btn-bysshare-wx").addClass("btn-ccc").text("已分享");
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		//alert(JSON.stringify(res));
+	  }
+	});
+	//分享到QQ
+	wx.onMenuShareQQ({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		   isfenxiang = 1;
+		   $("#share_bg").hide();
+		   $("#share_tip").hide();
+		   $("#btn-bysshare-wx").addClass("btn-ccc").text("已分享");
+		},
+		cancel: function () { 
+		   // 用户取消分享后执行的回调函数
+		}
+	});
+	//分享到QQ空间
+	wx.onMenuShareQZone({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		   isfenxiang = 1;
+		   $("#share_bg").hide();
+		   $("#share_tip").hide();
+		   $("#btn-bysshare-wx").addClass("btn-ccc").text("已分享");
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+});
+$(function(){
+	ActivityClass.dhcact();	
+	//ActivityClass.apiweixin();
+})
+</script>

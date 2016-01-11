@@ -1,0 +1,32 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox">
+    <div id="headerbox" class="headerbox">
+       <{include file="header_back.html"}>
+    </div>
+  
+  <div class="contentbox" style="padding-bottom:50px">
+    <ul class="jsbox">
+      <{foreach $shipping_step as $key=>$val}>
+      <li style="line-height:22px">
+      	<p><{$val.context}></p>
+        <p><{$val.time}></p>
+      </li>
+      <{/foreach}>
+      
+     </ul>
+  </div>
+  <{include file="footer_bar.html"}>
+</div>
+
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+})
+</script>
+</body>
+
+</html>

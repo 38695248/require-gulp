@@ -1,0 +1,61 @@
+<div class="money_list_1">
+    <h2 class="text-center">最近帮抢的好友( T10 )</h2>
+    <ul>
+    <{foreach $redpk_log as $key=>$val}>
+        <li class="rowbox">
+          <a href="/mk_market/red_packet.html?fsuid=<{$val['suid_do']}>" class="row-flex1 rowbox">
+          <div>
+              <span class="ico groupavatar"><img src="<{$users_info[$val['suid_do']]['avatar'][2]}>" data-original="<{$users_info[$val['suid_do']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          
+          <div class="row-flex1">
+            <p class="user_title"><{$users_info[$val['suid_do']]['uname']}> <span class="color-999 f12"><{$val['edttime_txt']}></span></p>
+            <p><{if $suid==$val['suid_do'] and $isme}>我<{else}>帮<{if $isme}>我<{else}>TA<{/if}><{/if}>抢到 享金<{$currency.exrtitle}><{$val['score']}>元，<{if $val['money']>0}>现金<{$currency.exrtitle}><{$val['money']}>元<{/if}></p>
+          </div>
+          </a>
+          <a href="/message/msgbox.html?tosuid=<{$val['suid_do']}>" class="block" style="margin-top:25px"><button class="btn">私聊Ta</button></a>
+        </li>
+     <{/foreach}>   
+     <{if !$redpk_log}>
+     <li class="line30 text-center">
+      <p>暂时还没有朋友帮抢，赶紧邀请好友来帮抢！</p>
+      <p><button class="btn btn-f46e6f money_btn_act  color-fff" data-params='{"type":"Invitation"}'>邀请好友帮抢</button></p>
+      <p class="blank10"></p>
+     </li>
+    <{/if}>
+    </ul>
+</div>
+<!--div class="money_list_1" style=" padding-bottom:10px;border-bottom:#ccc solid 1px;">
+    <h2 class="text-center">今日单次最佳手气排行( T10 )</h2>
+    <ul>
+    <{foreach $redpk_log_t10 as $key=>$val}>
+        <li class="rowbox">
+          <a href="/share/myshares.html?fsuid=<{$val['suid']}>">
+          <div>
+              <span class="ico groupavatar"><img src="<{$users_info[$val['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+          </div>
+          </a>
+          <div class="row-flex1">
+            <p class="user_title">第 <{$key+1}> 名</p>
+            <p><{if $users_info[$val['suid_do']]['uname']}><{$users_info[$val['suid_do']]['uname']}><{else}>无名英雄<{/if}> <!--帮 
+            <a href="/mk_market/red_packet.html?fsuid=<{$val['suid']}>" class="color-blue">
+            <{if $users_info[$val['suid']]['uname']}><{$users_info[$val['suid']]['uname']}><{else}>路人甲<{/if}></a> 抢到>
+            </p>
+          </div>
+          <div>
+            <p class="user_title">
+                <span class="f12">享金<{$currency.exrtitle}><{$val['score']}>/ </span><{if $val['money']>0}><span class="f14 color-red">现金<{$currency.exrtitle}><{$val['money']}></span><{/if}>
+            </p>
+            <p class="text-right"><{$val['edttime_txt']}></p>
+          </div>
+          
+        </li>
+      <{/foreach}>  
+      <{if !$redpk_log_t10}>
+         <li class="line30 text-center">
+          <p class="blank10"></p>
+          <p>暂时还没有第一，赶紧抢红包争做江湖第一名！</p>
+         </li>
+      <{/if}>   
+    </ul>
+</div-->

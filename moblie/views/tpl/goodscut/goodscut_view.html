@@ -1,0 +1,198 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox">
+<div class="mainbox_p0">
+    <div class="headerbox showhide headerbox_view">
+     <{include file="header_back.html"}>
+    </div>
+    <div class="contentbox bg-fff" style="padding-bottom:55px">
+    
+    <{if $act==''}><!--商品信息部分-->
+    
+    	<!--<div class="mb-10"><a href="/m_buy/tryon.html" target="_self"><img src="<{$static_url}>/moblie/images/activity/shichuan.jpg" ></a></div>-->
+    	<{include file="inc_ad_topslip.html"}>
+    	
+    	<div class="crowd-img">
+        	<a href="/share/sharepage.html?gdid=<{$gdid}>">
+            	<img src="<{$buy_goods['img']['b']}>">
+            </a>
+        </div>
+        <div class="crowd-user">
+        	<div class="crowd-text rowbox">
+                <div class="row-flex1">
+                	<p style="white-space:nowrap; overflow:hidden; margin-right:5px"><a class="color-blue" href="/share/sharepage.html?gdid=<{$gdid}>"><{$buy_goods.gdname}></a></p>
+                    <p class="p-price line24">
+                        ¥ <{$buy_goods.priv_price}>&nbsp;<span></span>
+                    </p>
+                </div>
+            </div>
+			<div class="crowd-time text-center line50 f21 color-red">
+                <{if $buy_goods.lefttime>0}>
+                <p>仅剩：<{$buy_goods.num_act}>件,数量有限,抓紧砍!</p>
+                <p class="line30 mb-10">倒计时：<span id="crowdtimers" data-time="<{$buy_goods.lefttime}>">-天-小时-秒</span></p>
+                <{else}>
+                <p class="line30 mb-10">已经截止啦</p>
+                <{/if}>
+                <p class="line30" style="border-top:#e5e5e5 solid 1px; padding:10px 0">砍到0元后,要立即提货,名额有限<br>先提先得,错失良机后悔一辈子哦</p>
+            </div>
+        </div>
+        
+        
+  <{/if}><!--商品信息部分-->
+  
+  
+        <div id="money_list" class="money_list" style="padding:0">
+        	<div class="money_list_1">
+        		<div class="rowbox goodscut_dh bg-fff text-center line50 f16" style="border-bottom:#e5e5e5 solid 1px">
+                    <div class="row-flex1 <{if $ch=='ing'}>current<{/if}>">
+                        <a href="/m_cut/goodscut_view.html?gdid=<{$gdid}>&ch=ing#money_list" style="margin:0">正在砍中</a>
+                    </div>
+                    <div class="row-flex1 li-line-l <{if $ch=='done'}>current<{/if}> ">
+                        <a href="/m_cut/goodscut_view.html?gdid=<{$gdid}>&ch=done#money_list" style="margin:0">已成功提货</a>
+                    </div>
+                </div>
+                <ul id="masonry" class="masonry">
+                	<{foreach $datalist as $key=>$val}>
+                	<li class="item rowbox">
+                      <a href="/share/myshares.html?fsuid=<{$val['suid']}>" class="row-flex1 rowbox">
+                      <div>
+                          <span class="ico groupavatar"><img src="<{$users_info[$val['suid']]['avatar'][2]}>" data-original="<{$users_info[$val['suid']]['avatar'][1]}>" class="avatar_lazy userThumb" /></span>
+                      </div>
+                      
+                      <div class="row-flex1">
+                        <p class="user_title"><{$users_info[$val['suid']]['uname']}> <span class="color-999 f12"><{$val['addtime_txt']}></span></p>
+                        <p>已砍 <span class="color-red"><{$val['total_cut']}>元</span>，还差 <span class="color-red"><{$val['totalleft']}>元</span></p>
+                      </div>
+                      </a>
+                      <a href="/message/msgbox.html?tosuid=<{$val['suid']}>" class="block" style="margin-top:25px"><button class="btn">私聊Ta</button></a>
+                    </li>
+                    <{/foreach}>
+                    <{if !$datalist}>
+                        <li class="text-center line30">亲，这个宝贝刚刚上来，赶快参与砍价吧，先砍爆先得哦！</li>
+                    <{/if}>
+               </ul>
+               <div class="pager" style="display: none;"> 
+                  <span class="pager-next"><a href="/m_cut/goodscut_view.html?gdid=<{$gdid}>&act=<{$act}>&ch=<{$ch}>&page=1"></a></span>
+               </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="footerbox">
+      <div class="rowbox" style="height:55px; line-height:55px">
+          <div class="row-flex1 btn-0359db f16 support-btn"><a href="/m_buy/cut.html" class="block color-fff">更多砍价</a></div>
+          <div class="row-flex1 btn-ff5000 f16 add-crowd-btn"><a href="/share/sharepage.html?gdid=<{$gdid}>" class="block color-fff">立即参与</a></div>
+      </div>
+    </div>
+</div>
+
+<{include file="footer_comm_new.html"}>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script data-main="<{$static_url}>/moblie/app/js/activity_goodscut.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<script type="text/javascript">
+var iswxshare = 0;
+wx.config({
+	debug: false,
+	appId: '<{$signPackage["appId"]}>',
+	timestamp: '<{$signPackage["timestamp"]}>',
+	nonceStr: '<{$signPackage["nonceStr"]}>',
+	signature: '<{$signPackage["signature"]}>',
+	jsApiList: [
+		// 所有要调用的 API 都要加到这个列表中
+		'checkJsApi',
+		//'openLocation',
+		//'getLocation',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareQZone'
+	  ]
+});
+wx.ready(function () {
+	// 通过checkJsApi判断当前客户端版本是否支持分享参数自定义
+	wx.checkJsApi({
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareQZone'
+		],
+		success: function (res) {
+			//alert(JSON.stringify(res));
+		}
+	});
+	//微信朋友
+	wx.onMenuShareAppMessage({
+	  title: '<{$jsapi_txt["title"]}>',
+	  desc: '<{$jsapi_txt["desc"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击发送给朋友');
+	  },
+	  success: function (res) {
+		 
+		//alert('已分享');
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//微信朋友圈
+	wx.onMenuShareTimeline({
+	  title: '<{$jsapi_txt["title"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击分享到朋友圈');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		alert(JSON.stringify(res));
+	  }
+	});
+	//分享到QQ
+	wx.onMenuShareQQ({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+		   // 用户取消分享后执行的回调函数
+		}
+	});
+	//分享到QQ空间
+	wx.onMenuShareQZone({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+});
+
+</script>
+
+</body>
+
+</html>

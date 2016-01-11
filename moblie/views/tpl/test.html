@@ -1,0 +1,88 @@
+<{include file="header_comm.html"}>
+
+<BODY>
+
+
+<form action="/test/index.html" method="post" name="search">
+<div>
+<input type="text" width="800" name="id">
+<textarea name="text" style="width:500px; height:300px"></textarea>
+<input type="submit" value="提交">
+</div>
+</form>
+<button type="button" class="wxAddressBtn">获取微信地址测试</button>
+<{include file="footer_comm.html"}>
+<script type="text/javascript">
+$(function(){
+	AjaxFunUtils.ajaxInit({
+	"url":"<{$url}>", 
+	"params":{}, 
+	"callback":function (res3) {
+		console.log(res3);
+	}
+	});	
+});
+
+
+
+
+var sign_info = "<{$addressSign_info}>";
+	$(function(){
+		//获取微信地址
+		$(".wxAddressBtn").unbind("click").bind("click",function(){
+			get_addres();
+						//获取微信地址
+						function get_addresinfo(){ 
+							WeixinJSBridge.invoke(
+								'editAddress',
+								sign_info,
+								function(res){
+									alert(res.username);
+									var resData = {};
+									resData.act = "add";
+									resData.nickname = res.username;
+									resData.cellphone = res.telNumber;
+									resData.zip = res.addressPostalCode;
+									resData.address1 = res.addressCitySecondStageName +" "+res.addressCountiesThirdStageName+" "+res.addressDetailInfo;
+									
+									return false;
+									AjaxFunUtils.ajaxInit({
+										"url":"/myorder/address.html", 
+										"params":resData, 
+										"callback":function (res3) {
+											if(res3.status == 1){
+												if($("#sedefault").attr("checked")){
+													defaultAddr = thisaddrid;
+												}
+												getAddress();//添加，编辑完成刷新地址列表
+											}else{
+												AlertUtils.tips({
+													htmlmsg:'<div style="padding:30px">'+res3.msg+'</div>',
+													w:"96%",
+													type:0
+												});	
+											}
+										}
+									});	
+								}
+							);
+						};
+						function get_addres(){
+							alert(1);
+							if (typeof WeixinJSBridge == "undefined"){
+							if( document.addEventListener ){
+								document.addEventListener('WeixinJSBridgeReady', get_addresinfo, false);
+							}else if (document.attachEvent){
+								document.attachEvent('WeixinJSBridgeReady', get_addresinfo); 
+								document.attachEvent('onWeixinJSBridgeReady', get_addresinfo);
+							}
+							}else{
+								get_addresinfo();
+							}
+						};
+		});	
+	})
+</script>
+
+</BODY>
+</HTML>

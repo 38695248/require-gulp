@@ -1,0 +1,45 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+<div class="mainbox" id="gzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+  	<{include file="header_back.html"}>
+  </div>
+  <div class="contentbox" data-role="content">
+    <div class="typebox-n" style="border-bottom:#e5e5e5 solid 1px">
+      <ul class="typebox-start typebox-start-user">
+        <{foreach $area_list as $key=> $val}>
+        <li><a href="/m_buy/star_samestyle_search.html?area=<{$key}>">
+          <p><img src="<{$val.icon}>" /></p>
+          <p><{$val.name}></p>
+          </a> </li>
+        <{/foreach}>
+       
+  	   <{foreach $sex_list as $key=> $val}>
+        <li> <a href="/m_buy/star_samestyle_search.html?sex=<{$key}>">
+          <p><img src="<{$val.icon}>" /></p>
+          <p><{$val.name}></p>
+          </a> </li>
+       <{/foreach}>   
+      </ul>
+    </div>
+    <div class="blank10"></div>
+    
+    <div id="masonry_2" class="masonry larger-view">
+       <{include file="inc_share_item.html"}>
+    </div>
+    
+    <div class="pager"> 
+      <span class="pager-next">
+        <a href="<{$request_url}>"></a>
+      </span> 
+    </div>
+  </div>
+  <{include file="footer_bar.html"}> 
+</div>
+<input type="hidden" id="pagecol" value="0" /><!-- 1单列，0默认双列 -->
+<input type="hidden" id="isseacrch" value="0" /><!-- 1搜索，0正常 -->
+<input type="hidden" id="isfollow" value="0" /><!-- 1关注，0正常 -->
+<script data-main="<{$static_url}>/moblie/app/js/search.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+</html>

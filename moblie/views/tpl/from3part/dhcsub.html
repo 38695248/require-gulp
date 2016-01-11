@@ -1,0 +1,155 @@
+﻿<{include file="header_comm.html"}>
+<link rel="stylesheet" href="<{$static_url}>/moblie/app/css/dz.css?v=435435435">
+<body>
+<div>
+  <div class="contentbox bg-fff" style="padding:0px">
+    <div class="contentbox bg-fff" style="padding-bottom:55px; background:#eaeaea">
+    <div style="position:relative; z-index:99"> 
+    <a href="/mk_market/red_packet.html"> 
+    	<img src="<{$static_url}>/moblie/images/activity/yaoq_top1.jpg?v=111" /> 
+    </a> 
+    </div>
+    <div id="iframe_box" style=" z-index:0; width:330px; height:815px; overflow:hidden; margin:0 auto;">
+      <div id="iframe_box_in" style="margin-top:-70px;">
+        <iframe id="iframe_id" width="330" src="http://m.dhc.net.cn/index.php/Home/Index/goods_try" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="height:860px"></iframe>
+      </div>
+    </div>
+  </div>
+  </div>
+<{include file="footer_comm.html"}> 
+<script src="<{$static_url}>/moblie/js/activity.js?151216121539"></script> 
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?85b72988e441a673ee0700057e7bd2bb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+wx.config({
+	debug: false,
+	appId: '<{$signPackage["appId"]}>',
+	timestamp: '<{$signPackage["timestamp"]}>',
+	nonceStr: '<{$signPackage["nonceStr"]}>',
+	signature: '<{$signPackage["signature"]}>',
+	jsApiList: [
+		// 所有要调用的 API 都要加到这个列表中
+		'checkJsApi',
+		//'openLocation',
+		//'getLocation',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareQZone'
+	  ]
+});
+wx.ready(function () {
+	// 通过checkJsApi判断当前客户端版本是否支持分享参数自定义
+	wx.checkJsApi({
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage',
+			'onMenuShareQQ',
+			'onMenuShareQZone'
+		],
+		success: function (res) {
+			//alert(JSON.stringify(res));
+		}
+	});
+	//微信朋友
+	wx.onMenuShareAppMessage({
+	  title: '<{$jsapi_txt["title"]}>',
+	  desc: '<{$jsapi_txt["desc"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击发送给朋友');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		isfenxiang = 1;
+		$("#share_bg").hide();
+		$("#share_tip").hide();
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		//alert(JSON.stringify(res));
+	  }
+	});
+	//微信朋友圈
+	wx.onMenuShareTimeline({
+	  title: '<{$jsapi_txt["title"]}>',
+	  link: '<{$jsapi_txt["link"]}>',
+	  imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+	  trigger: function (res) {
+		// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+		//alert('用户点击分享到朋友圈');
+	  },
+	  success: function (res) {
+		//alert('已分享');
+		isfenxiang = 1;
+		$("#share_bg").hide();
+		$("#share_tip").hide();
+	  },
+	  cancel: function (res) {
+		//alert('已取消');
+	  },
+	  fail: function (res) {
+		//alert(JSON.stringify(res));
+	  }
+	});
+	//分享到QQ
+	wx.onMenuShareQQ({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		   isfenxiang = 1;
+		   $("#share_bg").hide();
+		   $("#share_tip").hide();
+		},
+		cancel: function () { 
+		   // 用户取消分享后执行的回调函数
+		}
+	});
+	//分享到QQ空间
+	wx.onMenuShareQZone({
+		title: '<{$jsapi_txt["title"]}>',
+		desc: '<{$jsapi_txt["desc"]}>',
+		link: '<{$jsapi_txt["link"]}>',
+		imgUrl: '<{$jsapi_txt["imgUrl"]}>',
+		success: function () { 
+		   // 用户确认分享后执行的回调函数
+		   isfenxiang = 1;
+		   $("#share_bg").hide();
+		   $("#share_tip").hide();
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+});
+$(function(){
+	if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+		$("#iframe_box").css({"height":830});	
+	}else{
+		$("#iframe_box").css({"height":775});	
+	}	
+	shareweinxtip({
+		callback:function(obj){
+			var bodyH = getHeightBody()-150;
+			var sharehtml = '<div style="max-width:720px;margin:0 auto;" class="sharehtml line24">'+
+					'<img src="../moblie/images/activity/dhc/dhc-tip.png" style="height:'+bodyH+'px;width:auto;max-widht:none; margin:0 auto" />'+
+			   '</div> ';
+			obj.append(sharehtml).css({"background":"none"});	
+		}
+	});
+})
+</script>

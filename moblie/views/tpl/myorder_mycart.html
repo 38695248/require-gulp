@@ -1,0 +1,53 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<!--购物车第一步：商品选择-->
+<div class="mainbox" id="cartpage_one" data-role="page">
+  <div id="headerbox" class="headerbox">
+    <div class="rowbox searchbox">
+    	<div class="top_l">
+            <a href="javascript:void(0);" class="back-btn">
+                <span class="b_ico ico-back-h"></span>
+            </a>
+        </div>
+        <div class="row-flex1 text-center h2_title">
+        	购物车
+        </div>
+    </div>
+  </div>
+  <form id="cartBoxForm" method="post" data-spm='<{$spm}>'>
+  <div class="contentbox" data-role="content">
+  	<div id="cartBonIn">
+        <div id="goodslist" class="goodslist">
+        </div>
+    </div>
+    <div id="cart-empty" class="text-center line26" style="padding-top:50px">
+    	<p><span class="cart-empty-pic"></span></p>
+    	<p><{$lang['buy_mybuys_myorder_cart_nogoods']}></p>
+        <p><{$lang['buy_mybuys_myorder_cart_choosegoods']}></p>
+        <p class="blank20"></p>
+        <p class="text-center"><a href="/m_buy/index.html" class="inlineblock btn btn-red w100">去逛逛</a></p>
+    </div>
+  </div>
+  <div id="carfooter" class="footerbox carfooter" style="padding-top:0">
+    <div class="rowbox btn-buy">
+    	<div class="text-left btn-fans allselect row-flex1" style="padding-right:5px">
+        	<span class="">
+                <input id="allselect" class="inputcheckbox" type="checkbox" value="1">
+                <label for="allselect" class="label_g text-left f16"><i style="margin-bottom:-6px;" class="mr-5"></i>全选</label>
+            </span>
+            <span class="ml-10">合计：<span id="goodstotal">￥00.00</span></span>
+        </div>
+        <div class="row-flex1 btn-pri btn-cartNext">
+        	<a href="javascript:void(0);">去结算<span id="js_num" style="font-size:12px">(0)</span></a>
+        </div>
+    </div>
+  </div>
+  </form>
+  <{include file="footer_bar.html"}>
+</div>
+<script data-main="<{$static_url}>/moblie/app/js/cart.js" src="<{$static_url}>/moblie/app/require.js"></script>
+<{include file="footer_comm_new.html"}>
+</body>
+
+</html>

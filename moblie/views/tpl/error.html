@@ -1,0 +1,27 @@
+<{include file="header_comm.html"}>
+<body class="bodybox bodyclick">
+
+<script type="text/javascript">
+$(function(){
+	var url = '<{$gotoUrl}>';
+	AlertUtils.tips({
+		w:350,
+		htmlmsg:'<div style="padding:30px"><{$msg}></div>',
+		type:0,
+		scallback:function(){
+			if(url == -1){
+		    	window.history.back();
+			}else{
+				window.location=url;
+			}
+		}
+	});
+})
+</script>
+
+<{include file="footer_comm.html"}>
+
+
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<{include file="header_comm.html"}>
+
+<body class="bodybox bodyclick">
+<div class="mainbox" id="rzpage" data-role="page">
+  <div id="headerbox" class="headerbox">
+     <{include file="header_back.html"}>
+  </div>
+  <div class="contentbox settings" data-role="content">
+  	<ul class="jsbox">
+    	<li class="line20" style="padding:10px 0; line-height:20px">
+        	Byshare认证是对Byshare用户真实身份的确认,确认来源包括其他认证用户的证明或者相关材料证明，所有认证服务都是免费的。
+        </li>
+    </ul>
+    <ul class="jsbox" id="rzboxlist">
+        <li>
+            <a href="/identify.html?type=designer" class="rowbox">
+            	<div class="rz_bg rz_sjs mr-10"></div>
+                <div class="row-flex1">设计师认证</div>
+                <div>马上认证</div>
+                <div class="ico ico-jt"></div>
+			</a>
+          </li>
+          <li>
+            <a href="/identify.html?type=brand" class="rowbox">
+            	<div class="rz_bg rz_pp mr-10"></div>
+                <div class="row-flex1">品牌认证</div>
+                <div>马上认证</div>
+                <div class="ico ico-jt"></div>
+			</a>
+          </li>
+          <li>
+            <a href="/identify.html?type=daren" class="rowbox">
+            	<div class="rz_bg rz_dr mr-10"></div>
+                <div class="row-flex1">达人认证</div>
+                <div>马上认证</div>
+                <div class="ico ico-jt"></div>
+			</a>
+          </li>
+    </ul>
+  </div>
+  
+  <{include file="footer_bar.html"}>
+  
+</div>
+<{include file="footer_comm.html"}>
+<{include file="footer_myshare.html"}>
+<script type="text/javascript">
+$(function(){
+	MyShare.myShareInit({flag:0});
+})
+</script>
+</body>
+
+</html>
+
