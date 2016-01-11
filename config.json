@@ -1,5 +1,5 @@
 {
-  "project" : "byshare",
+  "project" : "test",
   "paths":{
     "jquery": "empty:",
     "config": "comm/config",
